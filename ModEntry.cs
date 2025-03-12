@@ -26,18 +26,19 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry DemoMod_Character_CardBackground { get; }
     internal ISpriteEntry DemoMod_Character_CardFrame { get; }
     internal ISpriteEntry DemoMod_Character_Panel { get; }
-    internal ISpriteEntry DemoMod_Character_Neutral_0 { get; }
-    internal ISpriteEntry DemoMod_Character_Neutral_1 { get; }
-    internal ISpriteEntry DemoMod_Character_Neutral_2 { get; }
-    internal ISpriteEntry DemoMod_Character_Neutral_3 { get; }
-    internal ISpriteEntry DemoMod_Character_Mini_0 { get; }
-    internal ISpriteEntry DemoMod_Character_Squint_0 { get; }
-    internal ISpriteEntry DemoMod_Character_Squint_1 { get; }
-    internal ISpriteEntry DemoMod_Character_Squint_2 { get; }
-    internal ISpriteEntry DemoMod_Character_Squint_3 { get; }
+    internal ISpriteEntry Lars_Character_Neutral_0 { get; }
+    internal ISpriteEntry Lars_Character_Neutral_1 { get; }
+    internal ISpriteEntry Lars_Character_Neutral_2 { get; }
+    internal ISpriteEntry Lars_Character_Neutral_3 { get; }
+    internal ISpriteEntry Lars_Character_Neutral_4 { get; }
+    internal ISpriteEntry Lars_Character_Mini_0 { get; }
+    internal ISpriteEntry Lars_Character_Squint_0 { get; }
+    internal ISpriteEntry Lars_Character_Squint_1 { get; }
+    internal ISpriteEntry Lars_Character_Squint_2 { get; }
+    internal ISpriteEntry Lars_Character_Squint_3 { get; }
+    internal ISpriteEntry Lars_Character_Squint_4 { get; }
+    internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry DemoMod_Deck { get; }
-    internal IShipEntry DemoMod_Ship { get; }
-    internal IStatusEntry AutododgeLeftNextTurn { get; }
     internal static IReadOnlyList<Type> DemoCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
         typeof(DemoCardFoxTale),
@@ -58,13 +59,6 @@ public sealed class ModEntry : SimpleMod
         .Concat(DemoCharacter_CommonCard_Types);
 
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
-    internal static IReadOnlyList<Type> DemoCharacter_CommonArtifact_Types { get; } = [
-    ];
-    internal static IReadOnlyList<Type> DemoShip_Artifact_Types { get; } = [
-    ];
-    internal static IEnumerable<Type> DemoMod_AllArtifact_Types
-        => DemoCharacter_CommonArtifact_Types
-        .Concat(DemoShip_Artifact_Types);
 
 
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
@@ -94,20 +88,19 @@ public sealed class ModEntry : SimpleMod
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
         DemoMod_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_cardbackground.png"));
         DemoMod_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_cardframe.png"));
-        DemoMod_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_NoName.png"));
-        DemoMod_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_Lars_-_Neutral.png"));
-        DemoMod_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_Lars_-_Wink.png"));
-        DemoMod_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_Lars_-_Neutral_2.png"));
-        DemoMod_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_Lars_-_Wink_2.png"));
-        // DemoMod_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_neutral_0.png"));
-        // DemoMod_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_neutral_1.png"));
-        // DemoMod_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_neutral_2.png"));
-        // DemoMod_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_neutral_3.png"));
-        DemoMod_Character_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Cobalt_Core_Portrait_-_Lars_-_Blep.png"));
-        DemoMod_Character_Squint_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_squint_0.png"));
-        DemoMod_Character_Squint_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_squint_1.png"));
-        DemoMod_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_squint_2.png"));
-        DemoMod_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_squint_3.png"));
+        DemoMod_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Background.png"));
+        Lars_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_0.png"));
+        Lars_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_1.png"));
+        Lars_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_2.png"));
+        Lars_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_3.png"));
+        Lars_Character_Neutral_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_4.png"));
+        Lars_Character_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Mini/MiniPortrait.png"));
+        Lars_Character_Squint_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_0.png"));
+        Lars_Character_Squint_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_1.png"));
+        Lars_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_2.png"));
+        Lars_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_3.png"));
+        Lars_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_4.png"));
+        Lars_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/GameOver/GameOver.png"));
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
          * Do note that Color accepts a HEX string format (like Color("a1b2c3")) or a Float RGB format (like Color(0.63, 0.7, 0.76). It does NOT allow a traditional RGB format (Meaning Color(161, 178, 195) will NOT work) */
@@ -119,7 +112,7 @@ public sealed class ModEntry : SimpleMod
                  * It is used as the deck's rarity 'shine'
                  * If a playable character uses this deck, the character Name will use this color
                  * If a playable character uses this deck, the character mini panel will use this color */
-                color = new Color("cd6a00"),
+                color = new Color("3d79f2"),
 
                 /* This color is for the card name in-game
                  * Make sure it has a good contrast against the CardFrame, and take rarity 'shine' into account as well */
@@ -154,10 +147,11 @@ public sealed class ModEntry : SimpleMod
             /* The game doesn't use frames properly when there are only 2 or 3 frames. If you want a proper animation, avoid only adding 2 or 3 frames to it */
             Frames =
             [
-                DemoMod_Character_Neutral_0.Sprite,
-                DemoMod_Character_Neutral_1.Sprite,
-                DemoMod_Character_Neutral_2.Sprite,
-                DemoMod_Character_Neutral_3.Sprite,
+                Lars_Character_Neutral_0.Sprite,
+                Lars_Character_Neutral_1.Sprite,
+                Lars_Character_Neutral_2.Sprite,
+                Lars_Character_Neutral_3.Sprite,
+                Lars_Character_Neutral_4.Sprite,
             ]
         });
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
@@ -167,7 +161,7 @@ public sealed class ModEntry : SimpleMod
             Frames = new[]
             {
                 /* Mini only needs one sprite. We call it animation just because we add it the same way as other expressions. */
-                DemoMod_Character_Mini_0.Sprite
+                Lars_Character_Mini_0.Sprite
             }
         });
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
@@ -176,16 +170,26 @@ public sealed class ModEntry : SimpleMod
             LoopTag = "squint",
             Frames = new[]
             {
-                DemoMod_Character_Squint_0.Sprite,
-                DemoMod_Character_Squint_1.Sprite,
-                DemoMod_Character_Squint_2.Sprite,
-                DemoMod_Character_Squint_3.Sprite,
+                Lars_Character_Squint_0.Sprite,
+                Lars_Character_Squint_1.Sprite,
+                Lars_Character_Squint_2.Sprite,
+                Lars_Character_Squint_3.Sprite,
             }
         });
 
         /* Wait, so if we want 'gameover', why doesn't this demo come with the registration for it?
          * Answer: You should be able to use the knowledge you have earned so far to register your own animations! If you'd like, try making the 'gameover' registration code here. You can use whatever sprite you want */
         
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = DemoMod_Deck.UniqueName,
+            LoopTag = "gameover",
+            Frames = new[]
+            {
+                Lars_Character_Death.Sprite,
+            }
+        });
+
         /* Let's continue with the character creation and finally, actually, register the character! */
         helper.Content.Characters.V2.RegisterPlayableCharacter("Lars", new PlayableCharacterConfigurationV2()
         {
@@ -228,127 +232,10 @@ public sealed class ModEntry : SimpleMod
         foreach (var cardType in DemoMod_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
 
-        /* 2. ARTIFACTS
-         * Creating artifacts is pretty similar to creating Cards
-         * Take a look at the Artifacts folder for demo artifacts!
-         * You may also notice we're using the other interface from InternalInterfaces.cs, IDemoArtifact, to help us out */
-        foreach (var artifactType in DemoMod_AllArtifact_Types)
-            AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
-
-        /* 3. SHIPS
-         * Creating a ship is much like creating a character
-         * You will need some assets for the ship parts
-         * You can add ship-exclusive cards and artifacts too */
-
-        /* Let's start with registering the ship parts, so we don't have to do it while making the ship proper
-         * You may notice these assets are copies of the vanilla parts. Don't worry, you can get wild with your own designs! */
-        var demoShipPartWing = helper.Content.Ships.RegisterPart("DemoPart.Wing", new PartConfiguration()
-        {
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/ships/demowing.png")).Sprite
-        });
-        var demoShipPartCannon = helper.Content.Ships.RegisterPart("DemoPart.Cannon", new PartConfiguration()
-        {
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/ships/democannon.png")).Sprite
-        });
-        var demoShipPartMissiles = helper.Content.Ships.RegisterPart("DemoPart.Missiles", new PartConfiguration()
-        {
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/ships/demomissiles.png")).Sprite
-        });
-        var demoShipPartCockpit = helper.Content.Ships.RegisterPart("DemoPart.Cockpit", new PartConfiguration()
-        {
-            Sprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/ships/democockpit.png")).Sprite
-        });
-        var demoShipSpriteChassis = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/ships/demochassis.png")).Sprite;
-
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
-        DemoMod_Ship = helper.Content.Ships.RegisterShip("DemoShip", new ShipConfiguration()
-        {
-            Ship = new StarterShip()
-            {
-                ship = new Ship()
-                {
-                    /* This is how much hull the ship will start a run with. We recommend matching hullMax */
-                    hull = 12,
-                    hullMax = 12,
-                    shieldMaxBase = 4,
-                    parts =
-                    {
-                        /* This is the order in which the ship parts will be arranged in-game, from left to right. Part1 -> Part2 -> Part3 */
-                        new Part
-                        {
-                            type = PType.wing,
-                            skin = demoShipPartWing.UniqueName
-                        },
-                        new Part
-                        {
-                            type = PType.cannon,
-                            skin = demoShipPartCannon.UniqueName,
-                            damageModifier = PDamMod.armor
-                        },
-                        new Part
-                        {
-                            type = PType.missiles,
-                            skin = demoShipPartMissiles.UniqueName,
-                            damageModifier = PDamMod.weak
-                        },
-                        new Part
-                        {
-                            type = PType.cockpit,
-                            skin = demoShipPartCockpit.UniqueName
-                        },
-                        new Part
-                        {
-                            type = PType.wing,
-                            skin = demoShipPartWing.UniqueName,
-                            flip = true
-                        }
-                    }
-                },
-
-                /* These are cards and artifacts the ship will start a run with. The recommended card amount is 4, and the recommended artifact amount is 2 to 3 */
-                cards =
-                {
-                    new CannonColorless(),
-                    new DodgeColorless()
-                    {
-                        upgrade = Upgrade.A,
-                    },
-                    new DodgeColorless()
-                    {
-                        upgrade = Upgrade.B,
-                    },
-                    new BasicShieldColorless(),
-                },
-                artifacts =
-                {
-                    new ShieldPrep(),
-                }
-            },
-            ExclusiveArtifactTypes = new HashSet<Type>()
-            {
-                /* If you make some artifacts that you want only this ship to encounter in a run, here is where you place them */
-            },
-
-            UnderChassisSprite = demoShipSpriteChassis,
-            Name = AnyLocalizations.Bind(["ship", "DemoShip", "name"]).Localize,
-            Description = AnyLocalizations.Bind(["ship", "DemoShip", "description"]).Localize
-        });
-
+        
         /* 4. STATUSES
          * You might, now, with all this code behind our backs, start recognizing patterns in the way we can register stuff. */
-        AutododgeLeftNextTurn = helper.Content.Statuses.RegisterStatus("AutododgeLeftNextTurn", new()
-        {
-            Definition = new()
-            {
-                /* We provide the icon as a Sprite type, you can find it in the given file location */
-                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/autododgeLeftNextTurn.png")).Sprite,
-                /* We give it a color, this is the border color that surrounds the status icon & number in-game */
-                color = new("b500be"),
-                /* We define if it's isGood = true or isGood = false. This will dictate if the number will be either blue or red */
-                isGood = true
-            },
-            Name = AnyLocalizations.Bind(["status", "AutododgeLeftNextTurn", "name"]).Localize,
-            Description = AnyLocalizations.Bind(["status", "AutododgeLeftNextTurn", "description"]).Localize
-        });
+        
     }
 }
