@@ -8,6 +8,7 @@ namespace AetherWake.LarsMod;
 internal interface IDemoCard
 {
     static abstract void Register(IModHelper helper);
+    
 }
 
 internal interface IDemoArtifact

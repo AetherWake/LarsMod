@@ -17,6 +17,7 @@ public sealed class ModEntry : SimpleMod
 {
     internal static ModEntry Instance { get; private set; } = null!;
     internal IKokoroApi KokoroApi { get; }
+    internal IHarmony Harmony { get; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
 
@@ -39,6 +40,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Squint_4 { get; }
     internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry DemoMod_Deck { get; }
+    internal IPlayableCharacterEntryV2 Lars_Character { get;}
     internal static IReadOnlyList<Type> DemoCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
         typeof(DemoCardFoxTale),
@@ -65,11 +67,12 @@ public sealed class ModEntry : SimpleMod
     {
         Instance = this;
 
+
         /* We use Kokoro to handle our statuses. This means Kokoro is a Dependency, and our mod will fail to work without it.
          * We take from Kokoro what we need and put in our own project. Head to ExternalAPI/StatusLogicHook.cs if you're interested in what, exactly, we use.
          * If you're interested in more fancy stuff, make sure to peek at the Kokoro repository found online. */
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
-
+        Harmony = helper.Utilities.Harmony;
         /* These localizations lists help us organize our mod's text and messages by language.
          * For general use, prefer AnyLocalizations, as that will provide an easier time to potential localization submods that are made for your mod 
          * IMPORTANT: These localizations are found in the i18n folder (short for internationalization). The Demo Mod comes with a barebones en.json localization file that you might want to check out before continuing 
@@ -83,6 +86,7 @@ public sealed class ModEntry : SimpleMod
         Localizations = new MissingPlaceholderLocalizationProvider<IReadOnlyList<string>>(
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
+        
 
         /* Assigning our ISpriteEntry objects manually. This is the easiest way to do it when starting out!
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
@@ -191,7 +195,7 @@ public sealed class ModEntry : SimpleMod
         });
 
         /* Let's continue with the character creation and finally, actually, register the character! */
-        helper.Content.Characters.V2.RegisterPlayableCharacter("Lars", new PlayableCharacterConfigurationV2()
+        Lars_Character = helper.Content.Characters.V2.RegisterPlayableCharacter("Lars", new PlayableCharacterConfigurationV2()
         {
             /* Same as animations, we want to provide the appropiate Deck type */
             Deck = DemoMod_Deck.Deck,
@@ -236,6 +240,7 @@ public sealed class ModEntry : SimpleMod
         
         /* 4. STATUSES
          * You might, now, with all this code behind our backs, start recognizing patterns in the way we can register stuff. */
-        
+        _ = new DialogueExtensions();
+		_ = new CombatDialogue();
     }
 }

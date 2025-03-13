@@ -8,6 +8,7 @@ namespace AetherWake.LarsMod.Cards;
 
 internal sealed class DemoCardFoxTale : Card, IDemoCard
 {
+    private static ModEntry Instance => ModEntry.Instance;
     /* For a bit more info on the Register Method, look at InternalInterfaces.cs and 1. CARDS section in ModEntry */
     public static void Register(IModHelper helper)
     {
@@ -25,10 +26,12 @@ internal sealed class DemoCardFoxTale : Card, IDemoCard
                 /* Some vanilla cards don't upgrade, some only upgrade to A, but most upgrade to either A or B */
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
+            
             /* AnyLocalizations.Bind().Localize will find the 'name' of 'Foxtale' in 'card', in the locale file, and feed it here. The output for english in-game from this is 'Fox Tale' */
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "FoxTale", "name"]).Localize
         });
     }
+
     public override CardData GetData(State state)
     {
         CardData data = new CardData()
@@ -103,4 +106,5 @@ internal sealed class DemoCardFoxTale : Card, IDemoCard
         }
         return actions;
     }
+
 }

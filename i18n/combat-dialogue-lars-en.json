@@ -1,0 +1,43 @@
+{
+    "TookDamage": {
+        "Basic": [
+            [ "So, what's our insurance plan like?" ], /*Neutral*/
+            [ "That's definitely going to put a dent in our bottom line." ], /*Squint*/
+            [ "Can we get the IT guys up here to take a look at that?" ]
+        ],
+        "Dizzy": [
+            "Alright. Enough is enough. I'm contacting security.",  /*Lars*/
+            "I'm security!" /*Dizzy , squinting*/
+        ],
+        "Riggs": [
+            "Alright. Enough is enough. I'm contacting security.",
+            "Im tired of this",
+            "That was an option?"
+        ],
+        "Isaac": [
+            "Ouch...",
+            "I think I'll have to agree on that one."
+        ],
+        "Drake": [
+            "Damn.",
+            "Language."
+        ],
+        "Max": [
+            "I really hope that didn't hit anything vital.",
+            "Nothing money can't solve."
+        ],
+        "Books": [
+            "The workplace is no place for a child. Especially one as hostile as this.",
+            "It's okay! I'm okay!"
+        ],
+        "CAT": [
+            "That sounded expensive.",
+            "I really hope you're wrong."
+        ]
+    },
+    "TookNonHullDamage": {
+        "Basic": [
+            [ "No big deal." ]
+        ]
+    }
+}
