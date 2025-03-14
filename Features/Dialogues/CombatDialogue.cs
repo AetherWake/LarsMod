@@ -44,13 +44,31 @@ internal sealed class CombatDialogue : BaseDialogue
 
 		#region TookDamage
 		for (var i = 0; i < 3; i++)
-			newNodes[["TookDamage", "Basic", i.ToString()]] = new()
+			newNodes[["TookDamage", "Basic", "0"]] = new()
 			{
                 
 				enemyShotJustHit = true,
 				minDamageDealtToPlayerThisTurn = 1,
 				lines = [
+					new Say { who = larsType, loopTag = "neutral" },
+				],
+			};
+			newNodes[["TookDamage", "Basic", "1"]] = new()
+			{
+
+				enemyShotJustHit = true,
+				minDamageDealtToPlayerThisTurn = 1,
+				lines = [
 					new Say { who = larsType, loopTag = "squint" },
+				],
+			};
+			newNodes[["TookDamage", "Basic", "2"]] = new()
+			{
+
+				enemyShotJustHit = true,
+				minDamageDealtToPlayerThisTurn = 1,
+				lines = [
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
@@ -60,8 +78,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			minDamageDealtToPlayerThisTurn = 1,
 			allPresent = [larsType, Deck.dizzy.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
-				new Say { who = Deck.dizzy.Key(), loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
 			],
 		};
 		newNodes[["TookDamage", "Riggs"]] = new()
@@ -71,8 +89,17 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, Deck.riggs.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
-                new Say { who = larsType, loopTag = "squint" },
 				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
+			],
+		};
+		newNodes[["TookDamage", "Peri"]] = new()
+		{
+			enemyShotJustHit = true,
+			minDamageDealtToPlayerThisTurn = 1,
+			allPresent = [larsType, Deck.peri.Key()],
+			lines = [
+				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = Deck.peri.Key(), loopTag = "neutral" },
 			],
 		};
 		newNodes[["TookDamage", "Isaac"]] = new()
@@ -92,7 +119,9 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
 				new Say { who = Deck.eunice.Key(), loopTag = "squint" },
-				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
+
 			],
 		};
 		newNodes[["TookDamage", "Max"]] = new()
@@ -102,7 +131,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, Deck.hacker.Key()],
 			lines = [
 				new Say { who = Deck.hacker.Key(), loopTag = "mad" },
-				new Say { who = larsType, loopTag = "flashing" },
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 		newNodes[["TookDamage", "Books"]] = new()
@@ -111,7 +140,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			minDamageDealtToPlayerThisTurn = 1,
 			allPresent = [larsType, Deck.shard.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = larsType, loopTag = "normal" },
 				new Say { who = Deck.shard.Key(), loopTag = "intense" },
 			],
 		};
@@ -121,7 +150,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			minDamageDealtToPlayerThisTurn = 1,
 			allPresent = [larsType, "comp"],
 			lines = [
-				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
 				new Say { who = "comp", loopTag = "grumpy" },
 			],
 		};
@@ -137,6 +166,17 @@ internal sealed class CombatDialogue : BaseDialogue
 					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
+
+		newNodes[["TookNonHullDamage", "Dizzy"]] = new()
+		{
+			enemyShotJustHit = true,
+			minDamageDealtToPlayerThisTurn = 0,
+			allPresent = [larsType, Deck.dizzy.Key()],
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
+			],
+		};
 
 		#region DealtDamage
 		for (var i = 0; i < 4; i++)
@@ -158,13 +198,14 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, Deck.dizzy.Key()],
 			lines = [
 				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 		newNodes[["DealtDamage", "Riggs"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.riggs.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
@@ -178,8 +219,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.peri.Key()],
 			lines = [
-				new Say { who = Deck.peri.Key(), loopTag = "neutral" },
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.peri.Key(), loopTag = "squint" },
 			],
 		};
 		newNodes[["DealtDamage", "Isaac"]] = new()
@@ -189,24 +230,37 @@ internal sealed class CombatDialogue : BaseDialogue
 			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.goat.Key()],
 			lines = [
-				new Say { who = Deck.goat.Key(), loopTag = "neutral" },
 				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.goat.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Drake"]] = new()
+		newNodes[["DealtDamage", "Drake", "0"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
-				new Say { who = Deck.eunice.Key(), loopTag = "mad" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
+			],
+		};
+		newNodes[["DealtDamage", "Drake", "1"]] = new()
+		{
+			playerShotJustHit = true,
+			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = Deck.eunice.Key,
+			allPresent = [larsType, Deck.eunice.Key()],
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.eunice.Key(), loopTag = "smug" }, // Might not be the real name of the loopTag, uh... I expect things to break. Neutral works, too. -LP
 			],
 		};
 		newNodes[["DealtDamage", "Max"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.hacker.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
@@ -217,20 +271,22 @@ internal sealed class CombatDialogue : BaseDialogue
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = larsDeck,
 			allPresent = [larsType, Deck.shard.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
-				new Say { who = Deck.shard.Key(), loopTag = "blush" },
+				new Say { who = Deck.shard.Key(), loopTag = "stoked" },
 			],
 		};
 		newNodes[["DealtDamage", "CAT"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
+			whoDidThat = larsDeck,
 			allPresent = [larsType, "comp"],
 			lines = [
-				new Say { who = "comp", loopTag = "smug" },
-				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = "comp", loopTag = "squint" },
 			],
 		};
 		#endregion
@@ -240,10 +296,9 @@ internal sealed class CombatDialogue : BaseDialogue
 			{
 				playerShotJustHit = true,
 				minDamageDealtToEnemyThisTurn = 6,
-				whoDidThat = larsDeck,
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "flashing" },
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
@@ -279,7 +334,15 @@ internal sealed class CombatDialogue : BaseDialogue
 			playerShotJustMissed = true,
 			allPresent = [larsType],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
+		newNodes[["Missed", "Basic", "3"]] = new()
+		{
+			playerShotJustMissed = true,
+			allPresent = [larsType],
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 
@@ -301,12 +364,12 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
 		newNodes[["AboutToDie", "Basic", "2"]] = new()
 		{
-			maxHull = 2,
+			maxHull = 1,
 			oncePerCombatTags = ["aboutToDie"],
 			oncePerRun = true,
 			allPresent = [larsType],
@@ -322,8 +385,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType, Deck.dizzy.Key()],
 			lines = [
-				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
-				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = Deck.dizzy.Key(), loopTag = "squint" },
+				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
 		newNodes[["AboutToDie", "Riggs"]] = new()
@@ -344,8 +407,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType, Deck.peri.Key()],
 			lines = [
-				new Say { who = Deck.peri.Key(), loopTag = "neutral" },
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = Deck.peri.Key(), loopTag = "mad" },
+				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
 		newNodes[["AboutToDie", "Isaac"]] = new()
@@ -355,8 +418,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType, Deck.goat.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
-				new Say { who = Deck.goat.Key(), loopTag = "squint" },
+				new Say { who = Deck.goat.Key(), loopTag = "panic" },
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 		newNodes[["AboutToDie", "Drake"]] = new()
@@ -366,8 +429,19 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
 				new Say { who = Deck.eunice.Key(), loopTag = "mad" },
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
+		newNodes[["AboutToDie", "Max"]] = new()
+		{
+			maxHull = 2,
+			oncePerCombatTags = ["aboutToDie"],
+			oncePerRun = true,
+			allPresent = [larsType, Deck.hacker.Key()],
+			lines = [
+				new Say { who = Deck.hacker.Key(), loopTag = "mad" },
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 		newNodes[["AboutToDie", "Books"]] = new()
@@ -377,8 +451,8 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerRun = true,
 			allPresent = [larsType, Deck.shard.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "squint" },
 				new Say { who = Deck.shard.Key(), loopTag = "intense" },
+				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
 		newNodes[["AboutToDie", "CAT"]] = new()
@@ -389,7 +463,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, "comp"],
 			lines = [
 				new Say { who = larsType, loopTag = "squint" },
-				new Say { who = "comp", loopTag = "mad" },
+				new Say { who = "comp", loopTag = "squint" },
 			],
 		};
 		#endregion
@@ -434,7 +508,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				handFullOfTrash = true,
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "neutral" },
+					new Say { who = larsType, loopTag = "squint" },
 				],
 			};
 
@@ -449,14 +523,14 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["NewNonJohnsonNonTrashTempCard", "Basic", i.ToString()]] = new()
+			newNodes[["NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
 			{
-				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonJohnsonNonTrashTempCard"],
+				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonLarsNonTrashTempCard"],
 				oncePerCombat = true,
-				oncePerCombatTags = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonJohnsonNonTrashTempCard"],
+				oncePerCombatTags = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonLarsNonTrashTempCard"],
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "fiddling" },
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
@@ -469,7 +543,19 @@ internal sealed class CombatDialogue : BaseDialogue
 				oncePerRun = true,
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "flashing" },
+					new Say { who = larsType, loopTag = "neutral" },
+				],
+			};
+			newNodes[["StartedBattle", "Peri", i.ToString()]] = new()
+			{
+				turnStart = true,
+				maxTurnsThisCombat = 1,
+				oncePerCombat = true,
+				oncePerRun = true,
+				allPresent = [larsType, Deck.peri.Key()],
+				lines = [
+					new Say { who = larsType, loopTag = "neutral" },
+					new Say { who = Deck.peri.Key(), loopTag = "squint" },
 				],
 			};
 
@@ -488,7 +574,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["NoOverlapButSeeker", "Basic", i.ToString()]] = new()
+			newNodes[["NoOverlapButSeeker", "Riggs", i.ToString()]] = new()
 			{
 				priority = true,
 				shipsDontOverlapAtAll = true,
@@ -496,22 +582,23 @@ internal sealed class CombatDialogue : BaseDialogue
 				oncePerRun = true,
 				anyDronesHostile = ["missile_seeker"],
 				nonePresent = ["crab"],
-				allPresent = [larsType],
+				allPresent = [larsType, Deck.riggs.Key()],
 				lines = [
 					new Say { who = larsType, loopTag = "squint" },
+					new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
 				],
 			};
 
 		for (var i = 0; i < 2; i++)
 			newNodes[["LongFight", "Basic", i.ToString()]] = new()
 			{
-				minTurnsThisCombat = 9,
+				minTurnsThisCombat = 20,
 				oncePerCombatTags = ["manyTurns"],
 				oncePerRun = true,
 				turnStart = true,
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "fiddling" },
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
@@ -520,7 +607,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			{
 				priority = true,
 				lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
-				oncePerCombatTags = ["johnsonWentMissing"],
+				oncePerCombatTags = ["LarsWentMissing"],
 				oncePerRun = true,
 				lines = [
 					new Say { who = larsType, loopTag = "neutral" },
@@ -546,7 +633,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				oncePerCombatTags = ["OverheatGeneric"],
 				allPresent = [larsType],
 				lines = [
-					new Say { who = larsType, loopTag = "squint" },
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
@@ -556,7 +643,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			oncePerCombatTags = ["OverheatGeneric"],
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
-				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
 				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
 			],
 		};
@@ -620,7 +707,12 @@ internal sealed class CombatDialogue : BaseDialogue
 		saySwitchNodes[["CrabFacts2_Multi_0"]] = new()
 		{
 			who = larsType,
-			loopTag = "phone"
+			loopTag = "neutral"
+		};
+		saySwitchNodes[["CrabFactsAreOverNow_Multi_0"]] = new()
+		{
+			who = larsType,
+			loopTag = "neutral"
 		};
 	}
 }
