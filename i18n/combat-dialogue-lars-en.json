@@ -78,10 +78,8 @@
             "Language."
         ],
         "Drake": [
-        [   "Hit!",
-            "Yeah, yeah."],
-		[   "Hit!",
-            "Yeah, yeah."],
+            "Hit!",
+            "Yeah, yeah."
         ],
         "Max": [
             "Wooo!.",
@@ -103,28 +101,28 @@
             [ "Yeah, heal that, nerds!" ],
 			[ "It's future damage mitigation!" ],
 			[ "I can hear the victory fanfare in the distance." ]
-        ],
-	}
+        ]
+	},
 		"ShieldedDamage": {
         "Basic": [
             [ "Hah, try again!" ], 
             [ "Lucky- I mean, hah! All according to plan!" ], 
             [ "That's cute." ]
-        ],
-	}	
+        ]
+	},
 		"Missed": {
         "Basic": [
             [ "Sorry, didn't have my glasses on." ], 
             [ "You guys make this look so easy!" ], 
             [ "Just luring them into a false sense of security." ],
 			[ "Warning shot!" ]
-        ],
-	}
+        ]
+	},
 	"AboutToDie": {
         "Basic": [
             [ "I have a bad feeling about this." ], 
             [ "Is this light supposed to be red?" ], 
-            [ "The only HP that matters is the last one." ],
+            [ "The only HP that matters is the last one." ]
         ],
         "Dizzy": [
             "This isn't looking pretty.",  
@@ -165,26 +163,26 @@
             [ "Just testing their defenses! Yep, they have defenses." ], 
             [ "Oooh, that's what that is for." ],
 			[ "Oh, I thought that was the undo button." ]
-        ],
-	}
+        ]
+	},
 	"ExcessEnergy": {
         "Basic": [
             [ "So, now what?" ], 
             [ "That's all we can do, huh." ]
-        ],
-	}
+        ]
+	},
 	"EmptyHand": {
         "Basic": [
             [ "Aaaand that's it!" ], 
             [ "We're done for now." ]
-        ],
-	}
+        ]
+	},
 	"TrashHand": {
         "Basic": [
             [ "Huh!? How are we supposed to work with this?" ], 
             [ "Uuuuh..." ] 
-        ],
-	}
+        ]
+	},
 	"StartedBattle": {
         "Basic": [
             [ "Let's get started!" ], 
@@ -195,44 +193,44 @@
 		"Peri": [
             "We've got a hostile enemy in the AO!",
             "Isn't an enemy being hostile kind of a given?"
-        ],
-	}
+        ]
+	},
 	"NoOverlap": {
         "Basic": [
             [ "Bye!" ], 
             [ "See ya!" ], 
 			[ "Oh, so we CAN just leave?" ], 
             [ "Nah, not feelin' it." ]
-        ],
-	}
+        ]
+	},
 	"NoOverlapButSeeker": {
         "Riggs": [
             "That thing's problematic, right?",
             "Probably!"
-        ],
-	}
+        ]
+	},
 	"LongFight": {
         "Basic": [
             [ "..." ], 
             [ "Yaaawn." ], 
 			[ "So, are we prolonging this on purpose?" ], 
             [ "I mean, I've got time. Noone's waiting for me back home." ]
-        ],
-	}
+        ]
+	},
 	"GoingMissing": {
         "Basic": [
-            [ "A-" ], 
+            [ "A-" ]
 
-        ],
-	}
+        ]
+	},
 	"ReturningFromMissing": {
         "Basic": [
             [ "Hah! All it took was a restart." ], 
             [ "Am I back?" ], 
 			[ "Oh, I think the connection's back!" ], 
             [ "I had a nice dream about dragons..." ]
-        ],
-	}
+        ]
+	},
 	"GoingToOverheat": {
         "Basic": [
             [ "It's getting nice and comfy... Wait, that's bad." ], 
@@ -243,48 +241,46 @@
 		"Drake": [
             "I like this, but I have a feeling this is bad for the ship.",
             "Don't worry about it."
-        ],
-	}
+        ]
+	},
 	"PlayedRecycle": {
         "Basic": [
-            [ "Again and again and again and again." ], 
+            [ "Again and again and again and again." ]
 
-        ],
-	}
+        ]
+	},
 	"NewNonLarsNonTrashTempCard": {
         "Basic": [
-            [ "Wait, where did that come from?" ], 
+            [ "Wait, where did that come from?" ]
 
-        ],
-	}
+        ]
+	},
 	"Recalibrator": {
         "Basic": [
-            [ "Huh, how does that even work?" ], 
+            [ "Huh, how does that even work?" ]
 
-        ],
-	}
+        ]
+	},
 	"StartedBattleAgainstBigCrystal": {
         "Basic": [
-            [ "Big crystal." ], 
-
-        ],
-	}
+            [ "Big crystal." ]
+        ]
+	},
 	"CrabFacts1_Multi_0": {
         "Basic": [
-            [ "Mhm." ], 
-
-        ],
-	}
+            [ "Mhm." ]
+        ]
+	},
 	"CrabFacts2_Multi_0": {
         "Basic": [
-            [ "Yeah!" ], 
+            [ "Yeah!" ]
 
-        ],
-	}
+        ]
+	},
 	"CrabFactsAreOverNow_Multi_0": {
         "Basic": [
-            [ "Okay, I'll admit. I wasn't listening." ], 
+            [ "Okay, I'll admit. I wasn't listening." ]
 
-        ],
+        ]
 	}
 }

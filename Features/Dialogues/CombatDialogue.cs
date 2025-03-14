@@ -156,7 +156,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 5; i++)
 			newNodes[["TookNonHullDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
@@ -179,7 +179,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 
 		#region DealtDamage
-		for (var i = 0; i < 4; i++)
+		for (var i = 0; i < 5; i++)
 			newNodes[["DealtDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
@@ -249,7 +249,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
-			whoDidThat = Deck.eunice.Key,
+			whoDidThat = Deck.eunice,
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
@@ -291,7 +291,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		for (var i = 0; i < 3; i++)
+		for (var i = 0; i < 5; i++)
 			newNodes[["DealtBigDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
@@ -302,7 +302,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 3; i++)
 			newNodes[["ShieldedDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
@@ -468,7 +468,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["HitArmor", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
@@ -481,7 +481,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 2; i++)
 			newNodes[["ExcessEnergy", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
@@ -492,7 +492,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 2; i++)
 			newNodes[["EmptyHand", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
@@ -502,7 +502,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 2; i++)
 			newNodes[["TrashHand", "Basic", i.ToString()]] = new()
 			{
 				handFullOfTrash = true,
@@ -522,7 +522,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 2; i++)
+		for (var i = 0; i < 1; i++)
 			newNodes[["NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonLarsNonTrashTempCard"],
@@ -534,7 +534,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["StartedBattle", "Basic", i.ToString()]] = new()
 			{
 				turnStart = true,
@@ -546,7 +546,7 @@ internal sealed class CombatDialogue : BaseDialogue
 					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
-			newNodes[["StartedBattle", "Peri", i.ToString()]] = new()
+			newNodes[["StartedBattle", "Peri"]] = new()
 			{
 				turnStart = true,
 				maxTurnsThisCombat = 1,
@@ -559,7 +559,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 2; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["NoOverlap", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
@@ -573,23 +573,22 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 2; i++)
-			newNodes[["NoOverlapButSeeker", "Riggs", i.ToString()]] = new()
-			{
-				priority = true,
-				shipsDontOverlapAtAll = true,
-				oncePerCombatTags = ["NoOverlapBetweenShipsSeeker"],
-				oncePerRun = true,
-				anyDronesHostile = ["missile_seeker"],
-				nonePresent = ["crab"],
-				allPresent = [larsType, Deck.riggs.Key()],
-				lines = [
-					new Say { who = larsType, loopTag = "squint" },
-					new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
-				],
-			};
+		newNodes[["NoOverlapButSeeker", "Riggs"]] = new()
+		{
+			priority = true,
+			shipsDontOverlapAtAll = true,
+			oncePerCombatTags = ["NoOverlapBetweenShipsSeeker"],
+			oncePerRun = true,
+			anyDronesHostile = ["missile_seeker"],
+			nonePresent = ["crab"],
+			allPresent = [larsType, Deck.riggs.Key()],
+			lines = [
+				new Say { who = larsType, loopTag = "squint" },
+				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
+			],
+		};
 
-		for (var i = 0; i < 2; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["LongFight", "Basic", i.ToString()]] = new()
 			{
 				minTurnsThisCombat = 20,
@@ -602,19 +601,18 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		for (var i = 0; i < 1; i++)
-			newNodes[["GoingMissing", "Basic", i.ToString()]] = new()
-			{
-				priority = true,
-				lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
-				oncePerCombatTags = ["LarsWentMissing"],
-				oncePerRun = true,
-				lines = [
-					new Say { who = larsType, loopTag = "neutral" },
-				],
-			};
+		newNodes[["GoingMissing", "Basic"]] = new()
+		{
+			priority = true,
+			lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
+			oncePerCombatTags = ["LarsWentMissing"],
+			oncePerRun = true,
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
 
-		for (var i = 0; i < 1; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["ReturningFromMissing", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
@@ -626,7 +624,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		#region DealtDamage
-		for (var i = 0; i < 2; i++)
+		for (var i = 0; i < 4; i++)
 			newNodes[["GoingToOverheat", "Basic", i.ToString()]] = new()
 			{
 				goingToOverheat = true,
@@ -649,16 +647,15 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		for (var i = 0; i < 1; i++)
-			newNodes[["Recalibrator", "Basic", i.ToString()]] = new()
-			{
-				playerShotJustMissed = true,
-				hasArtifacts = ["Recalibrator"],
-				allPresent = [larsType],
-				lines = [
-					new Say { who = larsType, loopTag = "neutral" },
-				],
-			};
+		newNodes[["Recalibrator", "Basic"]] = new()
+		{
+			playerShotJustMissed = true,
+			hasArtifacts = ["Recalibrator"],
+			allPresent = [larsType],
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
 
 		newNodes[["StartedBattleAgainstDuncan"]] = new()
 		{
