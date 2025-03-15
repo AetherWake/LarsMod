@@ -87,7 +87,7 @@ internal sealed class Magic : Card, IDemoCard
                 {
                     new AVariableHint
 				    {
-					    status = Status.shield,
+					    status = Status.heat,
 				    },
                     new AHeal{
                         healAmount = GetX(s),
