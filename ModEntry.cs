@@ -41,24 +41,34 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry DemoMod_Deck { get; }
     internal IPlayableCharacterEntryV2 Lars_Character { get;}
-    internal static IReadOnlyList<Type> DemoCharacter_StarterCard_Types { get; } = [
+    internal static IReadOnlyList<Type> LarsCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
-        typeof(DemoCardFoxTale),
+        typeof(Flamethrower),
+        typeof(FireSpin),
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
-    internal static IReadOnlyList<Type> DemoCharacter_CommonCard_Types { get; } = [
+    internal static IReadOnlyList<Type> LarsCharacter_CommonCard_Types { get; } = [
+        typeof(Protect),
+        typeof(SunnyDay),
+        typeof(Rapier)
 
+    ];
+    internal static IReadOnlyList<Type> LarsCharacter_UncommonCard_Types { get; } = [
+
+        typeof(DragonTail),
+        typeof(Magic)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
      * Maybe you created a new list for Uncommon cards, and want to add it.
      * If so, you can .Concat(TheUncommonListYouMade) */
     internal static IEnumerable<Type> DemoMod_AllCard_Types
-        => DemoCharacter_StarterCard_Types
-        .Concat(DemoCharacter_CommonCard_Types);
+        => LarsCharacter_StarterCard_Types
+        .Concat(LarsCharacter_CommonCard_Types)
+        .Concat(LarsCharacter_UncommonCard_Types);
 
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
 
@@ -204,7 +214,8 @@ public sealed class ModEntry : SimpleMod
              * You could provide vanilla cards if you want, but it's way more fun to create your own cards! */
             Starters = new StarterDeck{
                 cards = [
-                    new DemoCardFoxTale(),
+                    new Flamethrower(),
+                    new FireSpin(),
                 ]
             },
 

@@ -25,6 +25,29 @@
     "FoxTale": {
       "name": "Fox Tale"
     },
+    "Flamethrower": {
+      "name": "Flamethrower"
+    },
+    "FireSpin": {
+      "name": "Fire Spin"
+    },
+    "Protect": {
+      "name": "Protect"
+    },
+    "SunnyDay": {
+      "name": "Sunny Day"
+    },
+    "DragonTail": {
+      "name": "Dragon Tail"
+    },
+    "Magic": {
+      "name": "Magic"
+    },
+    "Rapier": {
+      "name": "Rapier",
+      "description": "No one knows how the charmander was allowed to bring this in deck"
+    },
+
     "SheepDream": {
       "name": "Sheep Dream",
       "description": {

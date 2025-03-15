@@ -695,8 +695,8 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "fiddling" },
 			],
 		};
-
-		saySwitchNodes[["CrabFacts1_Multi_0"]] = new()
+		// TODO Check crab strings not working in game 
+		saySwitchNodes[["CrabFacts1_Multi_0"]] = new() 
 		{
 			who = larsType,
 			loopTag = "neutral"
