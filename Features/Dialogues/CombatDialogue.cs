@@ -620,7 +620,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::ReturningFromMissing"],
 				oncePerRun = true,
 				lines = [
-					new Say { who = larsType, loopTag = "fiddling" },
+					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
 
