@@ -100,8 +100,8 @@ public sealed class ModEntry : SimpleMod
 
         /* Assigning our ISpriteEntry objects manually. This is the easiest way to do it when starting out!
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
-        DemoMod_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_cardbackground.png"));
-        DemoMod_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/demomod_character_cardframe.png"));
+        DemoMod_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardframe.png"));
+        DemoMod_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardbackground.png"));
         DemoMod_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Background.png"));
         Lars_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_0.png"));
         Lars_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_1.png"));
