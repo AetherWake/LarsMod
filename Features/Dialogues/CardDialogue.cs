@@ -25,13 +25,22 @@ internal sealed class CardDialogue : BaseDialogue
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
 			priority = true,
 			oncePerRun = true,
-			allPresent = [larsType],
-            nonePresent = [Deck.dizzy.Key()],
+			allPresent = [larsType, Deck.eunice.Key(), Deck.riggs.Key()],
 
 			lines = [
-				new Say { who = larsType, loopTag = "idle" },
-                new Say { who = "Crew", loopTag = "squint"},
-                new Say { who = "Crew", loopTag = "squint"}
+				new Say { who = larsType, loopTag = "neutral" },
+				new SaySwitch(){
+					lines = [
+						new Say { who = Deck.riggs.Key(), loopTag = "neutral"},
+						new Say { who = Deck.eunice.Key(), loopTag = "neutral"},
+					]
+				},
+				new SaySwitch(){
+					lines = [
+						new Say { who = Deck.riggs.Key(), loopTag = "neutral"},
+						new Say { who = Deck.eunice.Key(), loopTag = "neutral"},
+					]
+				},
 			],
 		};
 
@@ -44,11 +53,28 @@ internal sealed class CardDialogue : BaseDialogue
 			allPresent = [larsType, Deck.dizzy.Key()],
 
 			lines = [
-				new Say { who = larsType, loopTag = "idle" },
-                new Say { who = "Crew", loopTag = "squint"},
+				new Say { who = larsType, loopTag = "neutral" },
+                
                 new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
 			],
 		};
+
+
+        newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
+		{
+            
+			lookup = [$"Played::{new Cards.Rapier().Key()}_A"],
+			priority = false,
+			oncePerCombat=true,
+			allPresent = [larsType, Deck.peri.Key()],
+
+			lines = [
+				new Say { who = Deck.peri.Key(), loopTag = "squint" },
+                new Say { who = larsType, loopTag = "blep"}
+			],
+		};
 	}
+
+	
 	
 }

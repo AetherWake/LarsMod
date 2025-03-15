@@ -62,28 +62,32 @@ internal sealed class Rapier : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 0
+                        damage = GetDmg(s, 0),
                     },
                     new AAttack(){
-                        damage = 0
+                        damage = GetDmg(s, 0)
                     },
+                    
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}_A" }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 0
+                        damage = GetDmg(s, 0)
                     },
                     new ADrawCard(){
                         count=1
-                    }
+                    },
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}_B" }
                 };
                 break;
         }

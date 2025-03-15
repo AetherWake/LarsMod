@@ -70,6 +70,7 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 			var index = 0;
 			foreach (var line in node.lines)
 			{
+				
 				if (line is Say say)
 				{
 					e.Localizations[$"{realKey}:{index}"] = Localizations.Localize(e.Locale, [.. key, index.ToString()]);
@@ -77,6 +78,15 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 				else if (line is Wait or Jump)
 				{
 					index--;
+				}
+				else if(line is SaySwitch){
+					Console.WriteLine(realKey);
+					Console.WriteLine(index);
+					Console.WriteLine(key);
+					Console.WriteLine($"{realKey}:{index}");
+					e.Localizations[$"{realKey}:{index}"] = Localizations.Localize(e.Locale, [.. key, index.ToString()]);
+					Console.WriteLine(e.Localizations[$"{realKey}:{index}"]);
+					
 				}
 				else
 				{
