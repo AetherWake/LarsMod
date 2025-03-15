@@ -61,11 +61,14 @@ internal sealed class DragonTail : Card, IDemoCard
                 {
                     new AAttack(){
                         damage = 1,
-                        status = Status.heat,
-                        statusAmount = 1,
                         moveEnemy = -1,
                         targetPlayer = false,
                     },
+                    new AStatus(){
+                        targetPlayer=false,
+                        status = Status.heat,
+                        statusAmount = 1,
+                    }
                     
                 };
                 break;
@@ -74,10 +77,14 @@ internal sealed class DragonTail : Card, IDemoCard
                 {
                     new AAttack(){
                         damage = 2,
-                        status = Status.heat,
-                        statusAmount = 1,
                         targetPlayer = false,
                         moveEnemy = -2,
+                    },
+                    
+                    new AStatus(){
+                        targetPlayer=false,
+                        status = Status.heat,
+                        statusAmount = 1,
                     }
                 };
                 break;
@@ -86,10 +93,13 @@ internal sealed class DragonTail : Card, IDemoCard
                 {
                     new AAttack(){
                         damage = 3,
-                        status = Status.heat,
-                        statusAmount = 1,
                         moveEnemy = -3,
                         targetPlayer = false
+                    },
+                    new AStatus(){
+                        targetPlayer=false,
+                        status = Status.heat,
+                        statusAmount = 1,
                     }
                 };
                 break;
