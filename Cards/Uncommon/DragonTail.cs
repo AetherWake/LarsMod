@@ -89,7 +89,7 @@ internal sealed class DragonTail : Card, IDemoCard
                         damage = 2
                     },
                     new AMove(){
-                        dir = flipped ? 2 : -2,
+                        dir = -2,
                         targetPlayer = false,
                     }
                 };
@@ -107,7 +107,7 @@ internal sealed class DragonTail : Card, IDemoCard
                         damage = 2
                     },
                     new AMove(){
-                        dir = flipped ? 3 : -3,
+                        dir = -3,
                         targetPlayer = false,
                     }
                 };

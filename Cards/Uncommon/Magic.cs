@@ -68,7 +68,8 @@ internal sealed class Magic : Card, IDemoCard
                 actions = new()
                 {   
                     new AHeal(){
-                        healAmount = 1
+                        healAmount = 1,
+                        targetPlayer = true
                     }
                 };
                 break;
@@ -76,7 +77,8 @@ internal sealed class Magic : Card, IDemoCard
                 actions = new()
                 {
                     new AHeal(){
-                        healAmount = 1
+                        healAmount = 1,
+                        targetPlayer = true
                     }
 
                 };
@@ -91,6 +93,7 @@ internal sealed class Magic : Card, IDemoCard
 				    },
                     new AHeal{
                         healAmount = GetX(s),
+                        targetPlayer = true,
                         xHint = 1
                     }
                 };

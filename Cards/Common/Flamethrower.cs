@@ -30,6 +30,7 @@ internal sealed class Flamethrower : Card, IDemoCard
             
             /* AnyLocalizations.Bind().Localize will find the 'name' of 'Foxtale' in 'card', in the locale file, and feed it here. The output for english in-game from this is 'Fox Tale' */
             Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Flamethrower", "name"]).Localize
+            
         });
     }
 
@@ -107,8 +108,6 @@ internal sealed class Flamethrower : Card, IDemoCard
                     new AAttack()
                     {
                         damage = GetDmg(s, 2),
-                        /* AAttacks can have flags indicating some extra effect. In this case, stunEnemy = true will stun the ship part hit. */
-                        stunEnemy = true,
                         /* We can also give it our modded statuses, by getting it from our own code */
                     },
                     new AStatus(){

@@ -43,34 +43,34 @@ internal sealed class CombatDialogue : BaseDialogue
 
 
 		#region TookDamage
-		for (var i = 0; i < 3; i++)
-			newNodes[["TookDamage", "Basic", "0"]] = new()
-			{
-                
-				enemyShotJustHit = true,
-				minDamageDealtToPlayerThisTurn = 1,
-				lines = [
-					new Say { who = larsType, loopTag = "neutral" },
-				],
-			};
-			newNodes[["TookDamage", "Basic", "1"]] = new()
-			{
+		
+		newNodes[["TookDamage", "Basic", "0"]] = new()
+		{
+			
+			enemyShotJustHit = true,
+			minDamageDealtToPlayerThisTurn = 1,
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
+		newNodes[["TookDamage", "Basic", "1"]] = new()
+		{
 
-				enemyShotJustHit = true,
-				minDamageDealtToPlayerThisTurn = 1,
-				lines = [
-					new Say { who = larsType, loopTag = "squint" },
-				],
-			};
-			newNodes[["TookDamage", "Basic", "2"]] = new()
-			{
+			enemyShotJustHit = true,
+			minDamageDealtToPlayerThisTurn = 1,
+			lines = [
+				new Say { who = larsType, loopTag = "squint" },
+			],
+		};
+		newNodes[["TookDamage", "Basic", "2"]] = new()
+		{
 
-				enemyShotJustHit = true,
-				minDamageDealtToPlayerThisTurn = 1,
-				lines = [
-					new Say { who = larsType, loopTag = "neutral" },
-				],
-			};
+			enemyShotJustHit = true,
+			minDamageDealtToPlayerThisTurn = 1,
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+			],
+		};
 
 		newNodes[["TookDamage", "Dizzy"]] = new()
 		{

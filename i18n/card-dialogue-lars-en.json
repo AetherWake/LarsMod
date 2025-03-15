@@ -1,0 +1,26 @@
+{
+    "Rapier": {
+        "UpgradeNone":{
+            "Basic": [
+                "Drive us closer, so I can hit them with my Rapier!",
+                "No!",
+                "No!!"
+            ],
+            "Dizzy":[
+                "Drive us closer, so I can hit them with my Rapier!",
+                "No!",
+                "How did you ge that onto the ship?"
+            ]
+        },
+        "UpgradeA":{
+            "Basic":[
+                "Did he just shoot the sword out of our cannons...?",
+                "Ehe"
+            ],
+            "Repeated": [
+                
+            ]
+        }
+        
+    }
+}

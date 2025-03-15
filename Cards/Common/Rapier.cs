@@ -42,14 +42,12 @@ internal sealed class Rapier : Card, IDemoCard
                 data = new CardData(){
                     cost = 0,
                     singleUse = false,
-                    description = ModEntry.Instance.Localizations.Localize(["card", "Rapier", "description"])
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
                     cost = 0,
                     singleUse = false,
-                    description = ModEntry.Instance.Localizations.Localize(["card", "Rapier", "description"])
                 };
                 break;
         }

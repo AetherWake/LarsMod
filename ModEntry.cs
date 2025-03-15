@@ -253,5 +253,6 @@ public sealed class ModEntry : SimpleMod
          * You might, now, with all this code behind our backs, start recognizing patterns in the way we can register stuff. */
         _ = new DialogueExtensions();
 		_ = new CombatDialogue();
+        _ = new CardDialogue();
     }
 }
