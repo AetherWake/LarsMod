@@ -172,6 +172,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 0,
 			allPresent = [larsType, Deck.dizzy.Key()],
+			oncePerRun = true,
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
 				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
@@ -654,32 +655,6 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
-			],
-		};
-
-		newNodes[["StartedBattleAgainstDuncan"]] = new()
-		{
-			priority = true,
-			turnStart = true,
-			maxTurnsThisCombat = 1,
-			oncePerCombat = true,
-			allPresent = [larsType, "skunk"],
-			lines = [
-				new Say { who = larsType, loopTag = "flashing" },
-				new Say { who = "skunk", loopTag = "neutral" },
-			],
-		};
-
-		newNodes[["StartedBattleAgainstDahlia"]] = new()
-		{
-			priority = true,
-			turnStart = true,
-			maxTurnsThisCombat = 1,
-			oncePerCombat = true,
-			allPresent = [larsType, "bandit"],
-			lines = [
-				new Say { who = "bandit", loopTag = "neutral" },
-				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
 
