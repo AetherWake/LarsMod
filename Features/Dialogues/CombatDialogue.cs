@@ -254,7 +254,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			allPresent = [larsType, Deck.eunice.Key()],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
-				new Say { who = Deck.eunice.Key(), loopTag = "smug" }, // Might not be the real name of the loopTag, uh... I expect things to break. Neutral works, too. -LP
+				new Say { who = Deck.eunice.Key(), loopTag = "sly" }, // Might not be the real name of the loopTag, uh... I expect things to break. Neutral works, too. -LP
 			],
 		};
 		newNodes[["DealtDamage", "Max"]] = new()
