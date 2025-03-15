@@ -42,43 +42,11 @@ internal sealed class CardDialogue : BaseDialogue
 			priority = true,
 			oncePerRun = true,
 			allPresent = [larsType, Deck.dizzy.Key()],
-            nonePresent = [],
 
 			lines = [
 				new Say { who = larsType, loopTag = "idle" },
                 new Say { who = "Crew", loopTag = "squint"},
                 new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
-			],
-		};
-
-        newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
-		{
-            
-			lookup = [$"Played::{new Cards.Rapier().Key()}"],
-			priority = true,
-			oncePerRun = true,
-			allPresent = [larsType, Deck.peri.Key()],
-            nonePresent = [],
-
-			lines = [
-				new Say { who = larsType, loopTag = "idle" },
-                new Say { who = "Crew", loopTag = "squint"},
-                new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
-			],
-		};
-
-        newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
-		{
-            
-			lookup = [$"Played::{new Cards.Rapier().Key()}"],
-			priority = true,
-			oncePerRun = true,
-			allPresent = [larsType, Deck.peri.Key()],
-            nonePresent = [],
-
-			lines = [
-				new Say { who = Deck.peri.Key(), loopTag = "squint" },
-                new Say { who = larsType, loopTag = "blep"}
 			],
 		};
 	}

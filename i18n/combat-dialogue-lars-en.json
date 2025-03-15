@@ -272,21 +272,7 @@
             [ "Big crystal." ]
         ]
 	},
-	"CrabFacts1_Multi_0": {
-        "Basic": [
-            [ "Mhm." ]
-        ]
-	},
-	"CrabFacts2_Multi_0": {
-        "Basic": [
-            [ "Yeah!" ]
-
-        ]
-	},
-	"CrabFactsAreOverNow_Multi_0": {
-        "Basic": [
-            [ "Okay, I'll admit. I wasn't listening." ]
-
-        ]
-	}
+	"CrabFacts1_Multi_0": "Mhm." ,
+	"CrabFacts2_Multi_0": "Yeah!",
+	"CrabFactsAreOverNow_Multi_0": "Okay, I'll admit. I wasn't listening."
 }

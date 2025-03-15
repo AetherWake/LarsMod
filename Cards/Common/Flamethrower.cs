@@ -73,13 +73,7 @@ internal sealed class Flamethrower : Card, IDemoCard
                 {
                     new AAttack()
                     {
-                        damage = GetDmg(s, 1)
-                    },
-                    /* AStatus is a card action that gives the target a status and, unlike attacks, its effect is unavoidable
-                     * Of Note: AStatuses will default to targetPlayer = false, If what you want is for the card to give the player a status, you want to set it targetPlayer = true
-                     * Other types of CardActions like AMove, AHurt or AHeal operate as such too, so it's important to remember */
-                    new AStatus()
-                    {
+                        damage = GetDmg(s, 1),
                         status = Status.heat,
                         statusAmount = 1,
                         targetPlayer = false
