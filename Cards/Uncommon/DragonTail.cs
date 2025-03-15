@@ -59,56 +59,37 @@ internal sealed class DragonTail : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    
-                    new AStatus()
-                    {
+                    new AAttack(){
+                        damage = 1,
                         status = Status.heat,
                         statusAmount = 1,
-                        targetPlayer = false
-                    },
-                    new AAttack(){
-                        damage = 1
-                    },
-                    new AMove(){
-                        dir = -1,
+                        moveEnemy = -1,
                         targetPlayer = false,
-
-                    }
+                    },
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AStatus()
-                    {
+                    new AAttack(){
+                        damage = 2,
                         status = Status.heat,
                         statusAmount = 1,
-                        targetPlayer = false
-                    },
-                    new AAttack(){
-                        damage = 2
-                    },
-                    new AMove(){
-                        dir = -2,
                         targetPlayer = false,
+                        moveEnemy = -2,
                     }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AStatus()
-                    {
+                    new AAttack(){
+                        damage = 3,
                         status = Status.heat,
                         statusAmount = 1,
+                        moveEnemy = -3,
                         targetPlayer = false
-                    },
-                    new AAttack(){
-                        damage = 2
-                    },
-                    new AMove(){
-                        dir = -3,
-                        targetPlayer = false,
                     }
                 };
                 break;

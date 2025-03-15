@@ -38,6 +38,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Squint_2 { get; }
     internal ISpriteEntry Lars_Character_Squint_3 { get; }
     internal ISpriteEntry Lars_Character_Squint_4 { get; }
+    internal ISpriteEntry Lars_Character_Blep_0 { get; }
     internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry DemoMod_Deck { get; }
     internal IPlayableCharacterEntryV2 Lars_Character { get;}
@@ -114,6 +115,7 @@ public sealed class ModEntry : SimpleMod
         Lars_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_2.png"));
         Lars_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_3.png"));
         Lars_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_4.png"));
+        Lars_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Blep/Blep.png"));
         Lars_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/GameOver/GameOver.png"));
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
@@ -188,6 +190,16 @@ public sealed class ModEntry : SimpleMod
                 Lars_Character_Squint_1.Sprite,
                 Lars_Character_Squint_2.Sprite,
                 Lars_Character_Squint_3.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = DemoMod_Deck.UniqueName,
+            LoopTag = "blep",
+            Frames = new[]
+            {
+                Lars_Character_Blep_0.Sprite
             }
         });
 

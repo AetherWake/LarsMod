@@ -658,7 +658,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["StartedBattleAgainstBigCrystal"]] = new()
+		newNodes[["StartedBattleAgainstBigCrystal", "Basic"]] = new()
 		{
 			priority = true,
 			turnStart = true,
@@ -667,7 +667,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			excludedScenes = ["Crystal_2"],
 			allPresent = [larsType, "crystal"],
 			lines = [
-				new Say { who = larsType, loopTag = "fiddling" },
+				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
 		// TODO Check crab strings not working in game 

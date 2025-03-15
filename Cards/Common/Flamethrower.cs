@@ -92,10 +92,7 @@ internal sealed class Flamethrower : Card, IDemoCard
                 {
                     new AAttack()
                     {
-                        damage = GetDmg(s, 1)
-                    },
-                    new AStatus()
-                    {
+                        damage = GetDmg(s, 1),
                         status = Status.heat,
                         statusAmount = 1,
                         targetPlayer = false
@@ -108,12 +105,10 @@ internal sealed class Flamethrower : Card, IDemoCard
                     new AAttack()
                     {
                         damage = GetDmg(s, 2),
-                        /* We can also give it our modded statuses, by getting it from our own code */
-                    },
-                    new AStatus(){
                         status = Status.heat,
                         statusAmount = 2,
                         targetPlayer = false
+                        /* We can also give it our modded statuses, by getting it from our own code */
                     }
                 };
                 break;

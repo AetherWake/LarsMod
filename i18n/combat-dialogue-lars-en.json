@@ -78,8 +78,14 @@
             "Language."
         ],
         "Drake": [
-            "Hit!",
-            "Yeah, yeah."
+            [
+                "Hit!",
+                "Yeah, yeah."
+            ],
+            [
+                "Hit!",
+                "Yeah, yeah."
+            ]
         ],
         "Max": [
             "Wooo!.",

@@ -5,7 +5,7 @@ namespace AetherWake.LarsMod;
 
 internal sealed class CardDialogue : BaseDialogue
 {
-	public CardDialogue() : base(locale => ModEntry.Instance.Package.PackageRoot.GetRelativeFile($"i18n/dialogue-card-{locale}.json").OpenRead())
+	public CardDialogue() : base(locale => ModEntry.Instance.Package.PackageRoot.GetRelativeFile($"i18n/card-dialogue-lars-{locale}.json").OpenRead())
 	{
 		var larsDeck = ModEntry.Instance.DemoMod_Deck.Deck;
 		var larsType = ModEntry.Instance.Lars_Character.CharacterType;
@@ -19,7 +19,7 @@ internal sealed class CardDialogue : BaseDialogue
 		};
 		ModEntry.Instance.Helper.Events.OnLoadStringsForLocale += (_, e) => InjectLocalizations(newNodes, [], [], e);
 
-		newNodes[["Rapier", "UpgradeNone"]] = new()
+		newNodes[["Rapier", "UpgradeNone", "Basic"]] = new()
 		{
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
@@ -50,5 +50,37 @@ internal sealed class CardDialogue : BaseDialogue
                 new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
 			],
 		};
+
+        newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
+		{
+            
+			lookup = [$"Played::{new Cards.Rapier().Key()}"],
+			priority = true,
+			oncePerRun = true,
+			allPresent = [larsType, Deck.peri.Key()],
+            nonePresent = [],
+
+			lines = [
+				new Say { who = larsType, loopTag = "idle" },
+                new Say { who = "Crew", loopTag = "squint"},
+                new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
+			],
+		};
+
+        newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
+		{
+            
+			lookup = [$"Played::{new Cards.Rapier().Key()}"],
+			priority = true,
+			oncePerRun = true,
+			allPresent = [larsType, Deck.peri.Key()],
+            nonePresent = [],
+
+			lines = [
+				new Say { who = Deck.peri.Key(), loopTag = "squint" },
+                new Say { who = larsType, loopTag = "blep"}
+			],
+		};
 	}
+	
 }
