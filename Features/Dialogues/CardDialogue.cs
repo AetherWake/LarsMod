@@ -85,8 +85,8 @@ internal sealed class CardDialogue : BaseDialogue
 		{
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}_A"],
-			priority = false,
-			oncePerCombat=true,
+			priority = true,
+			oncePerCombat=false,
 			allPresent = [larsType, Deck.peri.Key()],
 
 			lines = [
@@ -99,9 +99,9 @@ internal sealed class CardDialogue : BaseDialogue
 		{
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}_B"],
-			priority = false,
-			oncePerCombat=true,
-			allPresent = [larsType, Deck.peri.Key()],
+			priority = true,
+			oncePerCombat=false,
+			allPresent = [larsType, Deck.riggs.Key()],
 
 			lines = [
                 new Say { who = larsType, loopTag = "neutral"},
