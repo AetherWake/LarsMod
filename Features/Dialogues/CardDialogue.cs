@@ -24,21 +24,32 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
 			priority = true,
-			oncePerRun = true,
-			allPresent = [larsType, Deck.eunice.Key(), Deck.riggs.Key()],
+			oncePerRun = false,
+			allPresent = [larsType],
+			nonePresent = [Deck.dizzy.Key()],
 
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
 				new SaySwitch(){
 					lines = [
-						new Say { who = Deck.riggs.Key(), loopTag = "neutral"},
-						new Say { who = Deck.eunice.Key(), loopTag = "neutral"},
+						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.peri.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="1"},
+						new Say { who = "comp", loopTag = "squint", hash="1"},
 					]
 				},
 				new SaySwitch(){
 					lines = [
-						new Say { who = Deck.riggs.Key(), loopTag = "neutral"},
-						new Say { who = Deck.eunice.Key(), loopTag = "neutral"},
+						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="2"},
+						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="2"},
+						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="2"},
+						new Say { who = Deck.peri.Key(), loopTag = "squint", hash="2"},
+						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="2"},
+						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="2"},
+						new Say { who = "comp", loopTag = "squint", hash="2"},
 					]
 				},
 			],
@@ -49,12 +60,22 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
 			priority = true,
-			oncePerRun = true,
+			oncePerRun = false,
 			allPresent = [larsType, Deck.dizzy.Key()],
 
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
-                
+                new SaySwitch(){
+					lines = [
+						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.peri.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="1"},
+						new Say { who = "comp", loopTag = "squint", hash="1"},
+					]
+				},
                 new Say { who = Deck.dizzy.Key(), loopTag = "squint"}
 			],
 		};
@@ -71,6 +92,20 @@ internal sealed class CardDialogue : BaseDialogue
 			lines = [
 				new Say { who = Deck.peri.Key(), loopTag = "squint" },
                 new Say { who = larsType, loopTag = "blep"}
+			],
+		};
+
+		newNodes[["Rapier", "UpgradeB", "Basic"]] = new()
+		{
+            
+			lookup = [$"Played::{new Cards.Rapier().Key()}_B"],
+			priority = false,
+			oncePerCombat=true,
+			allPresent = [larsType, Deck.peri.Key()],
+
+			lines = [
+                new Say { who = larsType, loopTag = "neutral"},
+				new Say { who = Deck.riggs.Key(), loopTag = "squint" },
 			],
 		};
 	}

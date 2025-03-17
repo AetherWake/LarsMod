@@ -21,6 +21,12 @@
                 "You have more of them!?",
                 "No, it's the same one."
             ]
+        },
+        "UpgradeB":{
+            "Basic":[
+                "Got 'em!",
+                "I can't believe you just threw your sword at them."
+            ]
         }
         
     }

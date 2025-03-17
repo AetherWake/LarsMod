@@ -68,9 +68,10 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 			var realKey = $"{ModEntry.Instance.Package.Manifest.UniqueName}::{string.Join(".", key)}";
 
 			var index = 0;
+			List<string> characterPlayedOnSwitch = [];
 			foreach (var line in node.lines)
 			{
-				
+				characterPlayedOnSwitch = [];
 				if (line is Say say)
 				{
 					e.Localizations[$"{realKey}:{index}"] = Localizations.Localize(e.Locale, [.. key, index.ToString()]);
@@ -80,13 +81,10 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 					index--;
 				}
 				else if(line is SaySwitch){
-					Console.WriteLine(realKey);
-					Console.WriteLine(index);
-					Console.WriteLine(key);
-					Console.WriteLine($"{realKey}:{index}");
-					e.Localizations[$"{realKey}:{index}"] = Localizations.Localize(e.Locale, [.. key, index.ToString()]);
-					Console.WriteLine(e.Localizations[$"{realKey}:{index}"]);
 					
+					foreach (var switchLine in ((SaySwitch)line).lines){
+						e.Localizations[$"{realKey}:{switchLine.hash}"] = Localizations.Localize(e.Locale, [.. key, index.ToString()]);
+					}
 				}
 				else
 				{
