@@ -7,7 +7,6 @@ using Nickel;
 
 public class testArtifact : CustomArtifact, IDemoArtifact {
     
-    private static bool DuringOverheat;
     public static void Register(IModHelper helper)
     {
         helper.Content.Artifacts.RegisterArtifact("testArtifact", new()
@@ -16,7 +15,7 @@ public class testArtifact : CustomArtifact, IDemoArtifact {
 			Meta = new()
 			{
 				owner = ModEntry.Instance.DemoMod_Deck.Deck,
-				pools = ModEntry.GetArtifactPools(MethodBase.GetCurrentMethod()!.DeclaringType!)
+				pools = [ArtifactPool.Common]
 			},
 			Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/Artifacts/Briefcase.png")).Sprite,
 			Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "testArtifact", "name"]).Localize,
@@ -27,8 +26,7 @@ public class testArtifact : CustomArtifact, IDemoArtifact {
     protected internal override void ApplyPatches(IHarmony harmony){
 		harmony.Patch(
 			original: AccessTools.DeclaredMethod(typeof(AOverheat), nameof(AOverheat.Begin)),
-			prefix: new HarmonyMethod(MethodBase.GetCurrentMethod()!.DeclaringType!, nameof(AOverheat_Begin_Prefix)),
-			finalizer: new HarmonyMethod(MethodBase.GetCurrentMethod()!.DeclaringType!, nameof(AOverheat_Begin_Finalizer))
+			prefix: new HarmonyMethod(MethodBase.GetCurrentMethod()!.DeclaringType!, nameof(AOverheat_Begin_Prefix))
 		);
     }
 
@@ -45,13 +43,8 @@ public class testArtifact : CustomArtifact, IDemoArtifact {
             //c.QueueImmediate(new AEnchancedOverheat() {
             //    targetPlayer = false
             //});
-            DuringOverheat = false;
         }
 		return true;
     }
-		
-
-	private static void AOverheat_Begin_Finalizer()
-		=> DuringOverheat = false;
 
 }

@@ -234,6 +234,9 @@ public sealed class ModEntry : SimpleMod
                 cards = [
                     new Flamethrower(),
                     new FireSpin(),
+                ],
+                artifacts = [
+                    new testArtifact()
                 ]
             },
 
@@ -266,10 +269,7 @@ public sealed class ModEntry : SimpleMod
         foreach (var cardType in DemoMod_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
         foreach(var artifactType in CommonArtifacts){
-            
-           
             AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
-            
         }
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
