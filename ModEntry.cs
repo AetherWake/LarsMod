@@ -71,7 +71,14 @@ public sealed class ModEntry : SimpleMod
         .Concat(LarsCharacter_CommonCard_Types)
         .Concat(LarsCharacter_UncommonCard_Types);
 
+
+    internal static IReadOnlyList<Type> CommonArtifacts { get; } = [
+		typeof(testArtifact),
+	];
+
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
+
+
 
 
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
@@ -97,8 +104,7 @@ public sealed class ModEntry : SimpleMod
         Localizations = new MissingPlaceholderLocalizationProvider<IReadOnlyList<string>>(
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
-        
-
+        initArtifacts();
         /* Assigning our ISpriteEntry objects manually. This is the easiest way to do it when starting out!
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
         DemoMod_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardbackground.png"));
@@ -256,8 +262,15 @@ public sealed class ModEntry : SimpleMod
          * Notice the IDemoCard interface, you can find it in InternalInterfaces.cs
          * Each card in the IEnumerable 'DemoMod_AllCard_Types' will be asked to run their 'Register' method. Open a card's .cs file, and see what it does 
          * We *can* instead register characts one by one, like what we did with the sprites. If you'd like an example of what that looks like, check out the Randall mod by Arin! */
+
         foreach (var cardType in DemoMod_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
+        foreach(var artifactType in CommonArtifacts){
+            
+           
+            AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
+            
+        }
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
         
@@ -267,4 +280,16 @@ public sealed class ModEntry : SimpleMod
 		_ = new CombatDialogue();
         _ = new CardDialogue();
     }
+
+
+    internal void initArtifacts(){
+        new testArtifact().ApplyPatches(Harmony);
+    }
+
+    internal static ArtifactPool[] GetArtifactPools(Type type)
+	{
+		if (CommonArtifacts.Contains(type))
+			return [ArtifactPool.Common];
+		return [];
+	}
 }

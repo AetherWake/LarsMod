@@ -6,13 +6,9 @@
     }
   },
   "artifact": {
-    "BookOfTails": {
-      "name": "BOOK OF TAILS",
-      "description": "At start of turn, add a <c=cardtrait>temp</c> <c=card>Fox Tale</c> to your hand."
-    },
-    "Counting": {
-      "name": "COUNTING",
-      "description": "At start of turn, count sheeps. Once you counted 7 sheep, gain 1 <c=status>ENERGY</c> and start counting again."
+    "testArtifact": {
+      "name": "Test - Overheat",
+      "description": "At the end of ther turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c>."
     }
   },
   "ship": {

@@ -13,5 +13,7 @@ internal interface IDemoCard
 
 internal interface IDemoArtifact
 {
+    protected static ModEntry Instance => ModEntry.Instance;
     static abstract void Register(IModHelper helper);
+    protected internal void ApplyPatches(IHarmony harmony){}
 }

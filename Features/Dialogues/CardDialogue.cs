@@ -24,7 +24,7 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
 			priority = true,
-			oncePerRun = false,
+			oncePerRun = true,
 			allPresent = [larsType],
 			nonePresent = [Deck.dizzy.Key()],
 
@@ -60,7 +60,7 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}"],
 			priority = true,
-			oncePerRun = false,
+			oncePerRun = true,
 			allPresent = [larsType, Deck.dizzy.Key()],
 
 			lines = [
@@ -86,7 +86,7 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}_A"],
 			priority = true,
-			oncePerCombat=false,
+			oncePerCombat=true,
 			allPresent = [larsType, Deck.peri.Key()],
 
 			lines = [
@@ -100,7 +100,7 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.Rapier().Key()}_B"],
 			priority = true,
-			oncePerCombat=false,
+			oncePerCombat=true,
 			allPresent = [larsType, Deck.riggs.Key()],
 
 			lines = [
