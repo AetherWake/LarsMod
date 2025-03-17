@@ -120,8 +120,6 @@ internal sealed class CombatDialogue : BaseDialogue
 			lines = [
 				new Say { who = Deck.eunice.Key(), loopTag = "squint" },
 				new Say { who = larsType, loopTag = "neutral" },
-				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
-
 			],
 		};
 		newNodes[["TookDamage", "Max"]] = new()
