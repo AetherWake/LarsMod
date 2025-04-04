@@ -43,6 +43,36 @@
       "name": "Rapier",
       "description": "No one knows how he was allowed to bring this on deck"
     },
+    "FiredMove":{
+      "name": "Fired Move"
+    },
+    "Focus":{
+      "name": "Focus"
+    },
+    "HeatingUp":{
+      "name": "Heating up"
+    },
+    "FireyExcitement":{
+      "name": "Firey\nExcitement",
+      "description": "Gain 1 <c=status>Energy</c> for every 3 <c=status>Heat</c>(Max 4).",
+      "description_b": "Gain 1 <c=status>Energy</c> for every 2 <c=status>Heat</c>(Max 4)."
+    },
+    "HeatAndDodge":{
+      "name": "Heating dodge"
+    },
+    "HeatedOptions":{
+      "name": "Heated\nOptions"
+    },
+    "Overheat":{
+      "name": "Overheat"
+    },
+    "Fireball":{
+      "name": "Fireball"
+    },
+    "HeatExp":{
+      "name": "Heat expansion",
+      "description": "Doubles the amount of fire on the enemy"
+    },
 
     "SheepDream": {
       "name": "Sheep Dream",

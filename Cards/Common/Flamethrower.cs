@@ -77,8 +77,7 @@ internal sealed class Flamethrower : Card, IDemoCard
                         status = Status.heat,
                         statusAmount = 1,
                         targetPlayer = false
-                    },
-                    new AEnchancedOverheat()
+                    }
                 };
                 /* Remember to always break it up! */
                 break;
@@ -91,8 +90,7 @@ internal sealed class Flamethrower : Card, IDemoCard
                         status = Status.heat,
                         statusAmount = 1,
                         targetPlayer = false
-                    },
-                    new AEnchancedOverheat()
+                    }
                 };
                 break;
             case Upgrade.B:
@@ -105,8 +103,7 @@ internal sealed class Flamethrower : Card, IDemoCard
                         statusAmount = 2,
                         targetPlayer = false
                         /* We can also give it our modded statuses, by getting it from our own code */
-                    },
-                    new AEnchancedOverheat()
+                    }
                 };
                 break;
         }

@@ -54,13 +54,24 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> LarsCharacter_CommonCard_Types { get; } = [
         typeof(Protect),
         typeof(SunnyDay),
-        typeof(Rapier)
+        typeof(Rapier),
+        typeof(FiredMove),
+        typeof(Focus),
+        typeof(HeatingUp)
 
     ];
     internal static IReadOnlyList<Type> LarsCharacter_UncommonCard_Types { get; } = [
-
         typeof(DragonTail),
-        typeof(Magic)
+        typeof(Magic),
+        typeof(HeatAndDodge),
+        typeof(HeatedOptions),
+        typeof(Overheat)
+    ];
+
+    internal static IReadOnlyList<Type> LarsCharacter_RareCard_Types { get; } = [
+        typeof(FireyExcitement),
+        typeof(Fireball),
+        typeof(HeatExp)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
@@ -69,7 +80,8 @@ public sealed class ModEntry : SimpleMod
     internal static IEnumerable<Type> DemoMod_AllCard_Types
         => LarsCharacter_StarterCard_Types
         .Concat(LarsCharacter_CommonCard_Types)
-        .Concat(LarsCharacter_UncommonCard_Types);
+        .Concat(LarsCharacter_UncommonCard_Types)
+        .Concat(LarsCharacter_RareCard_Types);
 
 
     internal static IReadOnlyList<Type> CommonArtifacts { get; } = [

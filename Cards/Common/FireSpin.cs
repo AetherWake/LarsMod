@@ -41,7 +41,7 @@ internal sealed class FireSpin : Card, IDemoCard
                 data = new CardData()
                 {
                     /* Give your card some meta data, such as giving it an energy cost, making it exhaustable, and more */
-                        cost = 1,
+                    cost = 1,
                     /* if we don't set a card specific 'art' (a 'Spr' type) here, the game will give it the deck's 'DefaultCardArt'
                     /* if we don't set a card specific 'description' (a 'string' type) here, the game will attempt to use iconography using the provided CardAction types from GetActions() */
                 };
