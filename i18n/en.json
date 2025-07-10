@@ -52,7 +52,7 @@
       "description_b": "Gain 1 <c=status>Energy</c> for every 2 <c=status>Heat</c>(Max 4)."
     },
     "HeatAndDodge":{
-      "name": "Heating dodge"
+      "name": "Heating Dodge"
     },
     "HeatedOptions":{
       "name": "Heated Options"
@@ -64,8 +64,8 @@
       "name": "Fireball"
     },
     "HeatExp":{
-      "name": "Heat expansion",
-      "description": "Doubles the amount of fire on the enemy"
+      "name": "Heat Expansion",
+      "description": "Doubles the amount of fire on the enemy."
     },
 
     "SheepDream": {
