@@ -19,7 +19,7 @@ internal sealed class HeatExp : Card, IDemoCard
             {
                 deck = ModEntry.Instance.DemoMod_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },

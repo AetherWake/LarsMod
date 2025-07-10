@@ -68,6 +68,10 @@ internal sealed class HeatedOptions : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
+                    new AVariableHint
+				    {
+					    status = Status.heat,
+				    },
                     new ADrawCard(){
                         count=GetX(s),
                         xHint=1,
@@ -77,7 +81,10 @@ internal sealed class HeatedOptions : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-
+                    new AVariableHint
+				    {
+					    status = Status.heat,
+				    },
                     new ADrawCard(){
                         count=GetX(s),
                         xHint=1,

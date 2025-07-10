@@ -22,7 +22,7 @@
       "name": "Fox Tale"
     },
     "Flamethrower": {
-      "name": "Flame\nthrower"
+      "name": "Flamethrower"
     },
     "FireSpin": {
       "name": "Fire Spin"
@@ -31,10 +31,10 @@
       "name": "Protect"
     },
     "SunnyDay": {
-      "name": "Sunny \nDay"
+      "name": "Sunny Day"
     },
     "DragonTail": {
-      "name": "Dragon \nTail"
+      "name": "Dragon Tail"
     },
     "Magic": {
       "name": "Magic"
@@ -53,7 +53,7 @@
       "name": "Heating up"
     },
     "FireyExcitement":{
-      "name": "Firey\nExcitement",
+      "name": "Firey Excitement",
       "description": "Gain 1 <c=status>Energy</c> for every 3 <c=status>Heat</c>(Max 4).",
       "description_b": "Gain 1 <c=status>Energy</c> for every 2 <c=status>Heat</c>(Max 4)."
     },
@@ -61,7 +61,7 @@
       "name": "Heating dodge"
     },
     "HeatedOptions":{
-      "name": "Heated\nOptions"
+      "name": "Heated Options"
     },
     "Overheat":{
       "name": "Overheat"
