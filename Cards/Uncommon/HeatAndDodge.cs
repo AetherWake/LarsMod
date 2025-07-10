@@ -35,17 +35,17 @@ internal sealed class HeatAndDodge : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 1,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 1,
+                    cost = 0,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 2,
+                    cost = 1,
                 };
                 break;
         }

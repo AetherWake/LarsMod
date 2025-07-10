@@ -65,7 +65,8 @@ public sealed class ModEntry : SimpleMod
         typeof(Magic),
         typeof(HeatAndDodge),
         typeof(HeatedOptions),
-        typeof(Overheat)
+        typeof(Overheat),
+        typeof(FireyEscape)
     ];
 
     internal static IReadOnlyList<Type> LarsCharacter_RareCard_Types { get; } = [

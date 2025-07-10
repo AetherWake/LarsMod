@@ -47,9 +47,12 @@
       "name": "Heating up"
     },
     "FireyExcitement":{
-      "name": "Firey Excitement",
+      "name": "Fiery Excitement",
       "description": "Gain 1 <c=status>Energy</c> for every 3 <c=status>Heat</c>(Max 4).",
       "description_b": "Gain 1 <c=status>Energy</c> for every 2 <c=status>Heat</c>(Max 4)."
+    },
+    "FireyEscape":{
+      "name": "Fiery Escape"
     },
     "HeatAndDodge":{
       "name": "Heating Dodge"
@@ -66,15 +69,6 @@
     "HeatExp":{
       "name": "Heat Expansion",
       "description": "Doubles the amount of fire on the enemy."
-    },
-
-    "SheepDream": {
-      "name": "Sheep Dream",
-      "description": {
-        "None": "Attack for set amount = 3. On hit, apply 1 <c=status>BOOST</c>.",
-        "A": "Attack for set amount = 4. On hit, apply 1 <c=status>BOOST</c>.",
-        "B": "Attack for set amount = 5. On hit, apply 2 <c=status>BOOST</c>."
-      }
     }
   },
   "status": {
