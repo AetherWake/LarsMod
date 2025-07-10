@@ -7,7 +7,6 @@ using Nickel;
 
 public class testArtifact : CustomArtifact, IDemoArtifact
 {
-	static int overheatDamageOverflow = 0;
 	public static void Register(IModHelper helper)
 	{
 		helper.Content.Artifacts.RegisterArtifact("testArtifact", new()
