@@ -2,13 +2,13 @@
   "character": {
     "Lars": {
       "name": "Lars",
-      "description": "<c=cd6a00>Lars</c>\n¡ <c=boldPink>Am I adorable or am I super adorable?</c>"
+      "description": "<c=cd6a00>Lars</c>\n¡<c=boldPink>Am I adorable or am I super adorable?</c>"
     }
   },
   "artifact": {
     "testArtifact": {
       "name": "Test - Overheat",
-      "description": "At the end of ther turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c>."
+      "description": "At the end of their turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c>."
     }
   },
   "ship": {
