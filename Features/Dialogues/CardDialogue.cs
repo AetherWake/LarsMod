@@ -26,7 +26,7 @@ internal sealed class CardDialogue : BaseDialogue
 			priority = true,
 			oncePerRun = true,
 			allPresent = [larsType],
-			nonePresent = [Deck.dizzy.Key()],
+			nonePresent = [Deck.dizzy.Key(), Deck.peri.Key()],
 
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
@@ -35,7 +35,6 @@ internal sealed class CardDialogue : BaseDialogue
 						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="1"},
 						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="1"},
 						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="1"},
-						new Say { who = Deck.peri.Key(), loopTag = "squint", hash="1"},
 						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="1"},
 						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="1"},
 						new Say { who = "comp", loopTag = "squint", hash="1"},
@@ -46,7 +45,6 @@ internal sealed class CardDialogue : BaseDialogue
 						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="2"},
 						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="2"},
 						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="2"},
-						new Say { who = Deck.peri.Key(), loopTag = "squint", hash="2"},
 						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="2"},
 						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="2"},
 						new Say { who = "comp", loopTag = "squint", hash="2"},
@@ -80,6 +78,30 @@ internal sealed class CardDialogue : BaseDialogue
 			],
 		};
 
+	newNodes[["Rapier", "UpgradeNone", "Peri"]] = new()
+		{
+            
+			lookup = [$"Played::{new Cards.Rapier().Key()}"],
+			priority = true,
+			oncePerRun = true,
+			allPresent = [larsType, Deck.peri.Key()],
+
+			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
+                new SaySwitch(){
+					lines = [
+						new Say { who = Deck.riggs.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.eunice.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.goat.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.dizzy.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.hacker.Key(), loopTag = "squint", hash="1"},
+						new Say { who = Deck.shard.Key(), loopTag = "squint", hash="1"},
+						new Say { who = "comp", loopTag = "squint", hash="1"},
+					]
+				},
+                new Say { who = Deck.peri.Key(), loopTag = "squint"}
+			],
+		};
 
         newNodes[["Rapier", "UpgradeA", "Basic"]] = new()
 		{
