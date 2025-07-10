@@ -8,7 +8,7 @@
   "artifact": {
     "testArtifact": {
       "name": "Test - Overheat",
-      "description": "At the end of their turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c>."
+      "description": "At the end of their turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c> and keeps the unused heat."
     }
   },
   "card": {
