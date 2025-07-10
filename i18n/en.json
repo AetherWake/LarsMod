@@ -11,12 +11,6 @@
       "description": "At the end of their turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c>."
     }
   },
-  "ship": {
-    "DemoShip": {
-      "name": "DemoShip",
-      "description": "This is a demo ship.\n <c=boldPink>Isn't this cool?</c>"
-    }
-  },
   "card": {
     "FoxTale": {
       "name": "Fox Tale"
@@ -41,7 +35,7 @@
     },
     "Rapier": {
       "name": "Rapier",
-      "description": "No one knows how he was allowed to bring this on deck"
+      "description": "No one knows how he was allowed to bring this on deck."
     },
     "FiredMove":{
       "name": "Fired Move"
