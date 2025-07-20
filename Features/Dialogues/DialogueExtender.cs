@@ -113,7 +113,7 @@ internal sealed class DialogueExtensions
 				continue;
 
 			var meta = card.GetMeta();
-			if (meta.deck != ModEntry.Instance.DemoMod_Deck.Deck && NewRunOptions.allChars.Contains(meta.deck) && card.GetDataWithOverrides(g.state).temporary)
+			if (meta.deck != ModEntry.Instance.Lars_Deck.Deck && NewRunOptions.allChars.Contains(meta.deck) && card.GetDataWithOverrides(g.state).temporary)
 				__instance.QueueImmediate(new ADummyAction { dialogueSelector = $".{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonJohnsonNonTrashTempCard" });
 		}
 

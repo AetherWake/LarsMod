@@ -16,7 +16,7 @@ internal sealed class FiredMove : Card, IDemoCard
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.DemoMod_Deck.Deck,
+                deck = ModEntry.Instance.Lars_Deck.Deck,
 
                 rarity = Rarity.common,
 
@@ -34,17 +34,17 @@ internal sealed class FiredMove : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 3,
+                    cost = 1,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 2,
+                    cost = 0,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 3,
+                    cost = 1,
                 };
                 break;
         }

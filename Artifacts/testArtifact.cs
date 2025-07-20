@@ -14,7 +14,7 @@ public class testArtifact : CustomArtifact, IDemoArtifact
 			ArtifactType = MethodBase.GetCurrentMethod()!.DeclaringType!,
 			Meta = new()
 			{
-				owner = ModEntry.Instance.DemoMod_Deck.Deck,
+				owner = ModEntry.Instance.Lars_Deck.Deck,
 				pools = [ArtifactPool.Common]
 			},
 			Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/Artifacts/Briefcase.png")).Sprite,
@@ -34,16 +34,14 @@ public class testArtifact : CustomArtifact, IDemoArtifact
 
 	private static bool AOverheat_Begin_Prefix(G g, State s, ref Combat c, out int __state)
 	{
-		Console.WriteLine("Overheat begins");
 		__state = 0;
 		if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is testArtifact) is not { } artifact)
 			return true;
 		if (c.otherShip.Get(Status.heat) > 0)
 		{
-
 			artifact.Pulse();
-			c.otherShip.overheatDamage = c.otherShip.Get(Status.heat) / 3;
-			__state = c.otherShip.Get(Status.heat) % 3;
+			c.otherShip.overheatDamage += (c.otherShip.Get(Status.heat) / c.otherShip.heatTrigger) -1;
+			__state = c.otherShip.Get(Status.heat) % c.otherShip.heatTrigger;
 			//c.QueueImmediate(new AEnchancedOverheat() {
 			//    targetPlayer = false
 			//});

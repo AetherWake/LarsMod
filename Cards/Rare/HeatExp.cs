@@ -17,7 +17,7 @@ internal sealed class HeatExp : Card, IDemoCard
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.DemoMod_Deck.Deck,
+                deck = ModEntry.Instance.Lars_Deck.Deck,
 
                 rarity = Rarity.rare,
 

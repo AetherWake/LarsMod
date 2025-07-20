@@ -16,7 +16,7 @@ internal sealed class Overheat : Card, IDemoCard
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
-                deck = ModEntry.Instance.DemoMod_Deck.Deck,
+                deck = ModEntry.Instance.Lars_Deck.Deck,
 
                 rarity = Rarity.uncommon,
 
@@ -97,20 +97,20 @@ internal sealed class Overheat : Card, IDemoCard
                 actions = new()
                 {
                     new AVariableHint
-				    {
-					    status = Status.heat,
-				    },
+                    {
+                        status = Status.heat,
+                    },
+                    new AStatus(){
+                        status=Status.heat,
+                        statusAmount=2,
+                        targetPlayer=true
+                    }, 
                     new AStatus(){
                         status = Status.heat,
                         statusAmount = GetX(s),
                         xHint=1,
                         targetPlayer=false
                     },
-                    new AStatus(){
-                        status=Status.heat,
-                        statusAmount=2,
-                        targetPlayer=true
-                    }
                 };
                 break;
         }

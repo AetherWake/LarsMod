@@ -7,7 +7,7 @@ internal sealed class CardDialogue : BaseDialogue
 {
 	public CardDialogue() : base(locale => ModEntry.Instance.Package.PackageRoot.GetRelativeFile($"i18n/card-dialogue-lars-{locale}.json").OpenRead())
 	{
-		var larsDeck = ModEntry.Instance.DemoMod_Deck.Deck;
+		var larsDeck = ModEntry.Instance.Lars_Deck.Deck;
 		var larsType = ModEntry.Instance.Lars_Character.CharacterType;
 		var newNodes = new Dictionary<IReadOnlyList<string>, StoryNode>();
 

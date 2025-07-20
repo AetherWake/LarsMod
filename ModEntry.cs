@@ -24,9 +24,9 @@ public sealed class ModEntry : SimpleMod
     /* Woah! what's with the block of code right out the gate???
      * These are our manually declared stuff, isn't it neat?
      * Let's continue down, and you'll start getting a hang of how we utilize these */
-    internal ISpriteEntry DemoMod_Character_CardBackground { get; }
-    internal ISpriteEntry DemoMod_Character_CardFrame { get; }
-    internal ISpriteEntry DemoMod_Character_Panel { get; }
+    internal ISpriteEntry Lars_Character_CardBackground { get; }
+    internal ISpriteEntry Lars_Character_CardFrame { get; }
+    internal ISpriteEntry Lars_Character_Panel { get; }
     internal ISpriteEntry Lars_Character_Neutral_0 { get; }
     internal ISpriteEntry Lars_Character_Neutral_1 { get; }
     internal ISpriteEntry Lars_Character_Neutral_2 { get; }
@@ -40,7 +40,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Squint_4 { get; }
     internal ISpriteEntry Lars_Character_Blep_0 { get; }
     internal ISpriteEntry Lars_Character_Death { get; }
-    internal IDeckEntry DemoMod_Deck { get; }
+    internal IDeckEntry Lars_Deck { get; }
     internal IPlayableCharacterEntryV2 Lars_Character { get;}
     internal static IReadOnlyList<Type> LarsCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
@@ -78,7 +78,7 @@ public sealed class ModEntry : SimpleMod
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
      * Maybe you created a new list for Uncommon cards, and want to add it.
      * If so, you can .Concat(TheUncommonListYouMade) */
-    internal static IEnumerable<Type> DemoMod_AllCard_Types
+    internal static IEnumerable<Type> Lars_AllCard_Types
         => LarsCharacter_StarterCard_Types
         .Concat(LarsCharacter_CommonCard_Types)
         .Concat(LarsCharacter_UncommonCard_Types)
@@ -91,6 +91,68 @@ public sealed class ModEntry : SimpleMod
 
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
 
+    // Init of Aether 
+    internal ISpriteEntry Aether_Character_CardBackground { get; }
+    internal ISpriteEntry Aether_Character_CardFrame { get; }
+    internal ISpriteEntry Aether_Character_Panel { get; }
+    internal ISpriteEntry Aether_Character_Neutral_0 { get; }
+    internal ISpriteEntry Aether_Character_Neutral_1 { get; }
+    internal ISpriteEntry Aether_Character_Neutral_2 { get; }
+    internal ISpriteEntry Aether_Character_Neutral_3 { get; }
+    internal ISpriteEntry Aether_Character_Neutral_4 { get; }
+    internal ISpriteEntry Aether_Character_Mini_0 { get; }
+    internal ISpriteEntry Aether_Character_Squint_0 { get; }
+    internal ISpriteEntry Aether_Character_Squint_1 { get; }
+    internal ISpriteEntry Aether_Character_Squint_2 { get; }
+    internal ISpriteEntry Aether_Character_Squint_3 { get; }
+    internal ISpriteEntry Aether_Character_Squint_4 { get; }
+    internal ISpriteEntry Aether_Character_Blep_0 { get; }
+    internal ISpriteEntry Aether_Character_Death { get; }
+
+
+    internal IDeckEntry Aether_Deck { get; }
+    internal IPlayableCharacterEntryV2 Aether_Character { get;}
+    internal static IReadOnlyList<Type> AetherCharacter_StarterCard_Types { get; } = [
+        /* Add more starter cards here if you'd like. */
+        typeof(Flamethrower),
+        typeof(FireSpin),
+    ];
+
+    /* You can create many IReadOnlyList<Type> as a way to organize your content.
+     * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
+     * However you can be more detailed, or you can be more loose, if that's your style */
+    internal static IReadOnlyList<Type> AetherCharacter_CommonCard_Types { get; } = [
+        typeof(Protect),
+        typeof(SunnyDay),
+        typeof(Rapier),
+        typeof(FiredMove),
+        typeof(Focus),
+        typeof(HeatingUp)
+
+    ];
+    internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
+        typeof(DragonTail),
+        typeof(Magic),
+        typeof(HeatAndDodge),
+        typeof(HeatedOptions),
+        typeof(Overheat),
+        typeof(FireyEscape)
+    ];
+
+    internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
+        typeof(FireyExcitement),
+        typeof(Fireball),
+        typeof(HeatExp)
+    ];
+
+    /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
+     * Maybe you created a new list for Uncommon cards, and want to add it.
+     * If so, you can .Concat(TheUncommonListYouMade) */
+    internal static IEnumerable<Type> Aether_AllCard_Types
+        => AetherCharacter_StarterCard_Types
+        .Concat(AetherCharacter_CommonCard_Types)
+        .Concat(AetherCharacter_UncommonCard_Types)
+        .Concat(AetherCharacter_RareCard_Types);
 
 
 
@@ -120,9 +182,9 @@ public sealed class ModEntry : SimpleMod
         initArtifacts();
         /* Assigning our ISpriteEntry objects manually. This is the easiest way to do it when starting out!
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
-        DemoMod_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardbackground.png"));
-        DemoMod_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardframe.png"));
-        DemoMod_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Background.png"));
+        Lars_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardbackground.png"));
+        Lars_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardframe.png"));
+        Lars_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Background.png"));
         Lars_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_0.png"));
         Lars_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_1.png"));
         Lars_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Neutral/Neutral_2.png"));
@@ -139,7 +201,7 @@ public sealed class ModEntry : SimpleMod
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
          * Do note that Color accepts a HEX string format (like Color("a1b2c3")) or a Float RGB format (like Color(0.63, 0.7, 0.76). It does NOT allow a traditional RGB format (Meaning Color(161, 178, 195) will NOT work) */
-        DemoMod_Deck = helper.Content.Decks.RegisterDeck("LarsDeck", new DeckConfiguration()
+        Lars_Deck = helper.Content.Decks.RegisterDeck("LarsDeck", new DeckConfiguration()
         {
             Definition = new DeckDef()
             {
@@ -154,8 +216,8 @@ public sealed class ModEntry : SimpleMod
                 titleColor = new Color("000000")
             },
             /* We give it a default art and border some Sprite types by adding '.Sprite' at the end of the ISpriteEntry definitions we made above. */
-            DefaultCardArt = DemoMod_Character_CardBackground.Sprite,
-            BorderSprite = DemoMod_Character_CardFrame.Sprite,
+            DefaultCardArt = Lars_Character_CardBackground.Sprite,
+            BorderSprite = Lars_Character_CardFrame.Sprite,
 
             /* Since this deck will be used by our Demo Character, we'll use their name. */
             Name = AnyLocalizations.Bind(["character", "Lars", "name"]).Localize,
@@ -170,7 +232,7 @@ public sealed class ModEntry : SimpleMod
         * It's totally fine to assign them if you'd like, but we don't have a reason to so in this mod */
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
         {
-            CharacterType = DemoMod_Deck.UniqueName,
+            CharacterType = Lars_Deck.UniqueName,
             /* What we registered above was an IDeckEntry object, but when you register a character animation the Helper will ask for you to provide its Deck 'id'
              * This is simple enough, as you can get it from DemoMod_Deck */
 
@@ -191,7 +253,7 @@ public sealed class ModEntry : SimpleMod
         });
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
         {
-            CharacterType = DemoMod_Deck.UniqueName,
+            CharacterType = Lars_Deck.UniqueName,
             LoopTag = "mini",
             Frames = new[]
             {
@@ -201,7 +263,7 @@ public sealed class ModEntry : SimpleMod
         });
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
         {
-            CharacterType = DemoMod_Deck.UniqueName,
+            CharacterType = Lars_Deck.UniqueName,
             LoopTag = "squint",
             Frames = new[]
             {
@@ -214,7 +276,7 @@ public sealed class ModEntry : SimpleMod
 
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
         {
-            CharacterType = DemoMod_Deck.UniqueName,
+            CharacterType = Lars_Deck.UniqueName,
             LoopTag = "blep",
             Frames = new[]
             {
@@ -224,10 +286,10 @@ public sealed class ModEntry : SimpleMod
 
         /* Wait, so if we want 'gameover', why doesn't this demo come with the registration for it?
          * Answer: You should be able to use the knowledge you have earned so far to register your own animations! If you'd like, try making the 'gameover' registration code here. You can use whatever sprite you want */
-        
+
         helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
         {
-            CharacterType = DemoMod_Deck.UniqueName,
+            CharacterType = Lars_Deck.UniqueName,
             LoopTag = "gameover",
             Frames = new[]
             {
@@ -239,11 +301,12 @@ public sealed class ModEntry : SimpleMod
         Lars_Character = helper.Content.Characters.V2.RegisterPlayableCharacter("Lars", new PlayableCharacterConfigurationV2()
         {
             /* Same as animations, we want to provide the appropiate Deck type */
-            Deck = DemoMod_Deck.Deck,
+            Deck = Lars_Deck.Deck,
 
             /* The Starter Card Types are, as the name implies, the cards you will start a DemoCharacter run with. 
              * You could provide vanilla cards if you want, but it's way more fun to create your own cards! */
-            Starters = new StarterDeck{
+            Starters = new StarterDeck
+            {
                 cards = [
                     new Flamethrower(),
                     new FireSpin(),
@@ -259,7 +322,152 @@ public sealed class ModEntry : SimpleMod
 
             /* This is the fancy panel that encapsulates your character while in active combat.
              * It's recommended that it follows the same color scheme as the character and deck, for cohesion */
-            BorderSprite = DemoMod_Character_Panel.Sprite
+            BorderSprite = Lars_Character_Panel.Sprite
+        });
+
+
+        // Init Aether again
+        Aether_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardbackground.png"));
+        Aether_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardframe.png"));
+        Aether_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Background.png"));
+        Aether_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_0.png"));
+        Aether_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_1.png"));
+        Aether_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_2.png"));
+        Aether_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_3.png"));
+        Aether_Character_Neutral_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_4.png"));
+        Aether_Character_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Mini/MiniPortrait.png"));
+        Aether_Character_Squint_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_0.png"));
+        Aether_Character_Squint_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_1.png"));
+        Aether_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_2.png"));
+        Aether_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_3.png"));
+        Aether_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_4.png"));
+        Aether_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Blep/Blep.png"));
+        Aether_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/GameOver/GameOver.png"));
+
+        /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
+         * Do note that Color accepts a HEX string format (like Color("a1b2c3")) or a Float RGB format (like Color(0.63, 0.7, 0.76). It does NOT allow a traditional RGB format (Meaning Color(161, 178, 195) will NOT work) */
+        Aether_Deck = helper.Content.Decks.RegisterDeck("AetherDeck", new DeckConfiguration()
+        {
+            Definition = new DeckDef()
+            {
+                /* This color is used in various situations. 
+                 * It is used as the deck's rarity 'shine'
+                 * If a playable character uses this deck, the character Name will use this color
+                 * If a playable character uses this deck, the character mini panel will use this color */
+                color = new Color("3d79f2"),
+
+                /* This color is for the card name in-game
+                 * Make sure it has a good contrast against the CardFrame, and take rarity 'shine' into account as well */
+                titleColor = new Color("000000")
+            },
+            /* We give it a default art and border some Sprite types by adding '.Sprite' at the end of the ISpriteEntry definitions we made above. */
+            DefaultCardArt = Aether_Character_CardBackground.Sprite,
+            BorderSprite = Aether_Character_CardFrame.Sprite,
+
+            /* Since this deck will be used by our Demo Character, we'll use their name. */
+            Name = AnyLocalizations.Bind(["character", "Aether", "name"]).Localize,
+        });
+
+        /* Let's create some animations, because if you were to boot up this mod from what you have above,
+         * DemoCharacter would be a blank void inside a box, we haven't added their sprites yet! 
+         * We first begin by registering the animations. I know, weird. 'Why are we making animations when we still haven't made the character itself', stick with me, okay? 
+         * Animations are actually assigned to Deck types, not Characters! */
+
+        /*Of Note: You may notice we aren't assigning these ICharacterAnimationEntry and ICharacterEntry to any object, unlike stuff above,
+        * It's totally fine to assign them if you'd like, but we don't have a reason to so in this mod */
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Aether_Deck.UniqueName,
+            /* What we registered above was an IDeckEntry object, but when you register a character animation the Helper will ask for you to provide its Deck 'id'
+             * This is simple enough, as you can get it from DemoMod_Deck */
+
+            /* The Looptag is the 'name' of the animation. When making shouts and events, and you want your character to show emotions, the LoopTag is what you want
+             * In vanilla Cobalt Core, there are 4 'animations' looptags that any character should have: "neutral", "mini", "squint" and "gameover",
+             * as these are used in: Neutral is used as default, mini is used in character select and out-of-combat UI, Squink is hardcoded used in certain events, and Gameover is used when your run ends */
+            LoopTag = "neutral",
+
+            /* The game doesn't use frames properly when there are only 2 or 3 frames. If you want a proper animation, avoid only adding 2 or 3 frames to it */
+            Frames =
+            [
+                Aether_Character_Neutral_0.Sprite,
+                Aether_Character_Neutral_1.Sprite,
+                Aether_Character_Neutral_2.Sprite,
+                Aether_Character_Neutral_3.Sprite,
+                Aether_Character_Neutral_4.Sprite,
+            ]
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Aether_Deck.UniqueName,
+            LoopTag = "mini",
+            Frames = new[]
+            {
+                /* Mini only needs one sprite. We call it animation just because we add it the same way as other expressions. */
+                Aether_Character_Mini_0.Sprite
+            }
+        });
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Aether_Deck.UniqueName,
+            LoopTag = "squint",
+            Frames = new[]
+            {
+                Aether_Character_Squint_0.Sprite,
+                Aether_Character_Squint_1.Sprite,
+                Aether_Character_Squint_2.Sprite,
+                Aether_Character_Squint_3.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Aether_Deck.UniqueName,
+            LoopTag = "blep",
+            Frames = new[]
+            {
+                Aether_Character_Blep_0.Sprite
+            }
+        });
+
+        /* Wait, so if we want 'gameover', why doesn't this demo come with the registration for it?
+         * Answer: You should be able to use the knowledge you have earned so far to register your own animations! If you'd like, try making the 'gameover' registration code here. You can use whatever sprite you want */
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Aether_Deck.UniqueName,
+            LoopTag = "gameover",
+            Frames = new[]
+            {
+                Aether_Character_Death.Sprite,
+            }
+        });
+
+        /* Let's continue with the character creation and finally, actually, register the character! */
+        Aether_Character = helper.Content.Characters.V2.RegisterPlayableCharacter("Aether", new PlayableCharacterConfigurationV2()
+        {
+            /* Same as animations, we want to provide the appropiate Deck type */
+            Deck = Aether_Deck.Deck,
+
+            /* The Starter Card Types are, as the name implies, the cards you will start a DemoCharacter run with. 
+             * You could provide vanilla cards if you want, but it's way more fun to create your own cards! */
+            Starters = new StarterDeck
+            {
+                cards = [
+                    new Flamethrower(),
+                    new FireSpin(),
+                ],
+                artifacts = [
+                    new testArtifact()
+                ]
+            },
+
+            /* This is the little blurb that appears when you hover over the character in-game.
+             * You can make it fluff, use it as a way to tell players about the character's playstyle, or a little bit of both! */
+            Description = AnyLocalizations.Bind(["character", "Aether", "description"]).Localize,
+
+            /* This is the fancy panel that encapsulates your character while in active combat.
+             * It's recommended that it follows the same color scheme as the character and deck, for cohesion */
+            BorderSprite = Aether_Character_Panel.Sprite
         });
 
         /* The basics for a Character mod are done!
@@ -279,18 +487,23 @@ public sealed class ModEntry : SimpleMod
          * Each card in the IEnumerable 'DemoMod_AllCard_Types' will be asked to run their 'Register' method. Open a card's .cs file, and see what it does 
          * We *can* instead register characts one by one, like what we did with the sprites. If you'd like an example of what that looks like, check out the Randall mod by Arin! */
 
-        foreach (var cardType in DemoMod_AllCard_Types)
+        foreach (var cardType in Lars_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
-        foreach(var artifactType in CommonArtifacts){
+        foreach (var artifactType in CommonArtifacts)
+        {
             AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
         }
 
-        /* With the parts and sprites done, we can now create our Ship a bit more easily */
+        foreach (var cardType in Aether_AllCard_Types)
+            AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
         
+
+        /* With the parts and sprites done, we can now create our Ship a bit more easily */
+
         /* 4. STATUSES
          * You might, now, with all this code behind our backs, start recognizing patterns in the way we can register stuff. */
         _ = new DialogueExtensions();
-		_ = new CombatDialogue();
+        _ = new CombatDialogue();
         _ = new CardDialogue();
     }
 
