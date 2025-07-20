@@ -114,35 +114,21 @@ public sealed class ModEntry : SimpleMod
     internal IPlayableCharacterEntryV2 Aether_Character { get;}
     internal static IReadOnlyList<Type> AetherCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
-        typeof(Flamethrower),
-        typeof(FireSpin),
+        typeof(Bubble),
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> AetherCharacter_CommonCard_Types { get; } = [
-        typeof(Protect),
-        typeof(SunnyDay),
-        typeof(Rapier),
-        typeof(FiredMove),
-        typeof(Focus),
-        typeof(HeatingUp)
+        typeof(Bubble),
 
     ];
     internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
-        typeof(DragonTail),
-        typeof(Magic),
-        typeof(HeatAndDodge),
-        typeof(HeatedOptions),
-        typeof(Overheat),
-        typeof(FireyEscape)
     ];
 
     internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
-        typeof(FireyExcitement),
-        typeof(Fireball),
-        typeof(HeatExp)
+
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
@@ -354,7 +340,7 @@ public sealed class ModEntry : SimpleMod
                  * It is used as the deck's rarity 'shine'
                  * If a playable character uses this deck, the character Name will use this color
                  * If a playable character uses this deck, the character mini panel will use this color */
-                color = new Color("3d79f2"),
+                color = new Color("f65c76"),
 
                 /* This color is for the card name in-game
                  * Make sure it has a good contrast against the CardFrame, and take rarity 'shine' into account as well */
@@ -453,11 +439,7 @@ public sealed class ModEntry : SimpleMod
             Starters = new StarterDeck
             {
                 cards = [
-                    new Flamethrower(),
-                    new FireSpin(),
-                ],
-                artifacts = [
-                    new testArtifact()
+                    new Bubble(),
                 ]
             },
 
