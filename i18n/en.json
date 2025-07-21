@@ -19,9 +19,7 @@
     "FoxTale": {
       "name": "Fox Tale"
     },
-    "Bubble":{
-      "name": "Bubble"
-    },
+    
     "Flamethrower": {
       "name": "Flamethrower"
     },
@@ -76,12 +74,26 @@
     "HeatExp":{
       "name": "Heat Expansion",
       "description": "Doubles the amount of fire on the enemy."
+    },
+
+    "Bubble":{
+      "name": "Bubble"
+    },
+    "AquaRing":{
+      "name": "Aqua Ring"
+    },
+    "Hydropump":{
+      "name": "Hydropump"
     }
   },
   "status": {
     "AutododgeLeftNextTurn": {
       "name": "Autododge Left Next Turn",
       "description": "At the start of next turn, gain <c=boldPink>{0}</c> <c=status>AUTODODGE LEFT</c>."
+    },
+    "AquaRing":{
+      "name": "Aqua Ring",
+      "description": "At the end of turn, if 5+ count, heal 1 hull"
     }
   }
 }

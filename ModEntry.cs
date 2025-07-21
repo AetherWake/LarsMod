@@ -6,6 +6,7 @@ using Nanoray.PluginManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AetherWake.Features;
 
 /* In the Cobalt Core modding community it is common for namespaces to be <Author>.<ModName>
  * This is helpful to know at a glance what mod we're looking at, and who made it */
@@ -17,6 +18,7 @@ public sealed class ModEntry : SimpleMod
 {
     internal static ModEntry Instance { get; private set; } = null!;
     internal IKokoroApi KokoroApi { get; }
+    internal IKokoroApi.IV2 KokoroApiV2 { get; }
     internal IHarmony Harmony { get; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
@@ -41,7 +43,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Blep_0 { get; }
     internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry Lars_Deck { get; }
-    internal IPlayableCharacterEntryV2 Lars_Character { get;}
+    internal IPlayableCharacterEntryV2 Lars_Character { get; }
     internal static IReadOnlyList<Type> LarsCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
         typeof(Flamethrower),
@@ -86,8 +88,8 @@ public sealed class ModEntry : SimpleMod
 
 
     internal static IReadOnlyList<Type> CommonArtifacts { get; } = [
-		typeof(testArtifact),
-	];
+        typeof(testArtifact),
+    ];
 
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
 
@@ -108,13 +110,14 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Aether_Character_Squint_4 { get; }
     internal ISpriteEntry Aether_Character_Blep_0 { get; }
     internal ISpriteEntry Aether_Character_Death { get; }
-
+    internal IStatusEntry AquaRing { get; }
 
     internal IDeckEntry Aether_Deck { get; }
-    internal IPlayableCharacterEntryV2 Aether_Character { get;}
+    internal IPlayableCharacterEntryV2 Aether_Character { get; }
     internal static IReadOnlyList<Type> AetherCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
         typeof(Bubble),
+        typeof(AquaRing)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
@@ -122,9 +125,10 @@ public sealed class ModEntry : SimpleMod
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> AetherCharacter_CommonCard_Types { get; } = [
         typeof(Bubble),
-
+        typeof(AquaRing)
     ];
     internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
+        typeof(Hydropump),
     ];
 
     internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
@@ -151,6 +155,7 @@ public sealed class ModEntry : SimpleMod
          * We take from Kokoro what we need and put in our own project. Head to ExternalAPI/StatusLogicHook.cs if you're interested in what, exactly, we use.
          * If you're interested in more fancy stuff, make sure to peek at the Kokoro repository found online. */
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
+        KokoroApiV2 = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!.V2;
         Harmony = helper.Utilities.Harmony;
         /* These localizations lists help us organize our mod's text and messages by language.
          * For general use, prefer AnyLocalizations, as that will provide an easier time to potential localization submods that are made for your mod 
@@ -440,6 +445,7 @@ public sealed class ModEntry : SimpleMod
             {
                 cards = [
                     new Bubble(),
+                    new AquaRing()
                 ]
             },
 
@@ -478,26 +484,48 @@ public sealed class ModEntry : SimpleMod
 
         foreach (var cardType in Aether_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
-        
+
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
 
         /* 4. STATUSES
          * You might, now, with all this code behind our backs, start recognizing patterns in the way we can register stuff. */
+
+        AquaRing = helper.Content.Statuses.RegisterStatus("AquaRing", new()
+        {
+            Definition = new StatusDef
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/Bubble.png")).Sprite,
+                color = new("f65c76"),
+                isGood = true
+            },
+            Name = AnyLocalizations.Bind(["status", "AquaRing", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "AquaRing", "description"]).Localize
+        });
+
+        KokoroApi.V2.ActionCosts.RegisterStatusResourceCostIcon(AquaRing.Status, RegisterSprite(package, "assets/status/Bubble.png").Sprite, RegisterSprite(package, "assets/status/Bubble_cost.png").Sprite);
+
+        _ = new StatusManager();
         _ = new DialogueExtensions();
         _ = new CombatDialogue();
         _ = new CardDialogue();
     }
 
+    public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
+    {
+        return Instance.Helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile(dir));
+    }
 
-    internal void initArtifacts(){
+    internal void initArtifacts()
+    {
         new testArtifact().ApplyPatches(Harmony);
     }
 
     internal static ArtifactPool[] GetArtifactPools(Type type)
-	{
-		if (CommonArtifacts.Contains(type))
-			return [ArtifactPool.Common];
-		return [];
-	}
+    {
+        if (CommonArtifacts.Contains(type))
+            return [ArtifactPool.Common];
+        return [];
+    }
+    
 }
