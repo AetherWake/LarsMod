@@ -4,23 +4,23 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class RainDance : Card, IDemoCard
+internal sealed class Soak : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("RainDance", new()
+        helper.Content.Cards.RegisterCard("Soak", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Aether_Deck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "RainDance", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Soak", "name"]).Localize
             
         });
         
@@ -35,19 +35,19 @@ internal sealed class RainDance : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 3,
+                    cost = 0,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 0,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
+                    cost = 1,
                 };
                 break;
         }
@@ -63,9 +63,14 @@ internal sealed class RainDance : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=ModEntry.Instance.RainDance.Status,
+                        status=Status.shield,
                         statusAmount=1,
                         targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=ModEntry.Instance.RainDance.Status,
+                        statusAmount=1,
+                        targetPlayer=false
                     }
 
                 };
@@ -73,10 +78,15 @@ internal sealed class RainDance : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
+                    new AStatus(){
+                        status=Status.shield,
+                        statusAmount=1,
+                        targetPlayer=true
+                    },
                    new AStatus(){
                         status=ModEntry.Instance.RainDance.Status,
                         statusAmount=1,
-                        targetPlayer=true
+                        targetPlayer=false
                     }
                 };
                 break;
@@ -84,9 +94,14 @@ internal sealed class RainDance : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=ModEntry.Instance.RainDance.Status,
-                        statusAmount=2,
+                        status=Status.shield,
+                        statusAmount=3,
                         targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=ModEntry.Instance.RainDance.Status,
+                        statusAmount=3,
+                        targetPlayer=false
                     }
                 };
                 break;

@@ -7,6 +7,10 @@
     "Aether": {
       "name": "Aether",
       "description": "Vap"
+    },
+    "Solstice": {
+      "name": "Solstice",
+      "description": "Sss"
     }
   },
   "artifact": {
@@ -94,6 +98,18 @@
     },
     "RainDance":{
       "name": "Rain Dance"
+    },
+    "ADragonTail": {
+      "name": "Dragon Tail"
+    },
+    "AquaTail": {
+      "name": "Aqua Tail"
+    },
+    "AcidArmor": {
+      "name": "Acid Armor"
+    }, 
+    "Soak": {
+      "name": "Soak"
     }
   },
   "status": {

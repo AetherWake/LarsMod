@@ -30,13 +30,26 @@ public class StatusManager : IStatusLogicHook
         {
             if (!(ship.hull == ship.hullMax))
             {
+                
                 var AcidArmor = ship.Get(ModEntry.Instance.AquaRing.Status);
-                combat.Queue(new AHeal
+                if (ship.isPlayerShip)
                 {
-                    healAmount = 1,
-                    targetPlayer = ship.isPlayerShip
-                });
+                    combat.Queue(new AHeal
+                    {
+                        healAmount = 1,
+                        targetPlayer = ship.isPlayerShip
+                    });
+                }
+                else if(AcidArmor>=AquaRingHelper.HealTriggerDefault)
+                {
+                    combat.Queue(new AHeal
+                    {
+                        healAmount = 1,
+                        targetPlayer = ship.isPlayerShip
+                    });
+                }
                 ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - AquaRingHelper.HealTrigger);
+
             }
         }
     }
