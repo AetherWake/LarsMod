@@ -16,7 +16,17 @@ public class StatusManager : IStatusLogicHook
     public void OnStatusTurnTrigger(State state, Combat combat, StatusTurnTriggerTiming timing, Ship ship, Status status,
         int oldAmount, int newAmount)
     {
-        if (timing == StatusTurnTriggerTiming.TurnEnd && status == ModEntry.Instance.AquaRing.Status && ship.Get(ModEntry.Instance.AquaRing.Status) >= 5)
+        if (timing == StatusTurnTriggerTiming.TurnStart && status == ModEntry.Instance.RainDance.Status && ship.Get(ModEntry.Instance.RainDance.Status) >= 1)
+        {
+            var RainDance = ship.Get(ModEntry.Instance.RainDance.Status);
+            combat.Queue(new AStatus()
+            {
+                status = ModEntry.Instance.AquaRing.Status,
+                statusAmount = RainDance,
+                targetPlayer = ship.isPlayerShip
+            });
+        }
+        if (timing == StatusTurnTriggerTiming.TurnEnd && status == ModEntry.Instance.AquaRing.Status && ship.Get(ModEntry.Instance.AquaRing.Status) >= AquaRingHelper.HealTrigger)
         {
             if (!(ship.hull == ship.hullMax))
             {
@@ -26,9 +36,8 @@ public class StatusManager : IStatusLogicHook
                     healAmount = 1,
                     targetPlayer = ship.isPlayerShip
                 });
-                ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - 5);
+                ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - AquaRingHelper.HealTrigger);
             }
-        
         }
     }
 
@@ -36,4 +45,5 @@ public class StatusManager : IStatusLogicHook
     {
         return instance.targetPlayer ? s.ship : ((Combat)s.route).otherShip;
     }
+    
 }

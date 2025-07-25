@@ -4,32 +4,32 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class Hydropump : Card, IDemoCard
+internal sealed class WaterGun : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Hydropump", new()
+        helper.Content.Cards.RegisterCard("WaterGun", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Aether_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Hydropump", "name"]).Localize
-
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "WaterGun", "name"]).Localize
+            
         });
-
+        
     }
 
     public override CardData GetData(State state)
     {
         CardData data = new CardData();
-
+        
         switch (upgrade)
         {
             case Upgrade.None:
@@ -41,13 +41,13 @@ internal sealed class Hydropump : Card, IDemoCard
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 1,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 1,
                 };
                 break;
         }
@@ -60,48 +60,51 @@ internal sealed class Hydropump : Card, IDemoCard
         switch (upgrade)
         {
             case Upgrade.None:
-                
+
                 var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
+                    new AStatus(){
+                        status=Status.shield,
+                        statusAmount=1,
+                        targetPlayer=true
+                    },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
+                        damage=2
                     }).AsCardAction
-                    
+
                 };
                 break;
             case Upgrade.A:
                 aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
+                   new AStatus(){
+                        status=Status.shield,
+                        statusAmount=1,
+                        targetPlayer=true
+                    },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
                         damage=3
                     }).AsCardAction
                 };
                 break;
-                
             case Upgrade.B:
                 aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
-                    new AVariableHint
-				    {
-					    status = ModEntry.Instance.AquaRing.Status,
-				    },
                     new AAttack(){
-                        xHint=GetX(s),
-                        damage=GetX(s)
-                    }
+                        damage=2
+                    },
+                    ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AStatus(){
+                        status=Status.shield,
+                        statusAmount=2,
+                        targetPlayer=true
+                    }).AsCardAction
                 };
                 break;
         }
         return actions;
     }
-    
-    private int GetX(State state)
-	{
-		var x = state.ship.Get(ModEntry.Instance.AquaRing.Status);
-		return x;
-	}
 
 }

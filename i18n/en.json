@@ -11,8 +11,12 @@
   },
   "artifact": {
     "testArtifact": {
-      "name": "Test - Overheat",
+      "name": "Overheat",
       "description": "At the end of their turn, enemy takes 1 hull damage for each 3 <c=status>HEAT</c> and keeps the unused heat."
+    },
+    "Moisturizer": {
+      "name": "Moisturizer",
+      "description": "Reduces aqua ring requirement to heal by one"
     }
   },
   "card": {
@@ -73,7 +77,7 @@
     },
     "HeatExp":{
       "name": "Heat Expansion",
-      "description": "Doubles the amount of fire on the enemy."
+      "description": "Doubles the amount of heat on the enemy."
     },
 
     "Bubble":{
@@ -84,6 +88,12 @@
     },
     "Hydropump":{
       "name": "Hydropump"
+    },
+    "WaterGun":{
+      "name": "Water Gun"
+    },
+    "RainDance":{
+      "name": "Rain Dance"
     }
   },
   "status": {
@@ -94,6 +104,10 @@
     "AquaRing":{
       "name": "Aqua Ring",
       "description": "At the end of turn, if 5+ count, heal 1 hull"
+    },
+    "RainDance":{
+      "name": "Rain Dance",
+      "description": "Gain 1 Aqua Ring at the start of the turn"
     }
   }
 }

@@ -15,9 +15,9 @@ internal sealed class CardDialogue : BaseDialogue
 		{
 			if (phase != ModLoadPhase.AfterDbInit)
 				return;
-			InjectStory(newNodes, [], [], NodeType.combat);
+			InjectStory(newNodes, [], [], NodeType.combat, larsType);
 		};
-		ModEntry.Instance.Helper.Events.OnLoadStringsForLocale += (_, e) => InjectLocalizations(newNodes, [], [], e);
+		ModEntry.Instance.Helper.Events.OnLoadStringsForLocale += (_, e) => InjectLocalizations(newNodes, [], [], larsType, e);
 
 		newNodes[["Rapier", "UpgradeNone", "Basic"]] = new()
 		{

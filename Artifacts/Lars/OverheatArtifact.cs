@@ -5,7 +5,7 @@ using AetherWake.LarsMod;
 using HarmonyLib;
 using Nickel;
 
-public class testArtifact : CustomArtifact, IDemoArtifact
+public class overheatArtifact : CustomArtifact, IDemoArtifact
 {
 	public static void Register(IModHelper helper)
 	{
@@ -35,7 +35,7 @@ public class testArtifact : CustomArtifact, IDemoArtifact
 	private static bool AOverheat_Begin_Prefix(G g, State s, ref Combat c, out int __state)
 	{
 		__state = 0;
-		if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is testArtifact) is not { } artifact)
+		if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is overheatArtifact) is not { } artifact)
 			return true;
 		if (c.otherShip.Get(Status.heat) > 0)
 		{
@@ -52,7 +52,7 @@ public class testArtifact : CustomArtifact, IDemoArtifact
 	private static void AOverheat_Begin_Postfix(G g, State s, ref Combat c, int __state)
 	{
 
-		if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is testArtifact) is { } artifact)
+		if (s.EnumerateAllArtifacts().FirstOrDefault(a => a is overheatArtifact) is { } artifact)
 		{
 			if (__state > 0)
 			{

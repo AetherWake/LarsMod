@@ -88,7 +88,7 @@ public sealed class ModEntry : SimpleMod
 
 
     internal static IReadOnlyList<Type> CommonArtifacts { get; } = [
-        typeof(testArtifact),
+        typeof(overheatArtifact),
     ];
 
     /* We'll organize our artifacts the same way: making lists and then feed those to an IEnumerable */
@@ -111,6 +111,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Aether_Character_Blep_0 { get; }
     internal ISpriteEntry Aether_Character_Death { get; }
     internal IStatusEntry AquaRing { get; }
+    internal IStatusEntry RainDance { get; }
 
     internal IDeckEntry Aether_Deck { get; }
     internal IPlayableCharacterEntryV2 Aether_Character { get; }
@@ -125,14 +126,15 @@ public sealed class ModEntry : SimpleMod
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> AetherCharacter_CommonCard_Types { get; } = [
         typeof(Bubble),
-        typeof(AquaRing)
+        typeof(AquaRing),
+        typeof(WaterGun),
     ];
     internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
-        typeof(Hydropump),
+        typeof(Hydropump)
     ];
 
     internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
-
+        typeof(RainDance)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
@@ -144,6 +146,9 @@ public sealed class ModEntry : SimpleMod
         .Concat(AetherCharacter_UncommonCard_Types)
         .Concat(AetherCharacter_RareCard_Types);
 
+    internal static IReadOnlyList<Type> Aether_CommonArtifacts { get; } = [
+        typeof(Moisturizer),
+    ];
 
 
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
@@ -303,7 +308,7 @@ public sealed class ModEntry : SimpleMod
                     new FireSpin(),
                 ],
                 artifacts = [
-                    new testArtifact()
+                    new overheatArtifact()
                 ]
             },
 
@@ -485,6 +490,11 @@ public sealed class ModEntry : SimpleMod
         foreach (var cardType in Aether_AllCard_Types)
             AccessTools.DeclaredMethod(cardType, nameof(IDemoCard.Register))?.Invoke(null, [helper]);
 
+        foreach (var artifactType in Aether_CommonArtifacts)
+        {
+            AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
+        }
+
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
 
@@ -503,12 +513,28 @@ public sealed class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "AquaRing", "description"]).Localize
         });
 
+        RainDance = helper.Content.Statuses.RegisterStatus("RainDance", new()
+        {
+            Definition = new StatusDef
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/Bubble.png")).Sprite,
+                color = new("f65c76"),
+                isGood = true,
+            },
+            Name = AnyLocalizations.Bind(["status", "RainDance", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "RainDance", "description"]).Localize,
+
+        });
+
+
+
         KokoroApi.V2.ActionCosts.RegisterStatusResourceCostIcon(AquaRing.Status, RegisterSprite(package, "assets/status/Bubble.png").Sprite, RegisterSprite(package, "assets/status/Bubble_cost.png").Sprite);
 
         _ = new StatusManager();
         _ = new DialogueExtensions();
         _ = new CombatDialogue();
         _ = new CardDialogue();
+        _ = new AetherCombatDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
@@ -518,12 +544,13 @@ public sealed class ModEntry : SimpleMod
 
     internal void initArtifacts()
     {
-        new testArtifact().ApplyPatches(Harmony);
+        new overheatArtifact().ApplyPatches(Harmony);
+        new Moisturizer().ApplyPatches(Harmony);
     }
 
     internal static ArtifactPool[] GetArtifactPools(Type type)
     {
-        if (CommonArtifacts.Contains(type))
+        if (CommonArtifacts.Contains(type) || Aether_CommonArtifacts.Contains(type))
             return [ArtifactPool.Common];
         return [];
     }

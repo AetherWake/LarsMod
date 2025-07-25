@@ -4,50 +4,50 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class Hydropump : Card, IDemoCard
+internal sealed class RainDance : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Hydropump", new()
+        helper.Content.Cards.RegisterCard("RainDance", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Aether_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Hydropump", "name"]).Localize
-
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "RainDance", "name"]).Localize
+            
         });
-
+        
     }
 
     public override CardData GetData(State state)
     {
         CardData data = new CardData();
-
+        
         switch (upgrade)
         {
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 3,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 2,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 3,
                 };
                 break;
         }
@@ -56,52 +56,42 @@ internal sealed class Hydropump : Card, IDemoCard
     public override List<CardAction> GetActions(State s, Combat c)
     {
         List<CardAction> actions = new();
-        var aquaRing = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeStatusResource(ModEntry.Instance.AquaRing.Status);
         switch (upgrade)
         {
             case Upgrade.None:
-                
-                var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
+
                 actions = new()
                 {
-                    ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
-                    }).AsCardAction
-                    
+                    new AStatus(){
+                        status=ModEntry.Instance.RainDance.Status,
+                        statusAmount=1,
+                        targetPlayer=true
+                    }
+
                 };
                 break;
             case Upgrade.A:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
-                    ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
-                    }).AsCardAction
+                   new AStatus(){
+                        status=ModEntry.Instance.RainDance.Status,
+                        statusAmount=1,
+                        targetPlayer=true
+                    }
                 };
                 break;
-                
             case Upgrade.B:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
-                    new AVariableHint
-				    {
-					    status = ModEntry.Instance.AquaRing.Status,
-				    },
-                    new AAttack(){
-                        xHint=GetX(s),
-                        damage=GetX(s)
+                    new AStatus(){
+                        status=ModEntry.Instance.RainDance.Status,
+                        statusAmount=2,
+                        targetPlayer=true
                     }
                 };
                 break;
         }
         return actions;
     }
-    
-    private int GetX(State state)
-	{
-		var x = state.ship.Get(ModEntry.Instance.AquaRing.Status);
-		return x;
-	}
 
 }

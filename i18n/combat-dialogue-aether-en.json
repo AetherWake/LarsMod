@@ -1,0 +1,265 @@
+{
+    "TookDamage": {
+        "Basic": [
+            [ "Eh, just a hit." ], 
+            [ "Okay, thats spicy." ], 
+            [ "Im sure we'll be fine!" ]
+        ],
+        "Dizzy": [
+            "Time for more shields?",  
+            "You and me both!" 
+        ],
+        "Riggs": [
+            "It's ok! We'll just dodge the next one.",
+            "I'll work on some healing."
+        ],
+		"Peri": [
+            "That's just rude.",
+            "We could just be rude back."
+        ],
+        "Isaac": [
+            "Ouch...",
+            "We need more defense!"
+        ],
+        "Drake": [
+            "Damn.",
+            "Damn."
+        ],
+        "Max": [
+            "I really hope that didn't hit anything vital.",
+            "Nothing unfixable, Im sure."
+        ],
+        "Books": [
+            "Everyone okay?",
+            "It's okay! I'm okay!"
+        ],
+        "CAT": [
+            "Water, MORE WATER",
+            "Can someone check on the Pokémon? I think he hit his head."
+        ],
+        "Lars": [
+            "Insert text for Lars here",
+            "Insert text for Aether here"
+        ]
+    },
+    "TookNonHullDamage": {
+        "Basic": [
+            [ "Shielded!" ],
+            [ "Blocked!" ],
+            [ "Cant get through my defenses" ],
+            [ "They tried!" ],
+            [ "Cant get past my rings" ]
+
+        ]
+    },
+	"DealtDamage": {
+        "Basic": [
+            [ "Good shot" ], 
+            [ "Nice" ], 
+            [ "Hell yeah!" ]
+        ],
+        "Dizzy": [
+            "You hit them!",  
+            "Of course I did" 
+        ],
+        "Riggs": [
+            "I can attack too!",
+            "Huh, so you can"
+        ],
+		"Peri": [
+            "Hit!",
+            "Why is the fish shooting water at the enemy"
+        ],
+        "Isaac": [
+            "Vap!",
+            "Language."
+        ],
+        "Drake": [
+            [
+                "Wet!",
+                "Wait, no.."
+            ]
+        ],
+        "Max": [
+            "MORE!.",
+            "Alright, calm down now."
+        ],
+        "Books": [
+            "Got 'em!",
+            "Yeah!"
+        ],
+        "CAT": [
+            "Golpeado!",
+            "According to my database, that's Spanish for 'hit'. What?"
+        ]
+    },
+		"DealtBigDamage": {
+        "Basic": [
+            [ "Shoot 'em more!" ], 
+            [ "Extra wet" ], 
+            [ "Good luck shielding that!" ],
+			[ "They stand no chance!" ]
+        ]
+	},
+		"ShieldedDamage": {
+        "Basic": [
+            [ "Cant get through" ], 
+            [ "Rings are hard at work!" ], 
+            [ "The power of water" ]
+        ]
+	},
+		"Missed": {
+        "Basic": [
+            [ "Im heavy on defense not on attack..." ], 
+            [ "Ugh, damn it" ], 
+            [ "I'll hit them next time" ],
+			[ "Man." ]
+        ]
+	},
+	"AboutToDie": {
+        "Basic": [
+            [ "Well fuck" ], 
+            [ "Im trying to heal as fast as I can!" ], 
+            [ "Im sure we'll be fineeee" ]
+        ],
+        "Dizzy": [
+            "This isn't looking pretty.",  
+            "It sure isnt" 
+        ],
+        "Riggs": [
+            "We have to do something!",
+            "Working on it!"
+        ],
+		"Peri": [
+            "This is getting pretty dire.",
+            "Yeah, I can only block so much"
+        ],
+        "Isaac": [
+            "Is there a way out of this mess?",
+            "MORE WATER"
+        ],
+        "Drake": [
+			"This is getting hot.",
+            "Careful or I'll splash you with water"
+        ],
+        "Max": [
+            "This isn't going according to plan.",
+            "What is a plan?"
+        ],
+        "Books": [
+            "Use your magic powers to save us!",
+            "Uh... I dont think I can teleport a ship"
+        ],
+        "CAT": [
+            "Cant we just like, jump away..?",
+            "Oh, wouldn't that be useful right now?"
+        ]
+    },
+	"HitArmor": {
+        "Basic": [
+            [ "Huh, yeah I am not good at aiming" ], 
+            [ "Darn, I though that was brittle, not armored" ], 
+            [ "Yeah my bad" ],
+			[ "Just rusting their defenses off, clearly" ]
+        ]
+	},
+	"ExcessEnergy": {
+        "Basic": [
+            [ "Mmmm..." ], 
+            [ "I guess we have to wait.." ]
+        ]
+	},
+	"EmptyHand": {
+        "Basic": [
+            [ "No more options" ], 
+            [ "I need to recharge my water" ]
+        ]
+	},
+	"TrashHand": {
+        "Basic": [
+            [ "Ugh, thats just awful" ], 
+            [ "We really need to get better at disposing of this stuff" ] 
+        ]
+	},
+	"StartedBattle": {
+        "Basic": [
+            [ "Ah the thrill of battle" ], 
+            [ "Time to hit them with my tail!" ], 
+			[ "Shields wet! ... That's how it works, right?" ], 
+            [ "For dragons!" ]
+        ]
+	},
+	"NoOverlap": {
+        "Basic": [
+            [ "Bye!" ], 
+            [ "Not even close to us" ], 
+			[ "Damn we are fast" ], 
+            [ "Cant catch us" ]
+        ]
+	},
+	"NoOverlapButSeeker": {
+        "Riggs": [
+            "That missile is annoying",
+            "Absolutely!"
+        ]
+	},
+	"LongFight": {
+        "Basic": [
+            [ "Ugh" ], 
+            [ "Yaaawn." ], 
+			[ "This is taking forever" ], 
+            [ "Im grabbing some chips from my hoard." ]
+        ]
+	},
+	"GoingMissing": {
+        "Basic": [
+            [ "A-" ]
+
+        ]
+	},
+	"ReturningFromMissing": {
+        "Basic": [
+            [ "That was weird" ], 
+            [ "I hate teleportation" ], 
+			[ "I swear I should do that to the enemies..." ], 
+            [ "Uh..huh? I was taking a nap" ]
+        ]
+	},
+	"GoingToOverheat": {
+        "Basic": [
+            [ "Now this feels familiar." ], 
+            [ "...Do I need to start spraying water inside the ship too" ], 
+			[ "Not even a dragon right now" ], 
+            [ "Okay Im getting ready for hydropump" ]
+        ],
+		"Drake": [
+            "I like this, but I have a feeling this is bad for the ship.",
+            "Idk, gold handles it alright, maybe the ship hull does too"
+        ]
+	},
+	"PlayedRecycle": {
+        "Basic": [
+            [ "I should automate this." ]
+
+        ]
+	},
+	"NewNonLarsNonTrashTempCard": {
+        "Basic": [
+            [ "Not the trash..." ]
+
+        ]
+	},
+	"Recalibrator": {
+        "Basic": [
+            [ "Well this will help my bad aim" ]
+        ]
+	},
+	"StartedBattleAgainstBigCrystal": {
+        "Basic": [
+            [ "Shinyyyy." ]
+        ]
+	},
+	"CrabFacts1_Multi_0": "Ugh" ,
+	"CrabFacts2_Multi_0": "Why...",
+	"CrabFactsAreOverNow_Multi_0": "At least you are passionate about it."
+}

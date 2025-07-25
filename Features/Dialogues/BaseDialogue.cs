@@ -17,10 +17,8 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 		)
 	);
 
-	protected void InjectStory(Dictionary<IReadOnlyList<string>, StoryNode> newNodes, Dictionary<IReadOnlyList<string>, StoryNode> newHardcodedNodes, Dictionary<IReadOnlyList<string>, Say> saySwitchNodes, NodeType newNodeType)
+	protected void InjectStory(Dictionary<IReadOnlyList<string>, StoryNode> newNodes, Dictionary<IReadOnlyList<string>, StoryNode> newHardcodedNodes, Dictionary<IReadOnlyList<string>, Say> saySwitchNodes, NodeType newNodeType, string characterType)
 	{
-		var larsType = ModEntry.Instance.Lars_Character.CharacterType;
-
 		foreach (var (key, node) in newNodes)
 		{
 			var realKey = $"{ModEntry.Instance.Package.Manifest.UniqueName}::{string.Join(".", key)}";
@@ -35,7 +33,7 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 
 		foreach (var (key, node) in newHardcodedNodes)
 		{
-			var realKey = string.Join(".", key.Select(s => s.Replace("{{CharacterType}}", larsType)));
+			var realKey = string.Join(".", key.Select(s => s.Replace("{{CharacterType}}", characterType)));
 
 			node.type = newNodeType;
 			DB.story.all[realKey] = node;
@@ -54,14 +52,13 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 				continue;
 
 			if (string.IsNullOrEmpty(line.hash))
-				line.hash = $"{larsType}::{realKey}";
+				line.hash = $"{characterType}::{realKey}";
 			saySwitch.lines.Add(line);
 		}
 	}
 
-	protected void InjectLocalizations(Dictionary<IReadOnlyList<string>, StoryNode> newNodes, Dictionary<IReadOnlyList<string>, StoryNode> newHardcodedNodes, Dictionary<IReadOnlyList<string>, Say> saySwitchNodes, LoadStringsForLocaleEventArgs e)
+	protected void InjectLocalizations(Dictionary<IReadOnlyList<string>, StoryNode> newNodes, Dictionary<IReadOnlyList<string>, StoryNode> newHardcodedNodes, Dictionary<IReadOnlyList<string>, Say> saySwitchNodes, string characterType, LoadStringsForLocaleEventArgs e)
 	{
-		var larsType = ModEntry.Instance.Lars_Character.CharacterType;
 
 		foreach (var (key, node) in newNodes)
 		{
@@ -96,7 +93,7 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 
 		foreach (var (key, node) in newHardcodedNodes)
 		{
-			var realKey = string.Join(".", key.Select(s => s.Replace("{{CharacterType}}", larsType)));
+			var realKey = string.Join(".", key.Select(s => s.Replace("{{CharacterType}}", characterType)));
 
 			var index = 0;
 			foreach (var line in node.lines)
@@ -121,7 +118,7 @@ internal abstract class BaseDialogue(Func<string, Stream> localeStreamFunction)
 		{
 			var realKey = string.Join(".", key);
 			if (string.IsNullOrEmpty(line.hash))
-				line.hash = $"{larsType}::{realKey}";
+				line.hash = $"{characterType}::{realKey}";
 
 			e.Localizations[$"{realKey}:{line.hash}"] = Localizations.Localize(e.Locale, key);
 		}

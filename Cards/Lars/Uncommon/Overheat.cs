@@ -96,15 +96,15 @@ internal sealed class Overheat : Card, IDemoCard
             case Upgrade.B:
                 actions = new()
                 {
-                    new AVariableHint
-                    {
-                        status = Status.heat,
-                    },
                     new AStatus(){
                         status=Status.heat,
                         statusAmount=2,
                         targetPlayer=true
                     }, 
+                    new AVariableHint
+                    {
+                        status = Status.heat,
+                    },
                     new AStatus(){
                         status = Status.heat,
                         statusAmount = GetX(s),
