@@ -160,8 +160,8 @@ internal sealed class AetherCombatDialogue : BaseDialogue
 			minDamageDealtToPlayerThisTurn = 1,
 			allPresent = [aetherType, "comp"],
 			lines = [
+				new Say { who = larsType, loopTag = "neutral" },
 				new Say { who = aetherType, loopTag = "neutral" },
-				new Say { who = "comp", loopTag = "grumpy" },
 			],
 		};
 
