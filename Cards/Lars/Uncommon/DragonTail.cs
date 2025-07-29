@@ -68,8 +68,8 @@ internal sealed class DragonTail : Card, IDemoCard
                         targetPlayer=false,
                         status = Status.heat,
                         statusAmount = 1,
-                    }
-                    
+                    },
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
             case Upgrade.A:
@@ -100,7 +100,8 @@ internal sealed class DragonTail : Card, IDemoCard
                         targetPlayer=false,
                         status = Status.heat,
                         statusAmount = 1,
-                    }
+                    },
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
         }

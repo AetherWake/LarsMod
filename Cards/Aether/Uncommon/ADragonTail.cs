@@ -68,7 +68,8 @@ internal sealed class ADragonTail : Card, IDemoCard
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
                         statusAmount = 1,
-                    }
+                    },
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                     
                 };
                 break;
@@ -85,7 +86,7 @@ internal sealed class ADragonTail : Card, IDemoCard
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
                         statusAmount = 1,
-                    }
+                    },
                 };
                 break;
             case Upgrade.B:
@@ -100,7 +101,8 @@ internal sealed class ADragonTail : Card, IDemoCard
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
                         statusAmount = 1,
-                    }
+                    },
+                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
         }

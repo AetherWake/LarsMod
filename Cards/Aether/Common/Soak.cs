@@ -68,7 +68,7 @@ internal sealed class Soak : Card, IDemoCard
                         targetPlayer=true
                     },
                     new AStatus(){
-                        status=ModEntry.Instance.RainDance.Status,
+                        status=ModEntry.Instance.AquaRing.Status,
                         statusAmount=1,
                         targetPlayer=false
                     }
@@ -84,7 +84,7 @@ internal sealed class Soak : Card, IDemoCard
                         targetPlayer=true
                     },
                    new AStatus(){
-                        status=ModEntry.Instance.RainDance.Status,
+                        status=ModEntry.Instance.AquaRing.Status,
                         statusAmount=1,
                         targetPlayer=false
                     }
@@ -99,7 +99,7 @@ internal sealed class Soak : Card, IDemoCard
                         targetPlayer=true
                     },
                     new AStatus(){
-                        status=ModEntry.Instance.RainDance.Status,
+                        status=ModEntry.Instance.AquaRing.Status,
                         statusAmount=3,
                         targetPlayer=false
                     }

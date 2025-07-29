@@ -17,7 +17,7 @@ public class Moisturizer : CustomArtifact, IDemoArtifact
                 owner = ModEntry.Instance.Aether_Deck.Deck,
                 pools = [ArtifactPool.Common]
             },
-            Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/Artifacts/Briefcase.png")).Sprite,
+            Sprite = helper.Content.Sprites.RegisterSprite(ModEntry.Instance.Package.PackageRoot.GetRelativeFile("assets/artifacts/Lars/Briefcase.png")).Sprite,
             Name = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "Moisturizer", "name"]).Localize,
             Description = ModEntry.Instance.AnyLocalizations.Bind(["artifact", "Moisturizer", "description"]).Localize
         });

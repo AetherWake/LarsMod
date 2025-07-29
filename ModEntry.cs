@@ -40,6 +40,13 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Lars_Character_Squint_2 { get; }
     internal ISpriteEntry Lars_Character_Squint_3 { get; }
     internal ISpriteEntry Lars_Character_Squint_4 { get; }
+    
+    internal ISpriteEntry Lars_Character_Rapier_0 { get; }
+    internal ISpriteEntry Lars_Character_Rapier_1 { get; }
+    internal ISpriteEntry Lars_Character_Rapier_2 { get; }
+    internal ISpriteEntry Lars_Character_Rapier_3 { get; }
+    internal ISpriteEntry Lars_Character_Rapier_4 { get; }
+    
     internal ISpriteEntry Lars_Character_Blep_0 { get; }
     internal ISpriteEntry Lars_Character_Death { get; }
     internal IDeckEntry Lars_Deck { get; }
@@ -253,6 +260,13 @@ public sealed class ModEntry : SimpleMod
         Lars_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_2.png"));
         Lars_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_3.png"));
         Lars_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Squint/Squint_4.png"));
+
+        Lars_Character_Rapier_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Rapier/Rapier_0.png"));
+        Lars_Character_Rapier_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Rapier/Rapier_1.png"));
+        Lars_Character_Rapier_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Rapier/Rapier_2.png"));
+        Lars_Character_Rapier_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Rapier/Rapier_3.png"));
+        Lars_Character_Rapier_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Rapier/Rapier_4.png"));
+
         Lars_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Blep/Blep.png"));
         Lars_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/GameOver/GameOver.png"));
 
@@ -328,6 +342,20 @@ public sealed class ModEntry : SimpleMod
                 Lars_Character_Squint_1.Sprite,
                 Lars_Character_Squint_2.Sprite,
                 Lars_Character_Squint_3.Sprite,
+            }
+        });
+
+        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
+        {
+            CharacterType = Lars_Deck.UniqueName,
+            LoopTag = "rapier",
+            Frames = new[]
+            {
+                Lars_Character_Rapier_0.Sprite,
+                Lars_Character_Rapier_1.Sprite,
+                Lars_Character_Rapier_2.Sprite,
+                Lars_Character_Rapier_3.Sprite,
+                Lars_Character_Rapier_4.Sprite,
             }
         });
 
@@ -722,7 +750,7 @@ public sealed class ModEntry : SimpleMod
         {
             Definition = new StatusDef
             {
-                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/Bubble.png")).Sprite,
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/RainDance.png")).Sprite,
                 color = new("f65c76"),
                 isGood = true,
             },
@@ -740,6 +768,7 @@ public sealed class ModEntry : SimpleMod
         _ = new CombatDialogue();
         _ = new CardDialogue();
         _ = new AetherCombatDialogue();
+        _ = new AetherCardDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)

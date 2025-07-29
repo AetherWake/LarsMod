@@ -15,6 +15,26 @@
                 "Drive us closer, so I can hit them with my Rapier!",
                 "No!",
                 "I'm taking that away. Now."
+            ],
+            "Aether":[
+                "Drive us closer, so I can hit them with my Rapier!",
+                "No!",
+                "Sure!"
+            ],
+            "PeriDizzy":[
+                "Drive us closer, so I can hit them with my Rapier!",
+                "How did you get that onto the ship?",
+                "I'm taking that away. Now."
+            ],
+            "AetherDizzy":[
+                "Drive us closer, so I can hit them with my Rapier!",
+                "Sure!",
+                "How did you get that onto the ship?"
+            ],
+            "AetherPeri":[
+                "Drive us closer, so I can hit them with my Rapier!",
+                "Sure!",
+                "I'm taking that away. Now."
             ]
         },
         "UpgradeA":{
@@ -31,6 +51,15 @@
             "Basic":[
                 "Got 'em!",
                 "I can't believe you just threw your sword at them."
+            ]
+        }
+        
+    },
+     "DragonTail": {
+        "UpgradeNone":{
+            "Aether":[
+                "Hmmm.. Not how I would have done it",
+                "Huh?"
             ]
         }
         
