@@ -38,7 +38,7 @@
             "Can someone check on the Pokémon? I think he hit his head."
         ],
         "Lars": [
-            "Insert text for Lars here",
+            "The only HP that matters is the last one!",
             "Insert text for Aether here"
         ]
     },
@@ -64,11 +64,11 @@
         ],
         "Riggs": [
             "I can attack too!",
-            "Huh, so you can"
+            "Huh, so you can."
         ],
 		"Peri": [
             "Hit!",
-            "Why is the fish shooting water at the enemy"
+            "Why is the fish shooting water at the enemy?"
         ],
         "Isaac": [
             "Vap!",
@@ -77,7 +77,7 @@
         "Drake": [
             [
                 "Wet!",
-                "Wait, no.."
+                "Wait, no."
             ]
         ],
         "Max": [
