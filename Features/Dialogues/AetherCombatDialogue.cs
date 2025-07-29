@@ -158,7 +158,7 @@ internal sealed class AetherCombatDialogue : BaseDialogue
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
-			allPresent = [aetherType, "comp"],
+			allPresent = [aetherType, larsType],
 			lines = [
 				new Say { who = larsType, loopTag = "neutral" },
 				new Say { who = aetherType, loopTag = "neutral" },
