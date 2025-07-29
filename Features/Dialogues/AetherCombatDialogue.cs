@@ -9,6 +9,7 @@ internal sealed class AetherCombatDialogue : BaseDialogue
 	{
 		var aetherDeck = ModEntry.Instance.Aether_Deck.Deck;
 		var aetherType = ModEntry.Instance.Aether_Character.CharacterType;
+		var larsType = ModEntry.Instance.Lars_Character.CharacterType;
 
 		var newNodes = new Dictionary<IReadOnlyList<string>, StoryNode>();
 		var saySwitchNodes = new Dictionary<IReadOnlyList<string>, Say>();

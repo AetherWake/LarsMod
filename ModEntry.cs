@@ -137,15 +137,19 @@ public sealed class ModEntry : SimpleMod
         typeof(WaterGun),
         typeof(AquaTail),
         typeof(AcidArmor),
-        typeof(Soak)
+        typeof(Soak),
+        typeof(MagicalExpansion)
     ];
     internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
         typeof(Hydropump),
-        typeof(ADragonTail)
+        typeof(ADragonTail),
+        typeof(WaterAbsorb),
+        typeof(Preparation)
     ];
 
     internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
-        typeof(RainDance)
+        typeof(RainDance),
+        typeof(DragonDance)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
@@ -182,28 +186,17 @@ public sealed class ModEntry : SimpleMod
     internal IPlayableCharacterEntryV2? Solstice_Character { get; }
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
-        typeof(Bubble),
-        typeof(AquaRing)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
-        typeof(Bubble),
-        typeof(AquaRing),
-        typeof(WaterGun),
-        typeof(AquaTail),
-        typeof(AcidArmor),
-        typeof(Soak)
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
-        typeof(Hydropump),
-        typeof(ADragonTail)
     ];
 
     internal static IReadOnlyList<Type> SolsticeCharacter_RareCard_Types { get; } = [
-        typeof(RainDance)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed

@@ -1,15 +1,16 @@
 using Nickel;
+using OneOf.Types;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class Soak : Card, IDemoCard
+internal sealed class MagicalExpansion : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Soak", new()
+        helper.Content.Cards.RegisterCard("MagicalExpansion", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -20,34 +21,32 @@ internal sealed class Soak : Card, IDemoCard
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Soak", "name"]).Localize
             
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "MagicalExpansion", "name"]).Localize
         });
-        
     }
 
     public override CardData GetData(State state)
     {
-        CardData data = new CardData();
-        
-        switch (upgrade)
-        {
+        CardData data = new();
+        switch(upgrade){
             case Upgrade.None:
                 data = new CardData()
                 {
                     cost = 0,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData()
-                {
+                data = new CardData(){
                     cost = 0,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 0,
+                    exhaust=true
                 };
                 break;
         }
@@ -56,53 +55,39 @@ internal sealed class Soak : Card, IDemoCard
     public override List<CardAction> GetActions(State s, Combat c)
     {
         List<CardAction> actions = new();
+
         switch (upgrade)
         {
             case Upgrade.None:
-
                 actions = new()
                 {
+                    
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=1,
-                        targetPlayer=true
+                        targetPlayer=true,
+                        status = Status.maxShield,
+                        statusAmount = 1,
                     },
-                    new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=1,
-                        targetPlayer=false
-                    }
-
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=2,
-                        targetPlayer=true
+                        targetPlayer=true,
+                        status = Status.maxShield,
+                        statusAmount = 1,
                     },
-                   new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=2,
-                        targetPlayer=false
-                    }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=3,
-                        targetPlayer=true
+                        targetPlayer=true,
+                        status = Status.maxShield,
+                        statusAmount = 3,
                     },
-                    new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=3,
-                        targetPlayer=false
-                    }
                 };
                 break;
         }

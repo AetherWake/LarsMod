@@ -110,6 +110,21 @@
     }, 
     "Soak": {
       "name": "Soak"
+    },
+    "WaterAbsorb":{
+      "name": "Water Absorb",
+      "description": "Absorbs the enemy's aqua ring",
+      "description_a": "Absorbs the enemy's aqua ring and adds 3",
+      "description_b": "Absorbs double of the enemy's aqua ring"
+    },
+    "DragonDance": {
+      "name": "Dragon Dance"
+    },
+    "Preparation": {
+      "name": "Preparation"
+    },
+    "MagicalExpansion": {
+      "name": "Magical expansion"
     }
   },
   "status": {

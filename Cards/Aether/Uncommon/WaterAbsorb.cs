@@ -1,53 +1,55 @@
 using Nickel;
+using OneOf.Types;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class Soak : Card, IDemoCard
+internal sealed class WaterAbsorb : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Soak", new()
+        helper.Content.Cards.RegisterCard("WaterAbsorb", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Aether_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Soak", "name"]).Localize
-            
+
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "WaterAbsorb", "name"]).Localize
         });
-        
     }
 
     public override CardData GetData(State state)
     {
-        CardData data = new CardData();
-        
+        CardData data = new();
         switch (upgrade)
         {
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 2,
+                    description = ModEntry.Instance.Localizations.Localize(["card", "WaterAbsorb", "description"])
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 2,
+                    description = ModEntry.Instance.Localizations.Localize(["card", "WaterAbsorb", "description_a"])
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 3,
+                    description = ModEntry.Instance.Localizations.Localize(["card", "WaterAbsorb", "description_b"])
                 };
                 break;
         }
@@ -56,22 +58,17 @@ internal sealed class Soak : Card, IDemoCard
     public override List<CardAction> GetActions(State s, Combat c)
     {
         List<CardAction> actions = new();
+
         switch (upgrade)
         {
             case Upgrade.None:
-
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=1,
-                        targetPlayer=true
+                        targetPlayer = true,
+                        status = ModEntry.Instance.AquaRing.Status,
+                        statusAmount = GetX(c)
                     },
-                    new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=1,
-                        targetPlayer=false
-                    }
 
                 };
                 break;
@@ -79,34 +76,30 @@ internal sealed class Soak : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=2,
-                        targetPlayer=true
+                        targetPlayer = true,
+                        status = ModEntry.Instance.AquaRing.Status,
+                        statusAmount = GetX(c) + 3
                     },
-                   new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=2,
-                        targetPlayer=false
-                    }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.shield,
-                        statusAmount=3,
-                        targetPlayer=true
+                        targetPlayer = true,
+                        status = ModEntry.Instance.AquaRing.Status,
+                        statusAmount = GetX(c) * 2
                     },
-                    new AStatus(){
-                        status=ModEntry.Instance.AquaRing.Status,
-                        statusAmount=3,
-                        targetPlayer=false
-                    }
                 };
                 break;
         }
         return actions;
     }
+    
+        private int GetX(Combat c)
+	{
+		var x = c.otherShip.Get(ModEntry.Instance.AquaRing.Status);
+		return x;
+	}
 
 }
