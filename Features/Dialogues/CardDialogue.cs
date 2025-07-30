@@ -205,6 +205,7 @@ internal sealed class CardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.DragonTail().Key()}"],
 			allPresent = [aetherType, larsType],
+			oncePerCombat=true,
 
 			lines = [
 				new Say { who = aetherType, loopTag = "squint" },

@@ -19,7 +19,6 @@ public class StatusManager : IStatusLogicHook
         
         if (timing == StatusTurnTriggerTiming.TurnStart && status == ModEntry.Instance.RainDance.Status && ship.Get(ModEntry.Instance.RainDance.Status) >= 1)
         {
-            Console.WriteLine("Entered on rain dance");
             var RainDance = ship.Get(ModEntry.Instance.RainDance.Status);
             combat.Queue(new AStatus()
             {
@@ -32,7 +31,6 @@ public class StatusManager : IStatusLogicHook
         {
             if (!(ship.hull == ship.hullMax))
             {
-                Console.WriteLine("Entered on aqua ring");
                 var AcidArmor = ship.Get(ModEntry.Instance.AquaRing.Status);
                 if (ship.isPlayerShip)
                 {

@@ -63,13 +63,13 @@ internal sealed class DragonTail : Card, IDemoCard
                         damage = 1,
                         moveEnemy = -1,
                         targetPlayer = false,
+                        dialogueSelector = $".Played::{Key()}"
                     },
                     new AStatus(){
                         targetPlayer=false,
                         status = Status.heat,
                         statusAmount = 1,
                     },
-                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
             case Upgrade.A:
@@ -94,14 +94,15 @@ internal sealed class DragonTail : Card, IDemoCard
                     new AAttack(){
                         damage = 3,
                         moveEnemy = -3,
-                        targetPlayer = false
+                        targetPlayer = false,
+                        dialogueSelector = $".Played::{Key()}"
                     },
                     new AStatus(){
                         targetPlayer=false,
                         status = Status.heat,
                         statusAmount = 1,
                     },
-                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
+                    
                 };
                 break;
         }

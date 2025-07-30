@@ -63,13 +63,13 @@ internal sealed class ADragonTail : Card, IDemoCard
                         damage = 1,
                         moveEnemy = 1,
                         targetPlayer = false,
+                        dialogueSelector = $".Played::{Key()}"
                     },
                     new AStatus(){
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
                         statusAmount = 1,
-                    },
-                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
+                    }
                     
                 };
                 break;
@@ -95,14 +95,14 @@ internal sealed class ADragonTail : Card, IDemoCard
                     new AAttack(){
                         damage = 3,
                         moveEnemy = 3,
-                        targetPlayer = false
+                        targetPlayer = false,
+                        dialogueSelector = $".Played::{Key()}"
                     },
                     new AStatus(){
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
                         statusAmount = 1,
                     },
-                    new ADummyAction() { dialogueSelector = $".Played::{Key()}" }
                 };
                 break;
         }

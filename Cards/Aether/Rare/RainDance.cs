@@ -36,18 +36,21 @@ internal sealed class RainDance : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 3,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
                     cost = 2,
+                    exhaust=true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
                     cost = 3,
+                    exhaust=true
                 };
                 break;
         }

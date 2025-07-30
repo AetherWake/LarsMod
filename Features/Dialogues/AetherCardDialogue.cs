@@ -25,6 +25,7 @@ internal sealed class AetherCardDialogue : BaseDialogue
             
 			lookup = [$"Played::{new Cards.ADragonTail().Key()}"],
 			allPresent = [aetherType, larsType],
+			oncePerCombat=true,
 
 			lines = [
 				new Say { who = larsType, loopTag = "squint" },
