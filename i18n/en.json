@@ -125,6 +125,9 @@
     },
     "MagicalExpansion": {
       "name": "Magical expansion"
+    },
+    "DummyCard":{
+      "name": "Dummy Card"
     }
   },
   "status": {

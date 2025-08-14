@@ -183,15 +183,17 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Solstice_Character_Blep_0 { get; }
     internal ISpriteEntry Solstice_Character_Death { get; }
     internal IDeckEntry Solstice_Deck { get; }
-    internal IPlayableCharacterEntryV2? Solstice_Character { get; }
+    internal IPlayableCharacterEntryV2 Solstice_Character { get; }
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
-        /* Add more starter cards here if you'd like. */
+    /* Add more starter cards here if you'd like. */
+        typeof(DummyCard)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
+        
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
     ];
@@ -203,10 +205,10 @@ public sealed class ModEntry : SimpleMod
      * Maybe you created a new list for Uncommon cards, and want to add it.
      * If so, you can .Concat(TheUncommonListYouMade) */
     internal static IEnumerable<Type> Solstice_AllCard_Types
-        => AetherCharacter_StarterCard_Types
-        .Concat(AetherCharacter_CommonCard_Types)
-        .Concat(AetherCharacter_UncommonCard_Types)
-        .Concat(AetherCharacter_RareCard_Types);
+        => SolsticeCharacter_StarterCard_Types
+        .Concat(SolsticeCharacter_CommonCard_Types)
+        .Concat(SolsticeCharacter_UncommonCard_Types)
+        .Concat(SolsticeCharacter_RareCard_Types);
 
     internal static IReadOnlyList<Type> Solstice_CommonArtifacts { get; } = [
         typeof(Moisturizer),
@@ -550,20 +552,20 @@ public sealed class ModEntry : SimpleMod
         // Init Solstice again
         Solstice_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardbackground.png"));
         Solstice_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardframe.png"));
-        Solstice_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Background.png"));
-        Solstice_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_0.png"));
-        Solstice_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_1.png"));
-        Solstice_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_2.png"));
-        Solstice_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_3.png"));
-        Solstice_Character_Neutral_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Neutral/Neutral_4.png"));
-        Solstice_Character_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Mini/MiniPortrait.png"));
-        Solstice_Character_Squint_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_0.png"));
-        Solstice_Character_Squint_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_1.png"));
-        Solstice_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_2.png"));
-        Solstice_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_3.png"));
-        Solstice_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_4.png"));
-        Solstice_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Blep/Blep.png"));
-        Solstice_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/GameOver/GameOver.png"));
+        Solstice_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Backgrounds/Background.png"));
+        Solstice_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_0.png"));
+        Solstice_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_1.png"));
+        Solstice_Character_Neutral_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_2.png"));
+        Solstice_Character_Neutral_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_3.png"));
+        Solstice_Character_Neutral_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_4.png"));
+        Solstice_Character_Mini_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Mini/MiniPortrait.png"));
+        Solstice_Character_Squint_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_0.png"));
+        Solstice_Character_Squint_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_1.png"));
+        Solstice_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_2.png"));
+        Solstice_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_3.png"));
+        Solstice_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_4.png"));
+        Solstice_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Blep/Blep.png"));
+        Solstice_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/GameOver/GameOver.png"));
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
          * Do note that Color accepts a HEX string format (like Color("a1b2c3")) or a Float RGB format (like Color(0.63, 0.7, 0.76). It does NOT allow a traditional RGB format (Meaning Color(161, 178, 195) will NOT work) */
@@ -663,7 +665,7 @@ public sealed class ModEntry : SimpleMod
             }
         });
 
-        /*
+
         Solstice_Character = helper.Content.Characters.V2.RegisterPlayableCharacter("Solstice", new PlayableCharacterConfigurationV2()
         {
             Deck = Solstice_Deck.Deck,
@@ -671,7 +673,7 @@ public sealed class ModEntry : SimpleMod
             Starters = new StarterDeck
             {
                 cards = [
-
+                    new DummyCard()
                 ]
             },
 
@@ -679,7 +681,7 @@ public sealed class ModEntry : SimpleMod
 
             BorderSprite = Solstice_Character_Panel.Sprite
         });
-        */
+
 
         /* The basics for a Character mod are done!
          * But you may still have mechanics you want to tackle, such as,
@@ -762,6 +764,7 @@ public sealed class ModEntry : SimpleMod
         _ = new CardDialogue();
         _ = new AetherCombatDialogue();
         _ = new AetherCardDialogue();
+        _ = new SolsticeCardDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
