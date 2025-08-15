@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class SShieldDroneCard : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("ShieldDroneCard", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class DummyCard : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ShieldDroneCard", "name"]).Localize
         });
     }
 
@@ -38,12 +38,12 @@ internal sealed class DummyCard : Card, IDemoCard
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 2
+                    cost = 1
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 3
+                    cost = 2
                 };
                 break;
         }
@@ -59,11 +59,7 @@ internal sealed class DummyCard : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new AttackDrone(),
-                    },
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=1
+                        thing=new ShieldDrone(){targetPlayer=true}
                     }
                     
                 };
@@ -71,20 +67,20 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
+                    new ASpawn(){
+                        thing=new ShieldDrone(){targetPlayer=true, bubbleShield=true}
                     }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
+                    new ASpawn(){
+                        thing=new ShieldDrone(){targetPlayer=true},
+                        offset=-1
+                    },
+                    new ASpawn(){
+                        thing=new ShieldDrone(){targetPlayer=true}
                     }
                 };
                 break;

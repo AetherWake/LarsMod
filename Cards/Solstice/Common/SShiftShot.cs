@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class SShiftShot : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("ShiftShot", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class DummyCard : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ShiftShot", "name"]).Localize
         });
     }
 
@@ -38,12 +38,12 @@ internal sealed class DummyCard : Card, IDemoCard
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 2
+                    cost = 1
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 3
+                    cost = 1
                 };
                 break;
         }
@@ -58,12 +58,9 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(),
-                    },
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=1
+                    new AAttack(){
+                        damage=1,
+                        moveEnemy=-2
                     }
                     
                 };
@@ -72,9 +69,8 @@ internal sealed class DummyCard : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
+                        damage=2,
+                        moveEnemy=-2
                     }
                 };
                 break;
@@ -82,9 +78,8 @@ internal sealed class DummyCard : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
+                        damage=1,
+                        moveEnemy=-3
                     }
                 };
                 break;

@@ -126,9 +126,81 @@
     "MagicalExpansion": {
       "name": "Magical expansion"
     },
+    
+
     "DummyCard":{
       "name": "Dummy Card"
+    },
+    "AttackDroneCard":{
+      "name": "Attack Drone"
+    },
+    "FlexMove":{
+      "name": "Flex Move"
+    },
+    "MissileShot":{
+      "name": "Missile Shot"
+    },
+    "ParallelShift":{
+      "name": "Parallel Shift"
+    },
+    "Pebble":{
+      "name": "Pebble"
+    },
+    "ShieldDroneCard":{
+      "name": "Shield Drone"
+    },
+    "ShiftShot":{
+      "name": "Shift Shot"
+    },
+    "SmallBoulder":{
+      "name": "Small Boulder"
+    },
+    "SolidBreeze":{
+      "name": "Solid Breeze"
+    },
+    "SpaceMineCard":{
+      "name": "Space Mine"
+    },
+    "Battalion":{
+      "name": "Battalion"
+    },
+    "BoulderBundle":{
+      "name": "Boulder Bundle",
+      "description": "Gain 1 droneshift and 3 <c=Card>Pebble</c>.",
+      "description_a": "Gain 3 droneshift and 3 <c=Card>Pebble</c>.",
+      "description_b": "Gain 3 <c=Card>Pebble A</c>."
+    },
+    "SBubbleField":{
+      "name": "Bubble Field"
+    },
+    "SLargeBoulders":{
+      "name": "Large Boulders"
+    },
+    "SRadioControl":{
+      "name": "Radio control"
+    },
+    "SRepairKit":{
+      "name": "Repair Kit"
+    },
+    "SStrikerSquadron":{
+      "name": "Striker Squadron"
+    },
+    "SBayOverload":{
+      "name": "Bay Overload"
+    },
+    "SEnergyDrone":{
+      "name": "Energy Drone"
+    },
+    "SJupiterDrone":{
+      "name": "Jupiter Drone"
+    },
+    "SRockFactory":{
+      "name": "Rock Factory"
+    },
+    "SScatterShot":{
+      "name": "Scatter Shot"
     }
+
   },
   "status": {
     "AutododgeLeftNextTurn": {

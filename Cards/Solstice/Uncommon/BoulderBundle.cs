@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class BoulderBundle : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("BoulderBundle", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BoulderBundle", "name"]).Localize
         });
     }
 
@@ -33,17 +33,25 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
+                    exhaust = true,
+                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description"])
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 2
+                data = new CardData()
+                {
+                    cost = 2,
+                    exhaust = true,
+                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description_a"])
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 3
+                data = new CardData()
+                {
+                    cost = 2,
+                    exhaust = true,
+                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description_b"])
                 };
                 break;
         }
@@ -58,12 +66,14 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(),
-                    },
                     new AStatus(){
+                        targetPlayer=true,
                         status=Status.droneShift,
                         statusAmount=1
+                    },
+                    new AAddCard(){
+                        card=new SPebble(),
+                        amount=3
                     }
                     
                 };
@@ -71,20 +81,23 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
+                    new AStatus(){
+                        targetPlayer=true,
+                        status=Status.droneShift,
+                        statusAmount=3
+                    },
+                    new AAddCard(){
+                        card=new SPebble(),
+                        amount=3
                     }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
+                    new AAddCard(){
+                        card=new SPebble(){upgrade=Upgrade.A},
+                        amount=3
                     }
                 };
                 break;

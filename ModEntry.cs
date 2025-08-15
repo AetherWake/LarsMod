@@ -186,19 +186,39 @@ public sealed class ModEntry : SimpleMod
     internal IPlayableCharacterEntryV2 Solstice_Character { get; }
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
     /* Add more starter cards here if you'd like. */
-        typeof(DummyCard)
+        typeof(SAttackDroneCard),
+        typeof(ParallelShift)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
-        
+        typeof(SFlexMove),
+        typeof(MissileShot),
+        typeof(SPebble),
+        typeof(SShieldDroneCard),
+        typeof(SShiftShot),
+        typeof(SSmallBoulder),
+        typeof(SolidBreeze),
+        typeof(SSpaceMineCard)
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
+        typeof(SBattalion),
+        typeof(BoulderBundle),
+        typeof(SBubbleField),
+        typeof(SLargeBoulders),
+        typeof(SRadioControl),
+        typeof(SRepairKit),
+        typeof(SStrikerSquadron),
     ];
 
     internal static IReadOnlyList<Type> SolsticeCharacter_RareCard_Types { get; } = [
+        typeof(SBayOverload),
+        typeof(SEnergyDrone),
+        typeof(SJupiterDrone),
+        typeof(SRockFactory),
+        typeof(SScatterShot)
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
@@ -550,8 +570,8 @@ public sealed class ModEntry : SimpleMod
 
 
         // Init Solstice again
-        Solstice_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardbackground.png"));
-        Solstice_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Backgrounds/Aether_cardframe.png"));
+        Solstice_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Backgrounds/Solstice_cardbackground.png"));
+        Solstice_Character_CardFrame = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Backgrounds/Solstice_cardframe.png"));
         Solstice_Character_Panel = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Backgrounds/Background.png"));
         Solstice_Character_Neutral_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_0.png"));
         Solstice_Character_Neutral_1 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Neutral/Neutral_1.png"));
@@ -673,7 +693,8 @@ public sealed class ModEntry : SimpleMod
             Starters = new StarterDeck
             {
                 cards = [
-                    new DummyCard()
+                    new AttackDroneCard(),
+                    new ParallelShift()
                 ]
             },
 

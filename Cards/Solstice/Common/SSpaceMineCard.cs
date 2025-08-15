@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class SSpaceMineCard : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("SpaceMineCard", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class DummyCard : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SpaceMineCard", "name"]).Localize
         });
     }
 
@@ -38,12 +38,14 @@ internal sealed class DummyCard : Card, IDemoCard
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 2
+                    cost = 1,
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 3
+                data = new CardData()
+                {
+                    cost = 1,
+                    flippable=true
                 };
                 break;
         }
@@ -59,33 +61,28 @@ internal sealed class DummyCard : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new AttackDrone(),
+                        thing=new SpaceMine(),
                     },
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=1
-                    }
                     
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
-                    }
+                    new ASpawn(){
+                        thing=new SpaceMine(){ bigMine=true},
+                    },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
-                    }
+                    new ASpawn(){
+                        thing=new SpaceMine(){},
+                    },
+                    new ADroneMove(){
+                        dir=1
+                    },
                 };
                 break;
         }

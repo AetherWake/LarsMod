@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class SBayOverload : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("SBayOverload", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SBayOverload", "name"]).Localize
         });
     }
 
@@ -33,17 +33,22 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 0,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 2
+                data = new CardData()
+                {
+                    cost = 0,
+                    exhaust=true
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 3
+                data = new CardData()
+                {
+                    cost = 0,
+                    exhaust=true
                 };
                 break;
         }
@@ -58,33 +63,31 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(),
-                    },
+                    new AEnergy(){changeAmount=3},
                     new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=1
+                        status =Status.backwardsMissiles,
+                        statusAmount=2
                     }
-                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
+                    new ADrawCard(){count=1},
+                    new AEnergy(){changeAmount=3},
+                    new AStatus(){
+                        status =Status.backwardsMissiles,
+                        statusAmount=2
                     }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
+                    new AEnergy(){changeAmount=2},
+                    new AStatus(){
+                        status =Status.backwardsMissiles,
+                        statusAmount=1
                     }
                 };
                 break;

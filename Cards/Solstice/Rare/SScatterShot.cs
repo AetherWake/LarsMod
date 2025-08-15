@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class DummyCard : Card, IDemoCard
+internal sealed class SScatterShot : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("DummyCard", new()
+        helper.Content.Cards.RegisterCard("SScatterShot", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DummyCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SScatterShot", "name"]).Localize
         });
     }
 
@@ -33,17 +33,20 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 2
+                data = new CardData()
+                {
+                    cost = 2,
+                    flippable=true
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 3
+                data = new CardData()
+                {
+                    cost = 2,
                 };
                 break;
         }
@@ -58,23 +61,24 @@ internal sealed class DummyCard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(),
+                    new AAttack(){
+                        damage=1,
+                        moveEnemy=2
                     },
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=1
+                    new AMove(){
+                        dir=-2
                     }
-                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 2,
-                        targetPlayer = false,
-                        moveEnemy = 2,
+                        damage=1,
+                        moveEnemy=2
+                    },
+                    new AMove(){
+                        dir=-2
                     }
                 };
                 break;
@@ -82,9 +86,11 @@ internal sealed class DummyCard : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 3,
-                        moveEnemy = 3,
-                        targetPlayer = false
+                        damage=3,
+                        moveEnemy=2
+                    },
+                    new AMove(){
+                        dir=-2
                     }
                 };
                 break;
