@@ -201,7 +201,8 @@ public sealed class ModEntry : SimpleMod
         typeof(SShiftShot),
         typeof(SSmallBoulder),
         typeof(SolidBreeze),
-        typeof(SSpaceMineCard)
+        typeof(SSpaceMineCard),
+        typeof(LeechShot)
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
         typeof(SBattalion),
