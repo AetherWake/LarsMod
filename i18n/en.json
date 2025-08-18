@@ -202,6 +202,12 @@
     }
 
   },
+  "midrow": {
+		"BoostBall": {
+			"name": "Boost Ball",
+			"description": "Gives boost to the whoever destroys it"
+		}
+	},
   "status": {
     "AutododgeLeftNextTurn": {
       "name": "Autododge Left Next Turn",

@@ -32,8 +32,7 @@ internal sealed class SolsticeCardDialogue : BaseDialogue
 			lines = [
                 new Say {who = larsType, loopTag= "blep"},
 				new Say { who = aetherType, loopTag = "neutral" },
-                new Say { who = solsticeType, loopTag = "neutral"},
-                new Say { who = "comp", loopTag = "neutral"}
+                new Say { who = solsticeType, loopTag = "neutral"}
 			],
 		};
 	}

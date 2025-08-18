@@ -1,34 +1,35 @@
 // C:\Users\Administrator\Desktop\PROJECT\LarsMod\obj\Debug\net8.0\CobaltCore.dll
 // Decompiled with ICSharpCode.Decompiler 9.1.0.7988
 
+using System;
 using System.Collections.Generic;
+using AetherWake.LarsMod;
+using Nanoray.PluginManager;
+using Nickel;
 
-public class BoostBall : StuffBase
+public class BoostBall : StuffBase, IRegisterable
 {
     public double particlesToEmit;
 
+    private static ISpriteEntry DroneSprite = null!;
+	private static ISpriteEntry DroneIcon = null!;
+
+    public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
+	{
+		DroneSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/SmartShieldDrone.png"));
+		DroneIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/SmartShieldDroneIcon.png"));
+	}
     public override List<Tooltip> GetTooltips()
-    {
-        List<Tooltip> list = new List<Tooltip>
-        {
-            new GlossaryTooltip($"midrow.{ModEntry.Instance.Package.Manifest.UniqueName}::SmartShieldDrone")
+     => [
+         new GlossaryTooltip($"midrow.{ModEntry.Instance.Package.Manifest.UniqueName}::BoostBall")
             {
                 Icon = DroneIcon.Sprite,
                 TitleColor = Colors.midrow,
-                Title = ModEntry.Instance.Localizations.Localize(["midrow", "SmartShieldDrone", "name"]),
-                Description = ModEntry.Instance.Localizations.Localize(["midrow", "SmartShieldDrone", "description"]),
+                Title = ModEntry.Instance.Localizations.Localize(["midrow", "BoostBall", "name"]),
+                Description = ModEntry.Instance.Localizations.Localize(["midrow", "BoostBall", "description"]),
             },
-            .. new SmartShieldAction { Amount = 1 }.GetTooltips(DB.fakeState),
-            .. (bubbleShield ? [new TTGlossary("midrow.bubbleShield")] : Array.Empty<Tooltip>())
-
-        };
-        if (bubbleShield)
-        {
-            list.Add(new TTGlossary("midrow.bubbleShield"));
-        }
-
-        return list;
-    }
+            .. bubbleShield ? [new TTGlossary("midrow.bubbleShield")] : Array.Empty<Tooltip>()
+     ];
 
     public override Spr? GetIcon()
     {

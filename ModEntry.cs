@@ -222,6 +222,10 @@ public sealed class ModEntry : SimpleMod
         typeof(SScatterShot)
     ];
 
+    private static readonly IEnumerable<Type> RegisterableTypes = [
+		typeof(BoostBall)
+    ];
+
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
      * Maybe you created a new list for Uncommon cards, and want to add it.
      * If so, you can .Concat(TheUncommonListYouMade) */
@@ -745,6 +749,13 @@ public sealed class ModEntry : SimpleMod
             AccessTools.DeclaredMethod(artifactType, nameof(IDemoArtifact.Register))?.Invoke(null, [helper]);
         }
 
+        foreach (var registerableType in RegisterableTypes)
+        {
+            AccessTools.DeclaredMethod(registerableType, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);
+        }
+
+        
+
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
 
@@ -775,6 +786,8 @@ public sealed class ModEntry : SimpleMod
             Description = AnyLocalizations.Bind(["status", "RainDance", "description"]).Localize,
 
         });
+
+        
 
 
 

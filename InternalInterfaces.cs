@@ -1,4 +1,5 @@
-﻿using Nickel;
+﻿using Nanoray.PluginManager;
+using Nickel;
 
 namespace AetherWake.LarsMod;
 
@@ -15,5 +16,10 @@ internal interface IDemoArtifact
 {
     protected static ModEntry Instance => ModEntry.Instance;
     static abstract void Register(IModHelper helper);
-    protected internal void ApplyPatches(IHarmony harmony){}
+    protected internal void ApplyPatches(IHarmony harmony) { }
+}
+
+internal interface IRegisterable
+{
+    static abstract void Register(IPluginPackage<IModManifest> package, IModHelper helper);
 }
