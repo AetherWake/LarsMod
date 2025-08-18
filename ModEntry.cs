@@ -196,7 +196,7 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
         typeof(SFlexMove),
         typeof(MissileShot),
-        typeof(SPebble),
+        typeof(PoisonSpit),
         typeof(SShieldDroneCard),
         typeof(SShiftShot),
         typeof(SSmallBoulder),
@@ -210,7 +210,7 @@ public sealed class ModEntry : SimpleMod
         typeof(SBubbleField),
         typeof(SLargeBoulders),
         typeof(SRadioControl),
-        typeof(SRepairKit),
+        typeof(NanobotsPayload),
         typeof(SStrikerSquadron),
     ];
 

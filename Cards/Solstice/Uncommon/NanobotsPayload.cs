@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SPebble : Card, IDemoCard
+internal sealed class NanobotsPayload : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("Pebble", new()
+        helper.Content.Cards.RegisterCard("NanobotsPayload", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Pebble", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "NanobotsPayload", "name"]).Localize
         });
     }
 
@@ -33,24 +33,22 @@ internal sealed class SPebble : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust = true,
-                    temporary=true
+                    cost = 2,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 0,
-                    exhaust = true,
-                    temporary=true
+                data = new CardData()
+                {
+                    cost = 1,
+                    exhaust=true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
                     cost = 0,
-                    exhaust = true,
-                    temporary=true
+                    exhaust=true
                 };
                 break;
         }
@@ -65,31 +63,20 @@ internal sealed class SPebble : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                    },
-                    
+                    new ASpawn(){thing=new BoostBall()}
+
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Asteroid(){bubbleShield=true},
-                    },
+                    new ASpawn(){thing=new BoostBall()}
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Asteroid(){bubbleShield=true},
-                        offset=-1
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(){bubbleShield=true},
-                        offset=1
-                    },
+                    new ASpawn(){thing=new BoostBall(), offset=4}
                 };
                 break;
         }

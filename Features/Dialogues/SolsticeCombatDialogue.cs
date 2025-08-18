@@ -11,6 +11,8 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		var solsticeType = ModEntry.Instance.Solstice_Character!.CharacterType;
 		var newNodes = new Dictionary<IReadOnlyList<string>, StoryNode>();
 		var saySwitchNodes = new Dictionary<IReadOnlyList<string>, Say>();
+		var larsType 	= ModEntry.Instance.Lars_Character.CharacterType;
+		var aetherType 	= ModEntry.Instance.Aether_Character.CharacterType;
 
 		ModEntry.Instance.Helper.Events.OnModLoadPhaseFinished += (_, phase) =>
 		{
@@ -460,6 +462,17 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			oncePerCombatTags = ["aboutToDie"],
 			oncePerRun = true,
 			allPresent = [solsticeType, "comp"],
+			lines = [
+				new Say { who = solsticeType, loopTag = "squint" },
+				new Say { who = "comp", loopTag = "squint" },
+			],
+		};
+		newNodes[["AboutToDie", "Lars"]] = new()
+		{
+			maxHull = 2,
+			oncePerCombatTags = ["aboutToDie"],
+			oncePerRun = true,
+			allPresent = [solsticeType, larsType, aetherType],
 			lines = [
 				new Say { who = solsticeType, loopTag = "squint" },
 				new Say { who = "comp", loopTag = "squint" },

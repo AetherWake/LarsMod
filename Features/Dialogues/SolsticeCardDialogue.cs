@@ -22,17 +22,18 @@ internal sealed class SolsticeCardDialogue : BaseDialogue
 		};
 		ModEntry.Instance.Helper.Events.OnLoadStringsForLocale += (_, e) => InjectLocalizations(newNodes, [], [], aetherType, e);
 
-        newNodes[["DummyCard", "UpgradeNone", "LarsAether"]] = new()
+        newNodes[["ParallelShift", "UpgradeNone", "LarsAether"]] = new()
 		{
             
-			lookup = [$"Played::{new Cards.DummyCard().Key()}"],
+			lookup = [$"Played::{new Cards.ParallelShift().Key()}"],
 			allPresent = [solsticeType, aetherType, larsType],
 			oncePerCombat=false,
             priority=true,
 			lines = [
                 new Say {who = larsType, loopTag= "blep"},
 				new Say { who = aetherType, loopTag = "neutral" },
-                new Say { who = solsticeType, loopTag = "neutral"}
+                new Say { who = solsticeType, loopTag = "neutral"},
+                new Say { who = "comp", loopTag = "neutral"}
 			],
 		};
 	}

@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SRepairKit : Card, IDemoCard
+internal sealed class PoisonSpit : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SRepairKit", new()
+        helper.Content.Cards.RegisterCard("PoisonSpit", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SRepairKit", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "PoisonSpit", "name"]).Localize
         });
     }
 
@@ -33,22 +33,21 @@ internal sealed class SRepairKit : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust=true
+                    cost = 0,
+                    exhaust = true,
                 };
                 break;
             case Upgrade.A:
-                data = new CardData()
-                {
-                    cost = 1,
-                    exhaust=true
+                data = new CardData(){
+                    cost = 0,
+                    exhaust = true,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
                     cost = 0,
-                    exhaust=true
+                    exhaust = true,
                 };
                 break;
         }
@@ -63,20 +62,29 @@ internal sealed class SRepairKit : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){thing=new RepairKit()}
-
+                    new ASpawn(){
+                        thing=new Asteroid(),
+                    },
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){thing=new RepairKit()}
+                    new AAttack(){ damage=0, status = Status.corrode, statusAmount = 1 }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){thing=new RepairKit(), offset=4}
+                    new ASpawn(){
+                        thing=new Asteroid(){bubbleShield=true},
+                        offset=-1
+                    },
+                    new ASpawn(){
+                        thing=new Asteroid(){bubbleShield=true},
+                        offset=1
+                    },
                 };
                 break;
         }

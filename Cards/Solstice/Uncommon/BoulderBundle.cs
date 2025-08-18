@@ -72,7 +72,7 @@ internal sealed class BoulderBundle : Card, IDemoCard
                         statusAmount=1
                     },
                     new AAddCard(){
-                        card=new SPebble(),
+                        card=new Pebble(),
                         amount=3
                     }
                     
@@ -87,7 +87,7 @@ internal sealed class BoulderBundle : Card, IDemoCard
                         statusAmount=3
                     },
                     new AAddCard(){
-                        card=new SPebble(),
+                        card=new Pebble(),
                         amount=3
                     }
                 };
@@ -96,7 +96,7 @@ internal sealed class BoulderBundle : Card, IDemoCard
                 actions = new()
                 {
                     new AAddCard(){
-                        card=new SPebble(){upgrade=Upgrade.A},
+                        card=new Pebble(){upgrade=Upgrade.A},
                         amount=3
                     }
                 };

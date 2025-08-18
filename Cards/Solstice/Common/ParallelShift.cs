@@ -61,7 +61,8 @@ internal sealed class ParallelShift : Card, IDemoCard
                     new AStatus(){
                         status=Status.droneShift,
                         statusAmount=1,
-                        targetPlayer=true
+                        targetPlayer=true,
+                        dialogueSelector = $".Played::{Key()}"
                     },
                     new ADroneMove(){
                         dir=1
