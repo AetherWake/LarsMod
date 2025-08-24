@@ -67,11 +67,6 @@ internal sealed class WideGuard : Card, IDemoCard
                         thing =new ShieldDrone(),
                         offset=-1
                     },
-                    new ASpawn(){
-                        thing =new AttackDrone(),
-                        offset=1,
-                        omitFromTooltips=true
-                    },
                 };
                 break;
             case Upgrade.A:
