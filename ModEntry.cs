@@ -754,7 +754,7 @@ public sealed class ModEntry : SimpleMod
             AccessTools.DeclaredMethod(registerableType, nameof(IRegisterable.Register))?.Invoke(null, [package, helper]);
         }
 
-        
+
 
 
         /* With the parts and sprites done, we can now create our Ship a bit more easily */
@@ -787,7 +787,7 @@ public sealed class ModEntry : SimpleMod
 
         });
 
-        
+
 
 
 
@@ -800,6 +800,7 @@ public sealed class ModEntry : SimpleMod
         _ = new AetherCombatDialogue();
         _ = new AetherCardDialogue();
         _ = new SolsticeCardDialogue();
+        _ = new SolsticeCombatDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
