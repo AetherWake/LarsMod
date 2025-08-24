@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SRadioControl : Card, IDemoCard
+internal sealed class WideGuard : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SRadioControl", new()
+        helper.Content.Cards.RegisterCard("WideGuard", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SRadioControl", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "WideGuard", "name"]).Localize
         });
     }
 
@@ -33,20 +33,22 @@ internal sealed class SRadioControl : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0
+                    cost = 3,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
-                    retain=true
+                    cost = 2,
+                    exhaust = true,
+                    buoyant = true
                 };
                 break;
         }
@@ -61,20 +63,43 @@ internal sealed class SRadioControl : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ADroneTurn(),
-
+                    new ASpawn(){
+                        thing =new ShieldDrone(),
+                        offset=-1
+                    },
+                    new ASpawn(){
+                        thing =new AttackDrone(),
+                        offset=1,
+                        omitFromTooltips=true
+                    },
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ADroneTurn(),
+                    new ASpawn(){
+                        thing =new ShieldDrone(),
+                        offset=-1
+                    },
+                    new ASpawn(){
+                        thing =new AttackDrone(){upgraded=true},
+                        offset=1,
+                        omitFromTooltips=true
+                    }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ADroneTurn(),
+                    new ASpawn(){
+                        thing =new ShieldDrone(),
+                        offset=-1
+                    },
+                    new ASpawn(){
+                        thing =new AttackDrone(){upgraded=true},
+                        offset=1,
+                        omitFromTooltips=true
+                    }
                 };
                 break;
         }

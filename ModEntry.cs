@@ -186,8 +186,8 @@ public sealed class ModEntry : SimpleMod
     internal IPlayableCharacterEntryV2 Solstice_Character { get; }
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
     /* Add more starter cards here if you'd like. */
-        typeof(SAttackDroneCard),
-        typeof(ParallelShift)
+        typeof(WideGuard),
+        typeof(DefogShift)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
@@ -195,10 +195,10 @@ public sealed class ModEntry : SimpleMod
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
         typeof(SFlexMove),
-        typeof(MissileShot),
+        typeof(BulletSeed),
         typeof(PoisonSpit),
         typeof(SShieldDroneCard),
-        typeof(SShiftShot),
+        typeof(FranticFlail),
         typeof(SSmallBoulder),
         typeof(SolidBreeze),
         typeof(SSpaceMineCard),
@@ -206,10 +206,10 @@ public sealed class ModEntry : SimpleMod
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
         typeof(SBattalion),
-        typeof(BoulderBundle),
-        typeof(SBubbleField),
+        typeof(CalmMind),
+        typeof(PhotoSynthesis),
         typeof(SLargeBoulders),
-        typeof(SRadioControl),
+        typeof(ScaleShot),
         typeof(NanobotsPayload),
         typeof(SStrikerSquadron),
     ];
@@ -217,9 +217,9 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> SolsticeCharacter_RareCard_Types { get; } = [
         typeof(SBayOverload),
         typeof(SEnergyDrone),
-        typeof(SJupiterDrone),
-        typeof(SRockFactory),
-        typeof(SScatterShot)
+        typeof(OutrageProtocol),
+        typeof(ShadowPanic),
+        typeof(MirrorCoat)
     ];
 
     private static readonly IEnumerable<Type> RegisterableTypes = [
@@ -699,7 +699,7 @@ public sealed class ModEntry : SimpleMod
             {
                 cards = [
                     new AttackDroneCard(),
-                    new ParallelShift()
+                    new DefogShift()
                 ]
             },
 

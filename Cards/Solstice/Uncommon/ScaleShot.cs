@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SAttackDroneCard : Card, IDemoCard
+internal sealed class ScaleShot : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("AttackDroneCard", new()
+        helper.Content.Cards.RegisterCard("ScaleShot", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class SAttackDroneCard : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "AttackDroneCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ScaleShot", "name"]).Localize
         });
     }
 
@@ -34,16 +34,20 @@ internal sealed class SAttackDroneCard : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 1,
+                    exhaust = true,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 1
+                    cost = 2,
+                    exhaust = true,
+                    description = ModEntry.Instance.Localizations.Localize(["card", "ScaleShot", "description_a"])
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 1
+                data = new CardData()
+                {
+                    cost = 1,
                 };
                 break;
         }
@@ -52,34 +56,28 @@ internal sealed class SAttackDroneCard : Card, IDemoCard
     public override List<CardAction> GetActions(State s, Combat c)
     {
         List<CardAction> actions = new();
-
+        
+int cannonshot = (false ? c.otherShip : s.ship).parts.FindIndex((Part p) => p.type == PType.cannon && p.active);
         switch (upgrade)
         {
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(),
-                    }
-                    
+                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 }
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new AttackDrone(){upgraded=true},
-                    }
+                    new AAttack(){ damage=0, status = Status.boost, statusAmount = 1, fromX = cannonshot-1 },
+                    new AAttack(){ damage=0, status = Status.boost, statusAmount = 1, fromX = cannonshot+1 }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    
-                    new ASpawn(){
-                        thing=new AttackDrone(){bubbleShield=true },
-                    }
-                    
+                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 },
+                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 }
                 };
                 break;
         }

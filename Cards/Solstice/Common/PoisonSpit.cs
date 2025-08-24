@@ -33,21 +33,20 @@ internal sealed class PoisonSpit : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 1,
                     exhaust = true,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 0,
+                    cost = 2,
                     exhaust = true,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust = true,
+                    cost = 3,
                 };
                 break;
         }
@@ -62,29 +61,19 @@ internal sealed class PoisonSpit : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                    },
-                    
+                    new AAttack(){ damage=0, status = Status.corrode, statusAmount = 1 }
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=0, status = Status.corrode, statusAmount = 1 }
+                    new AAttack(){ damage=0, status = Status.corrode, statusAmount = 2 }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Asteroid(){bubbleShield=true},
-                        offset=-1
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(){bubbleShield=true},
-                        offset=1
-                    },
+                    new AAttack(){ damage=4, status = Status.corrode, statusAmount = 1 }
                 };
                 break;
         }

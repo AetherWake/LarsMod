@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SShiftShot : Card, IDemoCard
+internal sealed class BulletSeed : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("ShiftShot", new()
+        helper.Content.Cards.RegisterCard("BulletSeed", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class SShiftShot : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ShiftShot", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BulletSeed", "name"]).Localize
         });
     }
 
@@ -33,17 +33,17 @@ internal sealed class SShiftShot : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 1
+                    cost = 3
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 1
+                    cost = 2
                 };
                 break;
         }
@@ -58,29 +58,34 @@ internal sealed class SShiftShot : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=1,
-                        moveEnemy=-2
-                    }
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.normal},
+                    },
+                    new AAttack(){ damage=1},
+                    new AAttack(){ damage=1}
                     
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=2,
-                        moveEnemy=-2
-                    }
+                    new ASpawn(){
+                        thing =new AttackDrone(),
+                        omitFromTooltips=true
+                    },
+                    new AAttack(){ damage=1},
+                    new AAttack(){ damage=1},
+                    new AAttack(){ damage=1}
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=1,
-                        moveEnemy=-3
-                    }
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.corrode},
+                    },
+                    new AAttack(){damage=0, piercing=true},
+                    new AAttack(){damage=0, piercing=true},
                 };
                 break;
         }

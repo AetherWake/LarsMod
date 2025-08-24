@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class ParallelShift : Card, IDemoCard
+internal sealed class DefogShift : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("ParallelShift", new()
+        helper.Content.Cards.RegisterCard("DefogShift", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class ParallelShift : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ParallelShift", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "DefogShift", "name"]).Localize
         });
     }
 
@@ -34,16 +34,19 @@ internal sealed class ParallelShift : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 1,
+                    flippable = true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 1
+                    cost = 2
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 1
+                data = new CardData()
+                {
+                    cost = 2,
+                    flippable = true
                 };
                 break;
         }
@@ -59,13 +62,13 @@ internal sealed class ParallelShift : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.droneShift,
+                        status = Status.droneShift,
                         statusAmount=1,
                         targetPlayer=true,
-                        dialogueSelector = $".Played::{Key()}"
                     },
-                    new ADroneMove(){
-                        dir=1
+                    new AMove(){
+                        dir=1,
+                        targetPlayer=true,
                     }
                     
                 };
@@ -74,20 +77,35 @@ internal sealed class ParallelShift : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=2,
-                        targetPlayer=true
+                        status = Status.droneShift,
+                        statusAmount=3,
+                        targetPlayer=true,
                     },
+                    new AMove(){
+                        dir=1,
+                        targetPlayer=true,
+                    }
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=3,
-                        targetPlayer=true
+                        status = Status.droneShift,
+                        statusAmount=1,
+                        targetPlayer=true,
                     },
+                    new AStatus(){
+                        status = Status.evade,
+                        statusAmount=1,
+                        targetPlayer=true,
+                    },
+                    new AMove(){
+                        dir=1,
+                        targetPlayer=true,
+                    }
+                    
                 };
                 break;
         }

@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class BoulderBundle : Card, IDemoCard
+internal sealed class MirrorCoat : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("BoulderBundle", new()
+        helper.Content.Cards.RegisterCard("MirrorCoat", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BoulderBundle", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "MirrorCoat", "name"]).Localize
         });
     }
 
@@ -34,24 +34,20 @@ internal sealed class BoulderBundle : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 2,
-                    exhaust = true,
-                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description"])
+                    exhaust = true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
                     cost = 2,
-                    exhaust = true,
-                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description_a"])
+                    exhaust=true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
                     cost = 2,
-                    exhaust = true,
-                    description= ModEntry.Instance.Localizations.Localize(["card", "BoulderBundle", "description_b"])
                 };
                 break;
         }
@@ -66,39 +62,34 @@ internal sealed class BoulderBundle : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AStatus(){
-                        targetPlayer=true,
-                        status=Status.droneShift,
-                        statusAmount=1
+                    new AAttack(){ damage=1, piercing = true},
+                    new AStatus
+                    {
+                        status = Status.backwardsMissiles,
+                        statusAmount = 1,
                     },
-                    new AAddCard(){
-                        card=new Pebble(),
-                        amount=3
-                    }
-                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AStatus(){
-                        targetPlayer=true,
-                        status=Status.droneShift,
-                        statusAmount=3
-                    },
-                    new AAddCard(){
-                        card=new Pebble(),
-                        amount=3
-                    }
+                    new AAttack(){ damage=1, piercing = true, status = Status.backwardsMissiles},
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAddCard(){
-                        card=new Pebble(){upgrade=Upgrade.A},
-                        amount=3
-                    }
+                    new AStatus
+                    {
+                        status = Status.backwardsMissiles,
+                        statusAmount = 1,
+                    },
+                    new AStatus
+                    {
+                        status = Status.tempPayback,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
                 };
                 break;
         }

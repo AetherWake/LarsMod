@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SRockFactory : Card, IDemoCard
+internal sealed class CalmMind : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SRockFactory", new()
+        helper.Content.Cards.RegisterCard("CalmMind", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SRockFactory", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "CalmMind", "name"]).Localize
         });
     }
 
@@ -33,22 +33,19 @@ internal sealed class SRockFactory : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
-                    exhaust=true
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust=true
+                    cost = 2,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
-                    exhaust=true
+                    cost = 3,
                 };
                 break;
         }
@@ -65,7 +62,13 @@ internal sealed class SRockFactory : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.rockFactory,
+                        status = Status.maxShield,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
+                    new AStatus
+                    {
+                        status = Status.boost,
                         statusAmount = 1,
                         targetPlayer = true,
                     }
@@ -76,9 +79,20 @@ internal sealed class SRockFactory : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.rockFactory,
+                        status = Status.maxShield,
                         statusAmount = 1,
                         targetPlayer = true,
+                    },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 1,
                     }
                 };
                 break;
@@ -87,15 +101,21 @@ internal sealed class SRockFactory : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.rockFactory,
+                        status = Status.maxShield,
                         statusAmount = 1,
                         targetPlayer = true,
                     },
-                    new ASpawn(){
-                        thing= new Asteroid()
+                    new AStatus
+                    {
+                        status = Status.serenity,
+                        statusAmount = 1,
+                        targetPlayer = true,
                     },
-                    new ASpawn(){
-                        thing= new Asteroid(), offset=1
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 1,
+                        targetPlayer = true,
                     }
                 };
                 break;

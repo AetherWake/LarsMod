@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SBubbleField : Card, IDemoCard
+internal sealed class OutrageProtocol : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SBubbleField", new()
+        helper.Content.Cards.RegisterCard("OutrageProtocol", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.rare,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SBubbleField", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "OutrageProtocol", "name"]).Localize
         });
     }
 
@@ -33,19 +33,21 @@ internal sealed class SBubbleField : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2
+                    cost = 2,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 2
+                    cost = 3,
+                    exhaust=true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 1,
                     exhaust=true
                 };
                 break;
@@ -61,26 +63,34 @@ internal sealed class SBubbleField : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ABubbleField()
-                    
+                    new ASpawn(){thing=new JupiterDrone()},
+                    new ASpawn(){thing=new DualDrone(), offset = -1},
+                    new AStatus
+                    {
+                        status = Status.payback,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ABubbleField(),
+                    new ASpawn(){thing=new JupiterDrone()},
+                    new ASpawn(){thing=new DualDrone(), offset = 1},
+                    new ASpawn(){thing=new DualDrone(), offset = -1},
                     new AStatus
                     {
-                        status = Status.droneShift,
-                        statusAmount = 2,
-                        targetPlayer = true
-                    }
-                    };
+                        status = Status.payback,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
+                };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ABubbleField()
+                    new ASpawn(){thing=new JupiterDrone(){bubbleShield=true}}
                 };
                 break;
         }

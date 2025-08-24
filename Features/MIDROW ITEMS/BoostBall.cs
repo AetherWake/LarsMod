@@ -33,7 +33,7 @@ public class BoostBall : StuffBase, IRegisterable
 
     public override Spr? GetIcon()
     {
-        return Spr.icons_repairKit;
+        return DroneIcon.Sprite;
     }
 
     public override string GetDialogueTag()
@@ -54,7 +54,7 @@ public class BoostBall : StuffBase, IRegisterable
     public override void Render(G g, Vec v)
     {
         Vec offset = GetOffset(g);
-        DrawWithHilight(g, Spr.drones_repairKit, v + offset, Mutil.Rand((double)x + 0.1) > 0.5);
+        DrawWithHilight(g, DroneSprite.Sprite, v + offset, Mutil.Rand((double)x + 0.1) > 0.5);
         particlesToEmit += g.dt * 20.0;
         while (particlesToEmit >= 1.0)
         {

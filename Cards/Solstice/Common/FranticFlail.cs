@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SJupiterDrone : Card, IDemoCard
+internal sealed class FranticFlail : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SJupiterDrone", new()
+        helper.Content.Cards.RegisterCard("FranticFlail", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SJupiterDrone", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "FranticFlail", "name"]).Localize
         });
     }
 
@@ -33,22 +33,20 @@ internal sealed class SJupiterDrone : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
-                    exhaust=true
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
-                data = new CardData()
-                {
-                    cost = 0,
-                    exhaust=true
+                data = new CardData(){
+                    cost = 3
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
-                    exhaust=true
+                    cost = 3,
+                    flippable = true,
+                    retain = true
                 };
                 break;
         }
@@ -63,19 +61,45 @@ internal sealed class SJupiterDrone : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone()}
+                    new AAttack(){
+                        damage=1, moveEnemy=1
+                    },
+                    new AMove(){
+                        dir=-1,
+                        targetPlayer = true,
+                    }
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone()}
+                    new AAttack(){
+                        damage=1, moveEnemy=1
+                    },
+                    new AMove(){
+                        dir=-1,
+                        targetPlayer = true,
+                    },
+                    new AAttack(){
+                        damage=1, moveEnemy=1
+                    },
+                    new AMove(){
+                        dir=-1,
+                        targetPlayer = true,
+                    },
+                    new AAttack(){
+                        damage=1, moveEnemy=1
+                    }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone(){bubbleShield=true}}
+                    new AAttack(){
+                        damage=3,
+                        moveEnemy=3
+                    }
                 };
                 break;
         }

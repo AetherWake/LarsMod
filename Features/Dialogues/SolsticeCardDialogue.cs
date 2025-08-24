@@ -25,7 +25,7 @@ internal sealed class SolsticeCardDialogue : BaseDialogue
         newNodes[["ParallelShift", "UpgradeNone", "LarsAether"]] = new()
 		{
             
-			lookup = [$"Played::{new Cards.ParallelShift().Key()}"],
+			lookup = [$"Played::{new Cards.DefogShift().Key()}"],
 			allPresent = [solsticeType, aetherType, larsType],
 			oncePerCombat=false,
             priority=true,

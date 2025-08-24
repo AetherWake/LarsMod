@@ -131,17 +131,20 @@
     "LeechShot":{
       "name": "Leech Shot"
     },
-    "AttackDroneCard":{
-      "name": "Attack Drone"
+    "NanobotsPayload":{
+      "name": "Nanobots Payload"
+    },
+    "WideGuard":{
+      "name": "Wide Guard"
     },
     "FlexMove":{
       "name": "Flex Move"
     },
-    "MissileShot":{
-      "name": "Missile Shot"
+    "BulletSeed":{
+      "name": "Bullet Seed"
     },
-    "ParallelShift":{
-      "name": "Parallel Shift"
+    "DefogShift":{
+      "name": "Defoging Shift"
     },
     "PoisonSpit":{
       "name": "Poison Spit"
@@ -149,8 +152,8 @@
     "ShieldDroneCard":{
       "name": "Shield Drone"
     },
-    "ShiftShot":{
-      "name": "Shift Shot"
+    "FranticFlail":{
+      "name": "Frantic Flail"
     },
     "SmallBoulder":{
       "name": "Small Boulder"
@@ -164,20 +167,18 @@
     "Battalion":{
       "name": "Battalion"
     },
-    "BoulderBundle":{
-      "name": "Boulder Bundle",
-      "description": "Gain 1 droneshift and 3 <c=Card>Pebble</c>.",
-      "description_a": "Gain 3 droneshift and 3 <c=Card>Pebble</c>.",
-      "description_b": "Gain 3 <c=Card>Pebble A</c>."
+    "CalmMind":{
+      "name": "Calm Mind"
     },
-    "SBubbleField":{
-      "name": "Bubble Field"
+    "PhotoSynthesis":{
+      "name": "Photo Synthesis"
     },
     "SLargeBoulders":{
       "name": "Large Boulders"
     },
-    "SRadioControl":{
-      "name": "Radio control"
+    "ScaleShot":{
+      "name": "Scale Shot",
+      "description_a": "Shoot to the left and right for 0 Damage, apply boost on hit."
     },
     "SRepairKit":{
       "name": "Repair Kit"
@@ -191,21 +192,21 @@
     "SEnergyDrone":{
       "name": "Energy Drone"
     },
-    "SJupiterDrone":{
-      "name": "Jupiter Drone"
+    "OutrageProtocol":{
+      "name": "Outrage Protocol"
     },
-    "SRockFactory":{
-      "name": "Rock Factory"
+    "ShadowPanic":{
+      "name": "Shadow Panic"
     },
-    "SScatterShot":{
-      "name": "Scatter Shot"
+    "MirrorCoat":{
+      "name": "Mirror Coat"
     }
 
   },
   "midrow": {
 		"BoostBall": {
 			"name": "Boost Ball",
-			"description": "Gives boost to the whoever destroys it"
+			"description": "Gives 2 Boost to whoever destroys it, increasing whatever Status they gain next by 2."
 		}
 	},
   "status": {

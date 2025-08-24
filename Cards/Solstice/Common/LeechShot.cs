@@ -80,7 +80,7 @@ internal sealed class LeechShot : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.corrode},
+                        thing=new ShieldDrone(){targetPlayer = true, bubbleShield = true},
                     },
                     new AAttack(){damage=2, piercing=true}
                 };

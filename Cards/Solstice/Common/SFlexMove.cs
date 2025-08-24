@@ -65,7 +65,8 @@ internal sealed class SFlexMove : Card, IDemoCard
                     },
                     new AStatus(){
                         status=Status.evade,
-                        statusAmount=1
+                        statusAmount=1,
+                        targetPlayer=true
                     }
                     
                 };
@@ -80,7 +81,8 @@ internal sealed class SFlexMove : Card, IDemoCard
                     },
                     new AStatus(){
                         status=Status.evade,
-                        statusAmount=1
+                        statusAmount=1,
+                        targetPlayer=true
                     }
                 };
                 break;
@@ -94,7 +96,8 @@ internal sealed class SFlexMove : Card, IDemoCard
                     },
                     new AStatus(){
                         status=Status.evade,
-                        statusAmount=2
+                        statusAmount=2,
+                        targetPlayer=true
                     }
                 };
                 break;
