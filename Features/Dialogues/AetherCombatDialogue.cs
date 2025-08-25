@@ -508,6 +508,7 @@ internal sealed class AetherCombatDialogue : BaseDialogue
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::PlayedRecycle"],
 				allPresent = [aetherType],
+				oncePerCombat=true,
 				lines = [
 					new Say { who = aetherType, loopTag = "neutral" },
 				],
