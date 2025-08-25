@@ -802,7 +802,7 @@ public sealed class ModEntry : SimpleMod
         _ = new AetherCombatDialogue();
         _ = new AetherCardDialogue();
         _ = new SolsticeCardDialogue();
-//        _ = new SolsticeCombatDialogue();
+        _ = new SolsticeCombatDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)

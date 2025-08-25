@@ -22,7 +22,7 @@ internal sealed class SolsticeCardDialogue : BaseDialogue
 		};
 		ModEntry.Instance.Helper.Events.OnLoadStringsForLocale += (_, e) => InjectLocalizations(newNodes, [], [], aetherType, e);
 
-        newNodes[["ParallelShift", "UpgradeNone", "LarsAether"]] = new()
+        newNodes[["DefogShift", "UpgradeNone", "LarsAether"]] = new()
 		{
             
 			lookup = [$"Played::{new Cards.DefogShift().Key()}"],
