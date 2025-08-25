@@ -33,8 +33,7 @@ internal sealed class MirrorCoat : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust = true
+                    cost = 1,
                 };
                 break;
             case Upgrade.A:

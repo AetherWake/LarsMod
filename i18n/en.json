@@ -140,8 +140,8 @@
     "FlexMove":{
       "name": "Flex Move"
     },
-    "BulletSeed":{
-      "name": "Bullet Seed"
+    "LeafBlade":{
+      "name": "Leaf Blade"
     },
     "DefogShift":{
       "name": "Defoging Shift"
@@ -149,8 +149,8 @@
     "PoisonSpit":{
       "name": "Poison Spit"
     },
-    "ShieldDroneCard":{
-      "name": "Shield Drone"
+    "NaturalRenewables":{
+      "name": "Natural Renewables"
     },
     "FranticFlail":{
       "name": "Frantic Flail"

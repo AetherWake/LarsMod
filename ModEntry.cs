@@ -186,23 +186,25 @@ public sealed class ModEntry : SimpleMod
     internal IPlayableCharacterEntryV2 Solstice_Character { get; }
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
     /* Add more starter cards here if you'd like. */
-        typeof(WideGuard),
-        typeof(DefogShift)
+        typeof(NaturalRenewables),
+        typeof(LeafBlade)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
      * We recommend having a Starter Cards list, a Common Cards list, an Uncommon Cards list, and a Rare Cards list
      * However you can be more detailed, or you can be more loose, if that's your style */
-    internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } = [
+    internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } =
+    [
         typeof(SFlexMove),
-        typeof(BulletSeed),
+        typeof(LeafBlade),
         typeof(PoisonSpit),
-        typeof(SShieldDroneCard),
+        typeof(NaturalRenewables),
         typeof(FranticFlail),
         typeof(SSmallBoulder),
         typeof(SolidBreeze),
         typeof(SSpaceMineCard),
-        typeof(LeechShot)
+        typeof(LeechShot),
+        typeof(DefogShift)
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
         typeof(SBattalion),
@@ -698,8 +700,8 @@ public sealed class ModEntry : SimpleMod
             Starters = new StarterDeck
             {
                 cards = [
-                    new AttackDroneCard(),
-                    new DefogShift()
+                    new NaturalRenewables(),
+                    new LeafBlade()
                 ]
             },
 
@@ -800,7 +802,7 @@ public sealed class ModEntry : SimpleMod
         _ = new AetherCombatDialogue();
         _ = new AetherCardDialogue();
         _ = new SolsticeCardDialogue();
-        _ = new SolsticeCombatDialogue();
+//        _ = new SolsticeCombatDialogue();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
