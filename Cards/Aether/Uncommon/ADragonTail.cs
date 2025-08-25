@@ -60,7 +60,7 @@ internal sealed class ADragonTail : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 1,
+                        damage = GetDmg(s, 1),
                         moveEnemy = 1,
                         targetPlayer = false,
                         dialogueSelector = $".Played::{Key()}"
@@ -77,7 +77,7 @@ internal sealed class ADragonTail : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 2,
+                        damage = GetDmg(s, 2),
                         targetPlayer = false,
                         moveEnemy = 2,
                     },
@@ -93,7 +93,7 @@ internal sealed class ADragonTail : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage = 3,
+                        damage = GetDmg(s, 3),
                         moveEnemy = 3,
                         targetPlayer = false,
                         dialogueSelector = $".Played::{Key()}"

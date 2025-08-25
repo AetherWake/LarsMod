@@ -61,19 +61,19 @@ internal sealed class SEnergyDrone : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){thing=new EnergyDrone()}
+                    new ASpawn(){thing=new EnergyDrone(){targetPlayer=true}}
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){thing=new EnergyDrone(){bubbleShield=true}}
+                    new ASpawn(){thing=new EnergyDrone(){bubbleShield=true, targetPlayer=true}}
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){thing=new EnergyDrone()}
+                    new ASpawn(){thing=new EnergyDrone(){targetPlayer=true}}
                 };
                 break;
         }

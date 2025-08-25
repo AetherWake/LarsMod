@@ -61,7 +61,7 @@ internal sealed class MirrorCoat : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, piercing = true},
+                    new AAttack(){ damage=GetDmg(s, 1), piercing = true},
                     new AStatus
                     {
                         status = Status.backwardsMissiles,
@@ -72,7 +72,7 @@ internal sealed class MirrorCoat : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, piercing = true, status = Status.backwardsMissiles},
+                    new AAttack(){ damage=GetDmg(s, 1), piercing = true, status = Status.backwardsMissiles},
                 };
                 break;
             case Upgrade.B:

@@ -70,7 +70,7 @@ internal sealed class WaterGun : Card, IDemoCard
                         targetPlayer=true
                     },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=2
+                        damage=GetDmg(s, 2)
                     }).AsCardAction
 
                 };
@@ -85,7 +85,7 @@ internal sealed class WaterGun : Card, IDemoCard
                         targetPlayer=true
                     },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
+                        damage=GetDmg(s, 3)
                     }).AsCardAction
                 };
                 break;
@@ -94,7 +94,7 @@ internal sealed class WaterGun : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=2
+                        damage=GetDmg(s, 2)
                     },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AStatus(){
                         status=Status.shield,

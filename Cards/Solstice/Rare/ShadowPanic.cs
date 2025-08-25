@@ -112,7 +112,7 @@ internal sealed class ShadowPanic : Card, IDemoCard
                 actions = new()
                 {
                     new AHurt(){hurtAmount = 1, targetPlayer = true},
-                    new AAttack(){ damage=1, status = Status.lockdown, statusAmount = 2 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.lockdown, statusAmount = 2 },
                     new AStatus
                     {
                         status = Status.lockdown,

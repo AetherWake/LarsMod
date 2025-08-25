@@ -75,21 +75,21 @@ internal sealed class FranticFlail : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=1, moveEnemy=1
+                        damage=GetDmg(s, 1), moveEnemy=1
                     },
                     new AMove(){
                         dir=-1,
                         targetPlayer = true,
                     },
                     new AAttack(){
-                        damage=1, moveEnemy=1
+                        damage=GetDmg(s, 1), moveEnemy=1
                     },
                     new AMove(){
                         dir=-1,
                         targetPlayer = true,
                     },
                     new AAttack(){
-                        damage=1, moveEnemy=1
+                        damage=GetDmg(s, 1), moveEnemy=1
                     }
                 };
                 break;
@@ -97,7 +97,7 @@ internal sealed class FranticFlail : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=3,
+                        damage=GetDmg(s, 3),
                         moveEnemy=3
                     }
                 };

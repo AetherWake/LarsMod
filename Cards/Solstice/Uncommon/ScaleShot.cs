@@ -63,21 +63,21 @@ int cannonshot = (false ? c.otherShip : s.ship).parts.FindIndex((Part p) => p.ty
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 }
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=0, status = Status.boost, statusAmount = 1, fromX = cannonshot-1 },
-                    new AAttack(){ damage=0, status = Status.boost, statusAmount = 1, fromX = cannonshot+1 }
+                    new AAttack(){ damage=GetDmg(s, 0), status = Status.boost, statusAmount = 1, fromX = cannonshot-1 },
+                    new AAttack(){ damage=GetDmg(s, 0), status = Status.boost, statusAmount = 1, fromX = cannonshot+1 }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 },
-                    new AAttack(){ damage=1, status = Status.boost, statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 }
                 };
                 break;
         }

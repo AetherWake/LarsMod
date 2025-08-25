@@ -65,7 +65,7 @@ internal sealed class Hydropump : Card, IDemoCard
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
+                        damage=GetDmg(s, 3)
                     }).AsCardAction
                     
                 };
@@ -75,7 +75,7 @@ internal sealed class Hydropump : Card, IDemoCard
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AAttack(){
-                        damage=3
+                        damage=GetDmg(s, 3)
                     }).AsCardAction
                 };
                 break;
@@ -90,7 +90,7 @@ internal sealed class Hydropump : Card, IDemoCard
 				    },
                     new AAttack(){
                         xHint=GetX(s),
-                        damage=GetX(s)
+                        damage=GetDmg(s, GetX(s))
                     }
                 };
                 break;

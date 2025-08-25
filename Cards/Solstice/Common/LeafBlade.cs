@@ -61,8 +61,8 @@ internal sealed class LeafBlade : Card, IDemoCard
                     new ASpawn(){
                         thing=new Missile(){missileType=MissileType.normal},
                     },
-                    new AAttack(){ damage=1},
-                    new AAttack(){ damage=1}
+                    new AAttack(){ damage=GetDmg(s, 1)},
+                    new AAttack(){ damage=GetDmg(s, 1)}
                     
                 };
                 break;
@@ -73,9 +73,9 @@ internal sealed class LeafBlade : Card, IDemoCard
                         thing =new AttackDrone(),
                         omitFromTooltips=true
                     },
-                    new AAttack(){ damage=1},
-                    new AAttack(){ damage=1},
-                    new AAttack(){ damage=1}
+                    new AAttack(){ damage=GetDmg(s, 1)},
+                    new AAttack(){ damage=GetDmg(s, 1)},
+                    new AAttack(){ damage=GetDmg(s, 1)}
                 };
                 break;
             case Upgrade.B:
@@ -84,8 +84,8 @@ internal sealed class LeafBlade : Card, IDemoCard
                     new ASpawn(){
                         thing=new Missile(){missileType=MissileType.corrode},
                     },
-                    new AAttack(){damage=0, piercing=true},
-                    new AAttack(){damage=0, piercing=true},
+                    new AAttack(){damage=GetDmg(s, 0), piercing=true},
+                    new AAttack(){damage=GetDmg(s, 0), piercing=true},
                 };
                 break;
         }

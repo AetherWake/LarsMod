@@ -63,7 +63,7 @@ internal sealed class LeechShot : Card, IDemoCard
                     new ASpawn(){
                         thing=new ShieldDrone(){targetPlayer = true},
                     },
-                    new AAttack(){ damage=2}
+                    new AAttack(){ damage=GetDmg(s, 2)}
                     
                 };
                 break;
@@ -73,7 +73,7 @@ internal sealed class LeechShot : Card, IDemoCard
                     new ASpawn(){
                         thing=new AttackDrone(){bubbleShield = true},
                     },
-                    new AAttack(){damage=2}
+                    new AAttack(){damage=GetDmg(s, 2)}
                 };
                 break;
             case Upgrade.B:
@@ -82,7 +82,7 @@ internal sealed class LeechShot : Card, IDemoCard
                     new ASpawn(){
                         thing=new ShieldDrone(){targetPlayer = true, bubbleShield = true},
                     },
-                    new AAttack(){damage=2, piercing=true}
+                    new AAttack(){damage=GetDmg(s, 2), piercing=true}
                 };
                 break;
         }
