@@ -617,8 +617,8 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		newNodes[["Solstice", "GoingMissing", "Basic"]] = new()
 		{
 			priority = true,
-			lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
-			oncePerCombatTags = ["LarsWentMissing"],
+			lastTurnPlayerStatuses = [ModEntry.Instance.Solstice_Character.MissingStatus.Status],
+			oncePerCombatTags = ["SolsticeWentMissing"],
 			oncePerRun = true,
 			lines = [
 				new Say { who = solsticeType, loopTag = "neutral" },

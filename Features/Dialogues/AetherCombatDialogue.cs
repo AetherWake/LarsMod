@@ -596,8 +596,8 @@ internal sealed class AetherCombatDialogue : BaseDialogue
 		newNodes[["Aether", "GoingMissing", "Basic"]] = new()
 		{
 			priority = true,
-			lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
-			oncePerCombatTags = ["LarsWentMissing"],
+			lastTurnPlayerStatuses = [ModEntry.Instance.Aether_Character.MissingStatus.Status],
+			oncePerCombatTags = ["AetherWentMissing"],
 			oncePerRun = true,
 			lines = [
 				new Say { who = aetherType, loopTag = "neutral" },
