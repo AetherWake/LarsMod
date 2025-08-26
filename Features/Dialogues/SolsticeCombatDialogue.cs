@@ -529,6 +529,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::PlayedRecycle"],
 				allPresent = [solsticeType],
+				oncePerCombat=true,
 				lines = [
 					new Say { who = solsticeType, loopTag = "neutral" },
 				],

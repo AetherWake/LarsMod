@@ -115,7 +115,6 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Aether_Character_Squint_2 { get; }
     internal ISpriteEntry Aether_Character_Squint_3 { get; }
     internal ISpriteEntry Aether_Character_Squint_4 { get; }
-    internal ISpriteEntry Aether_Character_Blep_0 { get; }
     internal ISpriteEntry Aether_Character_Death { get; }
     internal IStatusEntry AquaRing { get; }
     internal IStatusEntry RainDance { get; }
@@ -180,7 +179,6 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Solstice_Character_Squint_2 { get; }
     internal ISpriteEntry Solstice_Character_Squint_3 { get; }
     internal ISpriteEntry Solstice_Character_Squint_4 { get; }
-    internal ISpriteEntry Solstice_Character_Blep_0 { get; }
     internal ISpriteEntry Solstice_Character_Death { get; }
     internal IDeckEntry Solstice_Deck { get; }
     internal IPlayableCharacterEntryV2 Solstice_Character { get; }
@@ -448,7 +446,6 @@ public sealed class ModEntry : SimpleMod
         Aether_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_2.png"));
         Aether_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_3.png"));
         Aether_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Squint/Squint_4.png"));
-        Aether_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/Blep/Blep.png"));
         Aether_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Aether/GameOver/GameOver.png"));
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
@@ -526,16 +523,6 @@ public sealed class ModEntry : SimpleMod
             }
         });
 
-        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
-        {
-            CharacterType = Aether_Deck.UniqueName,
-            LoopTag = "blep",
-            Frames = new[]
-            {
-                Aether_Character_Blep_0.Sprite
-            }
-        });
-
         /* Wait, so if we want 'gameover', why doesn't this demo come with the registration for it?
          * Answer: You should be able to use the knowledge you have earned so far to register your own animations! If you'd like, try making the 'gameover' registration code here. You can use whatever sprite you want */
 
@@ -591,7 +578,6 @@ public sealed class ModEntry : SimpleMod
         Solstice_Character_Squint_2 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_2.png"));
         Solstice_Character_Squint_3 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_3.png"));
         Solstice_Character_Squint_4 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Squint/Squint_4.png"));
-        Solstice_Character_Blep_0 = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/Blep/Blep.png"));
         Solstice_Character_Death = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Solstice/GameOver/GameOver.png"));
 
         /* Decks are assigned separate of the character. This is because the game has decks like Trash which is not related to a playable character
@@ -666,16 +652,6 @@ public sealed class ModEntry : SimpleMod
                 Solstice_Character_Squint_1.Sprite,
                 Solstice_Character_Squint_2.Sprite,
                 Solstice_Character_Squint_3.Sprite,
-            }
-        });
-
-        helper.Content.Characters.V2.RegisterCharacterAnimation(new CharacterAnimationConfigurationV2()
-        {
-            CharacterType = Solstice_Deck.UniqueName,
-            LoopTag = "blep",
-            Frames = new[]
-            {
-                Solstice_Character_Blep_0.Sprite
             }
         });
 
