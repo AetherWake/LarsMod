@@ -1,277 +1,279 @@
 {
-    "TookDamage": {
-        "Basic": [
-            [ "That's not too bad, right?" ], 
-            [ "Did we mean to let them hit us?" ], 
-            [ "I think we're fine." ]
-        ],
-        "Dizzy": [
-            "Time for more shields?",  
-            "I'll consider it." 
-        ],
-        "Riggs": [
-            "It's ok! We'll just dodge the next one.",
-            "Doing my best here."
-        ],
-		"Peri": [
-            "That's just rude.",
-            "You tell them, not us."
-        ],
-        "Isaac": [
-            "Ouch...",
-            "Oh dear, are you ok?"
-        ],
-        "Drake": [
-            "Damn.",
-            "When you really need to stop some water."
-        ],
-        "Max": [
-            "I really hope that didn't hit anything vital.",
-            "Mmh, I think I'm ok!"
-        ],
-        "Books": [
-            "Everyone okay?",
-            "It's okay! I'm okay!"
-        ],
-        "CAT": [
-            "asterisk doesn't worry about it asterisk",
-            "Can someone check on the Pokémon? I think he hit his head."
-        ]
-    },
-    "TookNonHullDamage": {
-        "Basic": [
-            [ "Shielded!" ],
-            [ "Blocked!" ],
-            [ "Oh, we're fine!" ],
-            [ "Nix passiert." ],
-            [ "Relax, we've got this." ]
-
-        ],
-        "Dizzy": [
-            "Thanks for keeping us safe, Dizzy!",
-            "You're welcome?"
-        ]
-    },
-	"DealtDamage": {
-        "Basic": [
-            [ "Did I help?" ], 
-            [ "Show 'em who's boss!" ], 
-            [ "Give 'em heck." ],
-			[ "We're getting somewhere!" ],
-			[ "Hehe." ]
-        ],
-        "Dizzy": [
-            "You hit them!",  
-            "I'm getting the hang of this!" 
-        ],
-        "Riggs": [
-            "Hit!",
-            "You learn fast!"
-        ],
-		"Peri": [
-            "I got 'em!",
-            "Who let the fire lizard on the cannons?"
-        ],
-        "Isaac": [
-            "Char!",
-            "Language."
-        ],
-        "Drake": [
-            [
-                "Hit!",
-                "Yeah, yeah."
+    "Lars":{
+        "TookDamage": {
+            "Basic": [
+                [ "That's not too bad, right?" ], 
+                [ "Did we mean to let them hit us?" ], 
+                [ "I think we're fine." ]
             ],
-            [
-                "Hit!",
-                "Yeah, yeah."
+            "Dizzy": [
+                "Time for more shields?",  
+                "I'll consider it." 
+            ],
+            "Riggs": [
+                "It's ok! We'll just dodge the next one.",
+                "Doing my best here."
+            ],
+            "Peri": [
+                "That's just rude.",
+                "You tell them, not us."
+            ],
+            "Isaac": [
+                "Ouch...",
+                "Oh dear, are you ok?"
+            ],
+            "Drake": [
+                "Damn.",
+                "When you really need to stop some water."
+            ],
+            "Max": [
+                "I really hope that didn't hit anything vital.",
+                "Mmh, I think I'm ok!"
+            ],
+            "Books": [
+                "Everyone okay?",
+                "It's okay! I'm okay!"
+            ],
+            "CAT": [
+                "asterisk doesn't worry about it asterisk",
+                "Can someone check on the Pokémon? I think he hit his head."
             ]
-        ],
-        "Max": [
-            "Wooo!.",
-            "Alright, calm down now."
-        ],
-        "Books": [
-            "Got 'em!",
-            "Yeah!"
-        ],
-        "CAT": [
-            "Treffer!",
-            "According to my database, that's German for 'hit'. Huh."
-        ]
-    },
-		"DealtBigDamage": {
-        "Basic": [
-            [ "Whoa! We're cooking!" ], 
-            [ "Fired up!" ], 
-            [ "Yeah, heal that, nerds!" ],
-			[ "It's future damage mitigation!" ],
-			[ "I can hear the victory fanfare in the distance." ]
-        ]
-	},
-		"ShieldedDamage": {
-        "Basic": [
-            [ "Hah, try again!" ], 
-            [ "Lucky- I mean, hah! All according to plan!" ], 
-            [ "That's cute." ]
-        ]
-	},
-		"Missed": {
-        "Basic": [
-            [ "Sorry, didn't have my glasses on." ], 
-            [ "You guys make this look so easy!" ], 
-            [ "Just luring them into a false sense of security." ],
-			[ "Warning shot!" ]
-        ]
-	},
-	"AboutToDie": {
-        "Basic": [
-            [ "I have a bad feeling about this." ], 
-            [ "Is this light supposed to be red?" ], 
-            [ "The only HP that matters is the last one." ]
-        ],
-        "Dizzy": [
-            "This isn't looking pretty.",  
-            "I think looking pretty is the least of our problems right now." 
-        ],
-        "Riggs": [
-            "We have to do something!",
-            "Can't we just, like, leave!?"
-        ],
-		"Peri": [
-            "This is getting pretty dire.",
-            "You've got a plan to fix this, right?"
-        ],
-        "Isaac": [
-            "Is there a way out of this mess?",
-            "Deep breaths. Deeeeep breaths."
-        ],
-        "Drake": [
-			"This is getting hot.",
-            "Time to fight fire with fire?"
-        ],
-        "Max": [
-            "This isn't going according to plan.",
-            "You guys had a plan?"
-        ],
-        "Books": [
-            "Use your magic powers to save us!",
-            "I think my kind of magic doesn't work here!"
-        ],
-        "CAT": [
-            "Where's the undo button!?",
-            "Oh, wouldn't that be useful right now?"
-        ]
-    },
-	"HitArmor": {
-        "Basic": [
-            [ "So uh, was that on purpose?" ], 
-            [ "Just testing their defenses! Yep, they have defenses." ], 
-            [ "Oooh, that's what that is for." ],
-			[ "Oh, I thought that was the undo button." ]
-        ]
-	},
-	"ExcessEnergy": {
-        "Basic": [
-            [ "So, now what?" ], 
-            [ "That's all we can do, huh." ]
-        ]
-	},
-	"EmptyHand": {
-        "Basic": [
-            [ "Aaaand that's it!" ], 
-            [ "We're done for now." ]
-        ]
-	},
-	"TrashHand": {
-        "Basic": [
-            [ "Huh!? How are we supposed to work with this?" ], 
-            [ "Uuuuh..." ] 
-        ]
-	},
-	"StartedBattle": {
-        "Basic": [
-            [ "Let's get started!" ], 
-            [ "Time to kick some tail! Hehe. Tail." ], 
-			[ "Weapons hot! ... That's how it goes, right?" ], 
-            [ "Pew, pew! Pew! Let's go!" ]
-        ],
-		"Peri": [
-            "We've got a hostile enemy in the AO!",
-            "Isn't an enemy being hostile kind of a given?"
-        ]
-	},
-	"NoOverlap": {
-        "Basic": [
-            [ "Bye!" ], 
-            [ "See ya!" ], 
-			[ "Oh, so we CAN just leave?" ], 
-            [ "Nah, not feelin' it." ]
-        ]
-	},
-	"NoOverlapButSeeker": {
-        "Riggs": [
-            "That thing's problematic, right?",
-            "Probably!"
-        ]
-	},
-	"LongFight": {
-        "Basic": [
-            [ "..." ], 
-            [ "Yaaawn." ], 
-			[ "So, are we prolonging this on purpose?" ], 
-            [ "I mean, I've got time. Noone's waiting for me back home." ]
-        ]
-	},
-	"GoingMissing": {
-        "Basic": [
-            [ "A-" ]
+        },
+        "TookNonHullDamage": {
+            "Basic": [
+                [ "Shielded!" ],
+                [ "Blocked!" ],
+                [ "Oh, we're fine!" ],
+                [ "Nix passiert." ],
+                [ "Relax, we've got this." ]
 
-        ]
-	},
-	"ReturningFromMissing": {
-        "Basic": [
-            [ "Hah! All it took was a restart." ], 
-            [ "Am I back?" ], 
-			[ "Oh, I think the connection's back!" ], 
-            [ "I had a nice dream about dragons..." ]
-        ]
-	},
-	"GoingToOverheat": {
-        "Basic": [
-            [ "It's getting nice and comfy... Wait, that's bad." ], 
-            [ "Huh? I kept the tail away from everything, I swear!" ], 
-			[ "Wasn't me, wasn't me!" ], 
-            [ "Okay, maybe that was my fault..." ]
-        ],
-		"Drake": [
-            "I like this, but I have a feeling this is bad for the ship.",
-            "Don't worry about it."
-        ]
-	},
-	"PlayedRecycle": {
-        "Basic": [
-            [ "Again and again and again and again." ]
+            ],
+            "Dizzy": [
+                "Thanks for keeping us safe, Dizzy!",
+                "You're welcome?"
+            ]
+        },
+        "DealtDamage": {
+            "Basic": [
+                [ "Did I help?" ], 
+                [ "Show 'em who's boss!" ], 
+                [ "Give 'em heck." ],
+                [ "We're getting somewhere!" ],
+                [ "Hehe." ]
+            ],
+            "Dizzy": [
+                "You hit them!",  
+                "I'm getting the hang of this!" 
+            ],
+            "Riggs": [
+                "Hit!",
+                "You learn fast!"
+            ],
+            "Peri": [
+                "I got 'em!",
+                "Who let the fire lizard on the cannons?"
+            ],
+            "Isaac": [
+                "Char!",
+                "Language."
+            ],
+            "Drake": [
+                [
+                    "Hit!",
+                    "Yeah, yeah."
+                ],
+                [
+                    "Hit!",
+                    "Yeah, yeah."
+                ]
+            ],
+            "Max": [
+                "Wooo!.",
+                "Alright, calm down now."
+            ],
+            "Books": [
+                "Got 'em!",
+                "Yeah!"
+            ],
+            "CAT": [
+                "Treffer!",
+                "According to my database, that's German for 'hit'. Huh."
+            ]
+        },
+            "DealtBigDamage": {
+            "Basic": [
+                [ "Whoa! We're cooking!" ], 
+                [ "Fired up!" ], 
+                [ "Yeah, heal that, nerds!" ],
+                [ "It's future damage mitigation!" ],
+                [ "I can hear the victory fanfare in the distance." ]
+            ]
+        },
+            "ShieldedDamage": {
+            "Basic": [
+                [ "Hah, try again!" ], 
+                [ "Lucky- I mean, hah! All according to plan!" ], 
+                [ "That's cute." ]
+            ]
+        },
+            "Missed": {
+            "Basic": [
+                [ "Sorry, didn't have my glasses on." ], 
+                [ "You guys make this look so easy!" ], 
+                [ "Just luring them into a false sense of security." ],
+                [ "Warning shot!" ]
+            ]
+        },
+        "AboutToDie": {
+            "Basic": [
+                [ "I have a bad feeling about this." ], 
+                [ "Is this light supposed to be red?" ], 
+                [ "The only HP that matters is the last one." ]
+            ],
+            "Dizzy": [
+                "This isn't looking pretty.",  
+                "I think looking pretty is the least of our problems right now." 
+            ],
+            "Riggs": [
+                "We have to do something!",
+                "Can't we just, like, leave!?"
+            ],
+            "Peri": [
+                "This is getting pretty dire.",
+                "You've got a plan to fix this, right?"
+            ],
+            "Isaac": [
+                "Is there a way out of this mess?",
+                "Deep breaths. Deeeeep breaths."
+            ],
+            "Drake": [
+                "This is getting hot.",
+                "Time to fight fire with fire?"
+            ],
+            "Max": [
+                "This isn't going according to plan.",
+                "You guys had a plan?"
+            ],
+            "Books": [
+                "Use your magic powers to save us!",
+                "I think my kind of magic doesn't work here!"
+            ],
+            "CAT": [
+                "Where's the undo button!?",
+                "Oh, wouldn't that be useful right now?"
+            ]
+        },
+        "HitArmor": {
+            "Basic": [
+                [ "So uh, was that on purpose?" ], 
+                [ "Just testing their defenses! Yep, they have defenses." ], 
+                [ "Oooh, that's what that is for." ],
+                [ "Oh, I thought that was the undo button." ]
+            ]
+        },
+        "ExcessEnergy": {
+            "Basic": [
+                [ "So, now what?" ], 
+                [ "That's all we can do, huh." ]
+            ]
+        },
+        "EmptyHand": {
+            "Basic": [
+                [ "Aaaand that's it!" ], 
+                [ "We're done for now." ]
+            ]
+        },
+        "TrashHand": {
+            "Basic": [
+                [ "Huh!? How are we supposed to work with this?" ], 
+                [ "Uuuuh..." ] 
+            ]
+        },
+        "StartedBattle": {
+            "Basic": [
+                [ "Let's get started!" ], 
+                [ "Time to kick some tail! Hehe. Tail." ], 
+                [ "Weapons hot! ... That's how it goes, right?" ], 
+                [ "Pew, pew! Pew! Let's go!" ]
+            ],
+            "Peri": [
+                "We've got a hostile enemy in the AO!",
+                "Isn't an enemy being hostile kind of a given?"
+            ]
+        },
+        "NoOverlap": {
+            "Basic": [
+                [ "Bye!" ], 
+                [ "See ya!" ], 
+                [ "Oh, so we CAN just leave?" ], 
+                [ "Nah, not feelin' it." ]
+            ]
+        },
+        "NoOverlapButSeeker": {
+            "Riggs": [
+                "That thing's problematic, right?",
+                "Probably!"
+            ]
+        },
+        "LongFight": {
+            "Basic": [
+                [ "..." ], 
+                [ "Yaaawn." ], 
+                [ "So, are we prolonging this on purpose?" ], 
+                [ "I mean, I've got time. Noone's waiting for me back home." ]
+            ]
+        },
+        "GoingMissing": {
+            "Basic": [
+                [ "A-" ]
 
-        ]
-	},
-	"NewNonLarsNonTrashTempCard": {
-        "Basic": [
-            [ "Wait, where did that come from?" ]
+            ]
+        },
+        "ReturningFromMissing": {
+            "Basic": [
+                [ "Hah! All it took was a restart." ], 
+                [ "Am I back?" ], 
+                [ "Oh, I think the connection's back!" ], 
+                [ "I had a nice dream about dragons..." ]
+            ]
+        },
+        "GoingToOverheat": {
+            "Basic": [
+                [ "It's getting nice and comfy... Wait, that's bad." ], 
+                [ "Huh? I kept the tail away from everything, I swear!" ], 
+                [ "Wasn't me, wasn't me!" ], 
+                [ "Okay, maybe that was my fault..." ]
+            ],
+            "Drake": [
+                "I like this, but I have a feeling this is bad for the ship.",
+                "Don't worry about it."
+            ]
+        },
+        "PlayedRecycle": {
+            "Basic": [
+                [ "Again and again and again and again." ]
 
-        ]
-	},
-	"Recalibrator": {
-        "Basic": [
-            [ "Huh, how does that even work?" ]
+            ]
+        },
+        "NewNonLarsNonTrashTempCard": {
+            "Basic": [
+                [ "Wait, where did that come from?" ]
 
-        ]
-	},
-	"StartedBattleAgainstBigCrystal": {
-        "Basic": [
-            [ "Big crystal." ]
-        ]
-	},
-	"CrabFacts1_Multi_0": "Mhm." ,
-	"CrabFacts2_Multi_0": "Yeah!",
-	"CrabFactsAreOverNow_Multi_0": "Okay, I'll admit. I wasn't listening."
+            ]
+        },
+        "Recalibrator": {
+            "Basic": [
+                [ "Huh, how does that even work?" ]
+
+            ]
+        },
+        "StartedBattleAgainstBigCrystal": {
+            "Basic": [
+                [ "Big crystal." ]
+            ]
+        },
+        "CrabFacts1_Multi_0": "Mhm." ,
+        "CrabFacts2_Multi_0": "Yeah!",
+        "CrabFactsAreOverNow_Multi_0": "Okay, I'll admit. I wasn't listening."
+    }
 }

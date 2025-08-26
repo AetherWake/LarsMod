@@ -44,7 +44,7 @@ internal sealed class CombatDialogue : BaseDialogue
 
 		#region TookDamage
 		
-		newNodes[["TookDamage", "Basic", "0"]] = new()
+		newNodes[["Lars", "TookDamage", "Basic", "0"]] = new()
 		{
 			
 			enemyShotJustHit = true,
@@ -53,7 +53,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Basic", "1"]] = new()
+		newNodes[["Lars", "TookDamage", "Basic", "1"]] = new()
 		{
 
 			enemyShotJustHit = true,
@@ -62,7 +62,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["TookDamage", "Basic", "2"]] = new()
+		newNodes[["Lars", "TookDamage", "Basic", "2"]] = new()
 		{
 
 			enemyShotJustHit = true,
@@ -72,7 +72,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["TookDamage", "Dizzy"]] = new()
+		newNodes[["Lars", "TookDamage", "Dizzy"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -82,7 +82,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Riggs"]] = new()
+		newNodes[["Lars", "TookDamage", "Riggs"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -92,7 +92,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Peri"]] = new()
+		newNodes[["Lars", "TookDamage", "Peri"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -102,7 +102,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.peri.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Isaac"]] = new()
+		newNodes[["Lars", "TookDamage", "Isaac"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -112,7 +112,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Drake"]] = new()
+		newNodes[["Lars", "TookDamage", "Drake"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -122,7 +122,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Max"]] = new()
+		newNodes[["Lars", "TookDamage", "Max"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -132,7 +132,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Books"]] = new()
+		newNodes[["Lars", "TookDamage", "Books"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -142,7 +142,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.shard.Key(), loopTag = "intense" },
 			],
 		};
-		newNodes[["TookDamage", "CAT"]] = new()
+		newNodes[["Lars", "TookDamage", "CAT"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -155,7 +155,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 5; i++)
-			newNodes[["TookNonHullDamage", "Basic", i.ToString()]] = new StoryNode()
+			newNodes[["Lars", "TookNonHullDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
 				maxDamageDealtToPlayerThisTurn = 0,
@@ -165,7 +165,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["TookNonHullDamage", "Dizzy"]] = new()
+		newNodes[["Lars", "TookNonHullDamage", "Dizzy"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 0,
@@ -179,7 +179,7 @@ internal sealed class CombatDialogue : BaseDialogue
 
 		#region DealtDamage
 		for (var i = 0; i < 5; i++)
-			newNodes[["DealtDamage", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "DealtDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageDealtToEnemyThisTurn = 1,
@@ -189,7 +189,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["DealtDamage", "Dizzy"]] = new()
+		newNodes[["Lars", "DealtDamage", "Dizzy"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -200,7 +200,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Riggs"]] = new()
+		newNodes[["Lars", "DealtDamage", "Riggs"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -211,7 +211,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Peri"]] = new()
+		newNodes[["Lars", "DealtDamage", "Peri"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -222,7 +222,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.peri.Key(), loopTag = "squint" },
 			],
 		};
-		newNodes[["DealtDamage", "Isaac"]] = new()
+		newNodes[["Lars", "DealtDamage", "Isaac"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -233,7 +233,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.goat.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Drake", "0"]] = new()
+		newNodes[["Lars", "DealtDamage", "Drake", "0"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -244,7 +244,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Drake", "1"]] = new()
+		newNodes[["Lars", "DealtDamage", "Drake", "1"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -255,7 +255,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.eunice.Key(), loopTag = "sly" }, // Might not be the real name of the loopTag, uh... I expect things to break. Neutral works, too. -LP
 			],
 		};
-		newNodes[["DealtDamage", "Max"]] = new()
+		newNodes[["Lars", "DealtDamage", "Max"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -266,7 +266,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.hacker.Key(), loopTag = "squint" },
 			],
 		};
-		newNodes[["DealtDamage", "Books"]] = new()
+		newNodes[["Lars", "DealtDamage", "Books"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -277,7 +277,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = Deck.shard.Key(), loopTag = "stoked" },
 			],
 		};
-		newNodes[["DealtDamage", "CAT"]] = new()
+		newNodes[["Lars", "DealtDamage", "CAT"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -291,7 +291,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 5; i++)
-			newNodes[["DealtBigDamage", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "DealtBigDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageDealtToEnemyThisTurn = 6,
@@ -302,7 +302,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 3; i++)
-			newNodes[["ShieldedDamage", "Basic", i.ToString()]] = new StoryNode()
+			newNodes[["Lars", "ShieldedDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
 				maxDamageDealtToPlayerThisTurn = 0,
@@ -312,7 +312,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			}.SetMinShieldLostThisTurn(1);
 
-		newNodes[["Missed", "Basic", "0"]] = new()
+		newNodes[["Lars", "Missed", "Basic", "0"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [larsType],
@@ -320,7 +320,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["Missed", "Basic", "1"]] = new()
+		newNodes[["Lars", "Missed", "Basic", "1"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [larsType],
@@ -328,7 +328,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["Missed", "Basic", "2"]] = new()
+		newNodes[["Lars", "Missed", "Basic", "2"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [larsType],
@@ -336,7 +336,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["Missed", "Basic", "3"]] = new()
+		newNodes[["Lars", "Missed", "Basic", "3"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [larsType],
@@ -346,7 +346,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 
 		#region AboutToDie
-		newNodes[["AboutToDie", "Basic", "0"]] = new()
+		newNodes[["Lars", "AboutToDie", "Basic", "0"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -356,7 +356,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Basic", "1"]] = new()
+		newNodes[["Lars", "AboutToDie", "Basic", "1"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -366,7 +366,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Basic", "2"]] = new()
+		newNodes[["Lars", "AboutToDie", "Basic", "2"]] = new()
 		{
 			maxHull = 1,
 			oncePerCombatTags = ["aboutToDie"],
@@ -377,7 +377,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["AboutToDie", "Dizzy"]] = new()
+		newNodes[["Lars", "AboutToDie", "Dizzy"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -388,7 +388,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Riggs"]] = new()
+		newNodes[["Lars", "AboutToDie", "Riggs"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -399,7 +399,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Peri"]] = new()
+		newNodes[["Lars", "AboutToDie", "Peri"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -410,7 +410,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Isaac"]] = new()
+		newNodes[["Lars", "AboutToDie", "Isaac"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -421,7 +421,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Drake"]] = new()
+		newNodes[["Lars", "AboutToDie", "Drake"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -432,7 +432,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Max"]] = new()
+		newNodes[["Lars", "AboutToDie", "Max"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -443,7 +443,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Books"]] = new()
+		newNodes[["Lars", "AboutToDie", "Books"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -454,7 +454,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				new Say { who = larsType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "CAT"]] = new()
+		newNodes[["Lars", "AboutToDie", "CAT"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -468,7 +468,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["HitArmor", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "HitArmor", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageBlockedByEnemyArmorThisTurn = 1,
@@ -481,7 +481,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["ExcessEnergy", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "ExcessEnergy", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
 				minEnergy = 1,
@@ -492,7 +492,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["EmptyHand", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "EmptyHand", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
 				allPresent = [larsType],
@@ -502,7 +502,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["TrashHand", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "TrashHand", "Basic", i.ToString()]] = new()
 			{
 				handFullOfTrash = true,
 				allPresent = [larsType],
@@ -512,7 +512,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 1; i++)
-			newNodes[["PlayedRecycle", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "PlayedRecycle", "Basic", i.ToString()]] = new()
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::PlayedRecycle"],
 				allPresent = [larsType],
@@ -523,7 +523,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 1; i++)
-			newNodes[["NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonLarsNonTrashTempCard"],
 				oncePerCombat = true,
@@ -535,7 +535,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["StartedBattle", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "StartedBattle", "Basic", i.ToString()]] = new()
 			{
 				turnStart = true,
 				maxTurnsThisCombat = 1,
@@ -546,7 +546,7 @@ internal sealed class CombatDialogue : BaseDialogue
 					new Say { who = larsType, loopTag = "neutral" },
 				],
 			};
-			newNodes[["StartedBattle", "Peri"]] = new()
+			newNodes[["Lars", "StartedBattle", "Peri"]] = new()
 			{
 				turnStart = true,
 				maxTurnsThisCombat = 1,
@@ -560,7 +560,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["NoOverlap", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "NoOverlap", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
 				shipsDontOverlapAtAll = true,
@@ -573,7 +573,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["NoOverlapButSeeker", "Riggs"]] = new()
+		newNodes[["Lars", "NoOverlapButSeeker", "Riggs"]] = new()
 		{
 			priority = true,
 			shipsDontOverlapAtAll = true,
@@ -589,7 +589,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["LongFight", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "LongFight", "Basic", i.ToString()]] = new()
 			{
 				minTurnsThisCombat = 20,
 				oncePerCombatTags = ["manyTurns"],
@@ -601,7 +601,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["GoingMissing", "Basic"]] = new()
+		newNodes[["Lars", "GoingMissing", "Basic"]] = new()
 		{
 			priority = true,
 			lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
@@ -613,7 +613,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["ReturningFromMissing", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "ReturningFromMissing", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::ReturningFromMissing"],
@@ -625,7 +625,7 @@ internal sealed class CombatDialogue : BaseDialogue
 
 		#region DealtDamage
 		for (var i = 0; i < 4; i++)
-			newNodes[["GoingToOverheat", "Basic", i.ToString()]] = new()
+			newNodes[["Lars", "GoingToOverheat", "Basic", i.ToString()]] = new()
 			{
 				goingToOverheat = true,
 				oncePerCombatTags = ["OverheatGeneric"],
@@ -635,7 +635,7 @@ internal sealed class CombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["GoingToOverheat", "Drake"]] = new()
+		newNodes[["Lars", "GoingToOverheat", "Drake"]] = new()
 		{
 			goingToOverheat = true,
 			oncePerCombatTags = ["OverheatGeneric"],
@@ -647,7 +647,7 @@ internal sealed class CombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		newNodes[["Recalibrator", "Basic"]] = new()
+		newNodes[["Lars", "Recalibrator", "Basic"]] = new()
 		{
 			playerShotJustMissed = true,
 			hasArtifacts = ["Recalibrator"],
@@ -657,7 +657,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["StartedBattleAgainstBigCrystal", "Basic"]] = new()
+		newNodes[["Lars", "StartedBattleAgainstBigCrystal", "Basic"]] = new()
 		{
 			priority = true,
 			turnStart = true,
@@ -670,17 +670,17 @@ internal sealed class CombatDialogue : BaseDialogue
 			],
 		};
 		// TODO Check crab strings not working in game 
-		saySwitchNodes[["CrabFacts1_Multi_0"]] = new() 
+		saySwitchNodes[["Lars", "CrabFacts1_Multi_0"]] = new() 
 		{
 			who = larsType,
 			loopTag = "neutral"
 		};
-		saySwitchNodes[["CrabFacts2_Multi_0"]] = new()
+		saySwitchNodes[["Lars", "CrabFacts2_Multi_0"]] = new()
 		{
 			who = larsType,
 			loopTag = "neutral"
 		};
-		saySwitchNodes[["CrabFactsAreOverNow_Multi_0"]] = new()
+		saySwitchNodes[["Lars", "CrabFactsAreOverNow_Multi_0"]] = new()
 		{
 			who = larsType,
 			loopTag = "neutral"

@@ -5,7 +5,7 @@ namespace AetherWake.LarsMod;
 
 internal sealed class SolsticeCombatDialogue : BaseDialogue
 {
-	public SolsticeCombatDialogue() : base(locale => ModEntry.Instance.Package.PackageRoot.GetRelativeFile($"i18n/combat-dialogue-lars-{locale}.json").OpenRead())
+	public SolsticeCombatDialogue() : base(locale => ModEntry.Instance.Package.PackageRoot.GetRelativeFile($"i18n/combat-dialogue-solstice-{locale}.json").OpenRead())
 	{
 		var solsticeDeck = ModEntry.Instance.Solstice_Deck.Deck;
 		var solsticeType = ModEntry.Instance.Solstice_Character!.CharacterType;
@@ -46,7 +46,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 
 		#region TookDamage
 		
-		newNodes[["TookDamage", "Basic", "0"]] = new()
+		newNodes[["Solstice", "TookDamage", "Basic", "0"]] = new()
 		{
 			
 			enemyShotJustHit = true,
@@ -55,7 +55,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Basic", "1"]] = new()
+		newNodes[["Solstice", "TookDamage", "Basic", "1"]] = new()
 		{
 
 			enemyShotJustHit = true,
@@ -64,7 +64,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["TookDamage", "Basic", "2"]] = new()
+		newNodes[["Solstice", "TookDamage", "Basic", "2"]] = new()
 		{
 
 			enemyShotJustHit = true,
@@ -74,7 +74,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["TookDamage", "Dizzy"]] = new()
+		newNodes[["Solstice", "TookDamage", "Dizzy"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -84,7 +84,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.dizzy.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Riggs"]] = new()
+		newNodes[["Solstice", "TookDamage", "Riggs"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -94,7 +94,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Peri"]] = new()
+		newNodes[["Solstice", "TookDamage", "Peri"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -104,7 +104,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.peri.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Isaac"]] = new()
+		newNodes[["Solstice", "TookDamage", "Isaac"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -114,7 +114,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Drake"]] = new()
+		newNodes[["Solstice", "TookDamage", "Drake"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -124,7 +124,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Max"]] = new()
+		newNodes[["Solstice", "TookDamage", "Max"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -134,7 +134,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["TookDamage", "Books"]] = new()
+		newNodes[["Solstice", "TookDamage", "Books"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -144,7 +144,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.shard.Key(), loopTag = "intense" },
 			],
 		};
-		newNodes[["TookDamage", "CAT"]] = new()
+		newNodes[["Solstice", "TookDamage", "CAT"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 1,
@@ -157,7 +157,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 5; i++)
-			newNodes[["TookNonHullDamage", "Basic", i.ToString()]] = new StoryNode()
+			newNodes[["Solstice", "TookNonHullDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
 				maxDamageDealtToPlayerThisTurn = 0,
@@ -167,7 +167,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["TookNonHullDamage", "Dizzy"]] = new()
+		newNodes[["Solstice", "TookNonHullDamage", "Dizzy"]] = new()
 		{
 			enemyShotJustHit = true,
 			minDamageDealtToPlayerThisTurn = 0,
@@ -181,7 +181,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 
 		#region DealtDamage
 		for (var i = 0; i < 5; i++)
-			newNodes[["DealtDamage", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "DealtDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageDealtToEnemyThisTurn = 1,
@@ -191,7 +191,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["DealtDamage", "Dizzy"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Dizzy"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -202,7 +202,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Riggs"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Riggs"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -213,7 +213,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.riggs.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Peri"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Peri"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -224,7 +224,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.peri.Key(), loopTag = "squint" },
 			],
 		};
-		newNodes[["DealtDamage", "Isaac"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Isaac"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -235,7 +235,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.goat.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Drake", "0"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Drake", "0"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -246,7 +246,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.eunice.Key(), loopTag = "neutral" },
 			],
 		};
-		newNodes[["DealtDamage", "Drake", "1"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Drake", "1"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -257,7 +257,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.eunice.Key(), loopTag = "sly" }, // Might not be the real name of the loopTag, uh... I expect things to break. Neutral works, too. -LP
 			],
 		};
-		newNodes[["DealtDamage", "Max"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Max"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -268,7 +268,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.hacker.Key(), loopTag = "squint" },
 			],
 		};
-		newNodes[["DealtDamage", "Books"]] = new()
+		newNodes[["Solstice", "DealtDamage", "Books"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -279,7 +279,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = Deck.shard.Key(), loopTag = "stoked" },
 			],
 		};
-		newNodes[["DealtDamage", "CAT"]] = new()
+		newNodes[["Solstice", "DealtDamage", "CAT"]] = new()
 		{
 			playerShotJustHit = true,
 			minDamageDealtToEnemyThisTurn = 1,
@@ -293,7 +293,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 5; i++)
-			newNodes[["DealtBigDamage", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "DealtBigDamage", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageDealtToEnemyThisTurn = 6,
@@ -304,7 +304,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 3; i++)
-			newNodes[["ShieldedDamage", "Basic", i.ToString()]] = new StoryNode()
+			newNodes[["Solstice", "ShieldedDamage", "Basic", i.ToString()]] = new StoryNode()
 			{
 				enemyShotJustHit = true,
 				maxDamageDealtToPlayerThisTurn = 0,
@@ -314,7 +314,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			}.SetMinShieldLostThisTurn(1);
 
-		newNodes[["Missed", "Basic", "0"]] = new()
+		newNodes[["Solstice", "Missed", "Basic", "0"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [solsticeType],
@@ -322,7 +322,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["Missed", "Basic", "1"]] = new()
+		newNodes[["Solstice", "Missed", "Basic", "1"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [solsticeType],
@@ -330,7 +330,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["Missed", "Basic", "2"]] = new()
+		newNodes[["Solstice", "Missed", "Basic", "2"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [solsticeType],
@@ -338,7 +338,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["Missed", "Basic", "3"]] = new()
+		newNodes[["Solstice", "Missed", "Basic", "3"]] = new()
 		{
 			playerShotJustMissed = true,
 			allPresent = [solsticeType],
@@ -348,7 +348,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		};
 
 		#region AboutToDie
-		newNodes[["AboutToDie", "Basic", "0"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Basic", "0"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -358,7 +358,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Basic", "1"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Basic", "1"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -368,7 +368,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Basic", "2"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Basic", "2"]] = new()
 		{
 			maxHull = 1,
 			oncePerCombatTags = ["aboutToDie"],
@@ -379,7 +379,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["AboutToDie", "Dizzy"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Dizzy"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -390,7 +390,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Riggs"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Riggs"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -401,7 +401,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Peri"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Peri"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -412,7 +412,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Isaac"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Isaac"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -423,7 +423,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Drake"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Drake"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -434,7 +434,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Max"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Max"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -445,7 +445,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "neutral" },
 			],
 		};
-		newNodes[["AboutToDie", "Books"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Books"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -456,7 +456,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = solsticeType, loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "CAT"]] = new()
+		newNodes[["Solstice", "AboutToDie", "CAT"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -467,7 +467,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = "comp", loopTag = "squint" },
 			],
 		};
-		newNodes[["AboutToDie", "Lars"]] = new()
+		newNodes[["Solstice", "AboutToDie", "Lars"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -481,7 +481,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		#endregion
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["HitArmor", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "HitArmor", "Basic", i.ToString()]] = new()
 			{
 				playerShotJustHit = true,
 				minDamageBlockedByEnemyArmorThisTurn = 1,
@@ -494,7 +494,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["ExcessEnergy", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "ExcessEnergy", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
 				minEnergy = 1,
@@ -505,7 +505,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["EmptyHand", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "EmptyHand", "Basic", i.ToString()]] = new()
 			{
 				handEmpty = true,
 				allPresent = [solsticeType],
@@ -515,7 +515,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 2; i++)
-			newNodes[["TrashHand", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "TrashHand", "Basic", i.ToString()]] = new()
 			{
 				handFullOfTrash = true,
 				allPresent = [solsticeType],
@@ -525,7 +525,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 1; i++)
-			newNodes[["PlayedRecycle", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "PlayedRecycle", "Basic", i.ToString()]] = new()
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::PlayedRecycle"],
 				allPresent = [solsticeType],
@@ -536,7 +536,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 1; i++)
-			newNodes[["NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "NewNonLarsNonTrashTempCard", "Basic", i.ToString()]] = new()
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::NewNonLarsNonTrashTempCard"],
 				oncePerCombat = true,
@@ -548,7 +548,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["StartedBattle", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "StartedBattle", "Basic", i.ToString()]] = new()
 			{
 				turnStart = true,
 				maxTurnsThisCombat = 1,
@@ -559,7 +559,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 					new Say { who = solsticeType, loopTag = "neutral" },
 				],
 			};
-			newNodes[["StartedBattle", "Peri"]] = new()
+			newNodes[["Solstice", "StartedBattle", "Peri"]] = new()
 			{
 				turnStart = true,
 				maxTurnsThisCombat = 1,
@@ -573,7 +573,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["NoOverlap", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "NoOverlap", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
 				shipsDontOverlapAtAll = true,
@@ -586,7 +586,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["NoOverlapButSeeker", "Riggs"]] = new()
+		newNodes[["Solstice", "NoOverlapButSeeker", "Riggs"]] = new()
 		{
 			priority = true,
 			shipsDontOverlapAtAll = true,
@@ -602,7 +602,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["LongFight", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "LongFight", "Basic", i.ToString()]] = new()
 			{
 				minTurnsThisCombat = 20,
 				oncePerCombatTags = ["manyTurns"],
@@ -614,7 +614,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["GoingMissing", "Basic"]] = new()
+		newNodes[["Solstice", "GoingMissing", "Basic"]] = new()
 		{
 			priority = true,
 			lastTurnPlayerStatuses = [ModEntry.Instance.Lars_Character.MissingStatus.Status],
@@ -626,7 +626,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		};
 
 		for (var i = 0; i < 4; i++)
-			newNodes[["ReturningFromMissing", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "ReturningFromMissing", "Basic", i.ToString()]] = new()
 			{
 				priority = true,
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::ReturningFromMissing"],
@@ -638,7 +638,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 
 		#region DealtDamage
 		for (var i = 0; i < 4; i++)
-			newNodes[["GoingToOverheat", "Basic", i.ToString()]] = new()
+			newNodes[["Solstice", "GoingToOverheat", "Basic", i.ToString()]] = new()
 			{
 				goingToOverheat = true,
 				oncePerCombatTags = ["OverheatGeneric"],
@@ -648,7 +648,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				],
 			};
 
-		newNodes[["GoingToOverheat", "Drake"]] = new()
+		newNodes[["Solstice", "GoingToOverheat", "Drake"]] = new()
 		{
 			goingToOverheat = true,
 			oncePerCombatTags = ["OverheatGeneric"],
@@ -660,7 +660,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 		};
 		#endregion
 
-		newNodes[["Recalibrator", "Basic"]] = new()
+		newNodes[["Solstice", "Recalibrator", "Basic"]] = new()
 		{
 			playerShotJustMissed = true,
 			hasArtifacts = ["Recalibrator"],
@@ -670,7 +670,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			],
 		};
 
-		newNodes[["StartedBattleAgainstBigCrystal", "Basic"]] = new()
+		newNodes[["Solstice", "StartedBattleAgainstBigCrystal", "Basic"]] = new()
 		{
 			priority = true,
 			turnStart = true,
@@ -683,17 +683,17 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			],
 		};
 		// TODO Check crab strings not working in game 
-		saySwitchNodes[["CrabFacts1_Multi_0"]] = new() 
+		saySwitchNodes[["Solstice", "CrabFacts1_Multi_0"]] = new() 
 		{
 			who = solsticeType,
 			loopTag = "neutral"
 		};
-		saySwitchNodes[["CrabFacts2_Multi_0"]] = new()
+		saySwitchNodes[["Solstice", "CrabFacts2_Multi_0"]] = new()
 		{
 			who = solsticeType,
 			loopTag = "neutral"
 		};
-		saySwitchNodes[["CrabFactsAreOverNow_Multi_0"]] = new()
+		saySwitchNodes[["Solstice", "CrabFactsAreOverNow_Multi_0"]] = new()
 		{
 			who = solsticeType,
 			loopTag = "neutral"
