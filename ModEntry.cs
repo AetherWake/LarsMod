@@ -23,6 +23,7 @@ public sealed class ModEntry : SimpleMod
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
     internal StatusRenderManager StatusRenderManager { get; private set; } = null!;
+    internal AquaRingStatusManager AquaRingManager { get; private set; } = null!;
     internal AetherApi aetherApi;
 
     /* Woah! what's with the block of code right out the gate???
@@ -126,7 +127,8 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> AetherCharacter_StarterCard_Types { get; } = [
         /* Add more starter cards here if you'd like. */
         typeof(Bubble),
-        typeof(AquaRing)
+        typeof(AquaRing),
+        typeof(Absorb)
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
@@ -139,7 +141,8 @@ public sealed class ModEntry : SimpleMod
         typeof(AquaTail),
         typeof(AcidArmor),
         typeof(Soak),
-        typeof(MagicalExpansion)
+        typeof(MagicalExpansion),
+        typeof(FlowLikeWater)
     ];
     internal static IReadOnlyList<Type> AetherCharacter_UncommonCard_Types { get; } = [
         typeof(Hydropump),
@@ -163,7 +166,7 @@ public sealed class ModEntry : SimpleMod
         .Concat(AetherCharacter_RareCard_Types);
 
     internal static IReadOnlyList<Type> Aether_CommonArtifacts { get; } = [
-        typeof(Moisturizer),
+        
     ];
 
     // Init of Solstice 
@@ -187,7 +190,7 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
     /* Add more starter cards here if you'd like. */
         typeof(NaturalRenewables),
-        typeof(LeafBlade)
+        typeof(LeafBlade),
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
@@ -238,7 +241,7 @@ public sealed class ModEntry : SimpleMod
         .Concat(SolsticeCharacter_RareCard_Types);
 
     internal static IReadOnlyList<Type> Solstice_CommonArtifacts { get; } = [
-        typeof(Moisturizer),
+        
     ];
 
     public ModEntry(IPluginPackage<IModManifest> package, IModHelper helper, ILogger logger) : base(package, helper, logger)
@@ -550,7 +553,7 @@ public sealed class ModEntry : SimpleMod
             Starters = new StarterDeck
             {
                 cards = [
-                    new Bubble(),
+                    new Absorb(),
                     new AquaRing()
                 ]
             },
@@ -774,6 +777,7 @@ public sealed class ModEntry : SimpleMod
             {
                 icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/MaxAquaRing.png")).Sprite,
                 color = new("f65c76"),
+                border = new("2F6491"),
                 isGood = true,
             },
             Name = AnyLocalizations.Bind(["status", "MaxAquaRing", "name"]).Localize,
@@ -796,6 +800,7 @@ public sealed class ModEntry : SimpleMod
         _ = new SolsticeCardDialogue();
         _ = new SolsticeCombatDialogue();
         StatusRenderManager = new();
+        AquaRingManager = new();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
@@ -806,7 +811,6 @@ public sealed class ModEntry : SimpleMod
     internal void initArtifacts()
     {
         new overheatArtifact().ApplyPatches(Harmony);
-        new Moisturizer().ApplyPatches(Harmony);
     }
 
     internal static ArtifactPool[] GetArtifactPools(Type type)
