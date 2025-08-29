@@ -6,7 +6,7 @@ using Nanoray.PluginManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using AetherWake.Features;
+using AetherWake.Features; 
 
 /* In the Cobalt Core modding community it is common for namespaces to be <Author>.<ModName>
  * This is helpful to know at a glance what mod we're looking at, and who made it */
@@ -22,6 +22,8 @@ public sealed class ModEntry : SimpleMod
     internal IHarmony Harmony { get; }
     internal ILocalizationProvider<IReadOnlyList<string>> AnyLocalizations { get; }
     internal ILocaleBoundNonNullLocalizationProvider<IReadOnlyList<string>> Localizations { get; }
+    internal StatusRenderManager StatusRenderManager { get; private set; } = null!;
+    internal AetherApi aetherApi;
 
     /* Woah! what's with the block of code right out the gate???
      * These are our manually declared stuff, isn't it neat?
@@ -118,7 +120,7 @@ public sealed class ModEntry : SimpleMod
     internal ISpriteEntry Aether_Character_Death { get; }
     internal IStatusEntry AquaRing { get; }
     internal IStatusEntry RainDance { get; }
-
+    internal IStatusEntry MaxAquaRing { get; }
     internal IDeckEntry Aether_Deck { get; }
     internal IPlayableCharacterEntryV2 Aether_Character { get; }
     internal static IReadOnlyList<Type> AetherCharacter_StarterCard_Types { get; } = [
@@ -250,6 +252,7 @@ public sealed class ModEntry : SimpleMod
         KokoroApi = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!;
         KokoroApiV2 = helper.ModRegistry.GetApi<IKokoroApi>("Shockah.Kokoro")!.V2;
         Harmony = helper.Utilities.Harmony;
+        aetherApi = new AetherApi();
         /* These localizations lists help us organize our mod's text and messages by language.
          * For general use, prefer AnyLocalizations, as that will provide an easier time to potential localization submods that are made for your mod 
          * IMPORTANT: These localizations are found in the i18n folder (short for internationalization). The Demo Mod comes with a barebones en.json localization file that you might want to check out before continuing 
@@ -765,6 +768,19 @@ public sealed class ModEntry : SimpleMod
 
         });
 
+        MaxAquaRing = helper.Content.Statuses.RegisterStatus("MaxAquaRing", new()
+        {
+            Definition = new StatusDef
+            {
+                icon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/Status/MaxAquaRing.png")).Sprite,
+                color = new("f65c76"),
+                isGood = true,
+            },
+            Name = AnyLocalizations.Bind(["status", "MaxAquaRing", "name"]).Localize,
+            Description = AnyLocalizations.Bind(["status", "MaxAquaRing", "description"]).Localize,
+
+        });
+
 
 
 
@@ -779,6 +795,7 @@ public sealed class ModEntry : SimpleMod
         _ = new AetherCardDialogue();
         _ = new SolsticeCardDialogue();
         _ = new SolsticeCombatDialogue();
+        StatusRenderManager = new();
     }
 
     public static ISpriteEntry RegisterSprite(IPluginPackage<IModManifest> package, string dir)
