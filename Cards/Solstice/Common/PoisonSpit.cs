@@ -61,7 +61,8 @@ internal sealed class PoisonSpit : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 0), status = Status.corrode, statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 }
                 };
                 break;
             case Upgrade.A:

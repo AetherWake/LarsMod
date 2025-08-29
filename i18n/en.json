@@ -137,8 +137,8 @@
     "WideGuard":{
       "name": "Wide Guard"
     },
-    "FlexMove":{
-      "name": "Flex Move"
+    "ReflectScreen":{
+      "name": "Reflect Screen"
     },
     "LeafBlade":{
       "name": "Leaf Blade"
@@ -155,8 +155,8 @@
     "FranticFlail":{
       "name": "Frantic Flail"
     },
-    "SmallBoulder":{
-      "name": "Small Boulder"
+    "NanoPulse":{
+      "name": "Nano Pulse"
     },
     "SolidBreeze":{
       "name": "Solid Breeze"
@@ -186,11 +186,11 @@
     "SStrikerSquadron":{
       "name": "Striker Squadron"
     },
-    "SBayOverload":{
-      "name": "Bay Overload"
+    "GastroAcid":{
+      "name": "Gastro Acid"
     },
-    "SEnergyDrone":{
-      "name": "Energy Drone"
+    "LeafStorm":{
+      "name": "Leaf Storm"
     },
     "OutrageProtocol":{
       "name": "Outrage Protocol"

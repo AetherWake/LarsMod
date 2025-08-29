@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class MirrorCoat : Card, IDemoCard
+internal sealed class NanoPulse : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("MirrorCoat", new()
+        helper.Content.Cards.RegisterCard("NanoPulse", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "MirrorCoat", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "NanoPulse", "name"]).Localize
         });
     }
 
@@ -33,21 +33,21 @@ internal sealed class MirrorCoat : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust=true
+                    cost = 0,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 3,
+                    floppable = true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust=true
+                    cost = 1,
+                    floppable = true
                 };
                 break;
         }
@@ -64,10 +64,16 @@ internal sealed class MirrorCoat : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.perfectShield,
+                        status = Status.boost,
                         statusAmount = 1,
                         targetPlayer = true
                     },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 1
+                    },
+                    
                 };
                 break;
             case Upgrade.A:
@@ -75,15 +81,31 @@ internal sealed class MirrorCoat : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.tempPayback,
-                        statusAmount = 1,
+                        status = Status.boost,
+                        statusAmount = -1,
                         targetPlayer = true,
+                        disabled = flipped
                     },
                     new AStatus
                     {
-                        status = Status.backwardsMissiles,
-                        statusAmount = 1,
+                        status = Status.boost,
+                        statusAmount = 2,
+                        disabled = flipped
                     },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 2,
+                        targetPlayer = true,
+                        disabled = flipped!
+                    },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = -1,
+                        disabled = flipped!
+                    },
+                    
                 };
                 break;
             case Upgrade.B:
@@ -91,16 +113,31 @@ internal sealed class MirrorCoat : Card, IDemoCard
                 {
                     new AStatus
                     {
-                        status = Status.perfectShield,
-                        statusAmount = 1,
-                        targetPlayer = true
+                        status = Status.boost,
+                        statusAmount = 2,
+                        targetPlayer = true,
+                        disabled = flipped
                     },
                     new AStatus
                     {
-                        status = Status.tempPayback,
-                        statusAmount = 1,
-                        targetPlayer = true,
+                        status = Status.boost,
+                        statusAmount = 2,
+                        disabled = flipped
                     },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = -2,
+                        targetPlayer = true,
+                        disabled = flipped!
+                    },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = -2,
+                        disabled = flipped!
+                    },
+                    
                 };
                 break;
         }

@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SBayOverload : Card, IDemoCard
+internal sealed class LeafStorm : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SBayOverload", new()
+        helper.Content.Cards.RegisterCard("LeafStorm", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class SBayOverload : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SBayOverload", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "LeafStorm", "name"]).Localize
         });
     }
 
@@ -33,22 +33,22 @@ internal sealed class SBayOverload : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust=true
+                    cost = 3,
+                    exhaust = true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust=true
+                    cost = 3,
+                    exhaust = true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust=true
+                    cost = 3,
+                    exhaust = true
                 };
                 break;
         }
@@ -63,32 +63,39 @@ internal sealed class SBayOverload : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AEnergy(){changeAmount=3},
-                    new AStatus(){
-                        status =Status.backwardsMissiles,
-                        statusAmount=2
-                    }
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.breacher},
+                    },
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ADrawCard(){count=1},
-                    new AEnergy(){changeAmount=3},
-                    new AStatus(){
-                        status =Status.backwardsMissiles,
-                        statusAmount=2
-                    }
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.breacher}, offset = -1
+                    },
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.breacher}, offset = 1
+                    },
+                    new ASpawn(){
+                        thing=new DualDrone()
+                    },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AEnergy(){changeAmount=2},
-                    new AStatus(){
-                        status =Status.backwardsMissiles,
-                        statusAmount=1
-                    }
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.breacher},
+                    },
+                    new AMove
+                    {
+                        dir = -3,
+                        targetPlayer = true
+                    },
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.breacher},
+                    },
                 };
                 break;
         }

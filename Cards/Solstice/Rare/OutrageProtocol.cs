@@ -34,20 +34,19 @@ internal sealed class OutrageProtocol : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 2,
-                    exhaust=true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust=true
+                    cost = 2,
+                    flippable=true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 3,
                     exhaust=true
                 };
                 break;
@@ -63,11 +62,10 @@ internal sealed class OutrageProtocol : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone()},
-                    new ASpawn(){thing=new DualDrone(), offset = -1},
+                    new ASpawn(){thing=new DualDrone()},
                     new AStatus
                     {
-                        status = Status.payback,
+                        status = Status.tempPayback,
                         statusAmount = 1,
                         targetPlayer = true,
                     },
@@ -76,12 +74,11 @@ internal sealed class OutrageProtocol : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone()},
                     new ASpawn(){thing=new DualDrone(), offset = 1},
-                    new ASpawn(){thing=new DualDrone(), offset = -1},
+                    new ASpawn(){thing=new DualDrone()},
                     new AStatus
                     {
-                        status = Status.payback,
+                        status = Status.tempPayback,
                         statusAmount = 1,
                         targetPlayer = true,
                     },
@@ -90,7 +87,13 @@ internal sealed class OutrageProtocol : Card, IDemoCard
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){thing=new JupiterDrone(){bubbleShield=true}}
+                    new ASpawn(){thing=new JupiterDrone()},
+                    new AStatus
+                    {
+                        status = Status.payback,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
                 };
                 break;
         }

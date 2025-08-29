@@ -195,12 +195,12 @@ public sealed class ModEntry : SimpleMod
      * However you can be more detailed, or you can be more loose, if that's your style */
     internal static IReadOnlyList<Type> SolsticeCharacter_CommonCard_Types { get; } =
     [
-        typeof(SFlexMove),
+        typeof(ReflectScreen),
         typeof(LeafBlade),
         typeof(PoisonSpit),
         typeof(NaturalRenewables),
         typeof(FranticFlail),
-        typeof(SSmallBoulder),
+        typeof(NanoPulse),
         typeof(SolidBreeze),
         typeof(SSpaceMineCard),
         typeof(LeechShot),
@@ -217,8 +217,8 @@ public sealed class ModEntry : SimpleMod
     ];
 
     internal static IReadOnlyList<Type> SolsticeCharacter_RareCard_Types { get; } = [
-        typeof(SBayOverload),
-        typeof(SEnergyDrone),
+        typeof(GastroAcid),
+        typeof(LeafStorm),
         typeof(OutrageProtocol),
         typeof(ShadowPanic),
         typeof(MirrorCoat)

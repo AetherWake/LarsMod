@@ -2,199 +2,199 @@
     "Solstice":{
         "TookDamage": {
             "Basic": [
-                [ "That's not too bad, right?" ], 
-                [ "Did we mean to let them hit us?" ], 
-                [ "I think we're fine." ]
+                [ "Okay, okay, we're fine..." ], 
+                [ "S-Sorry! Maybe we could launch a drone in front of their cannons?" ], 
+                [ "I would much rather we avoid taking risks like that..." ]
             ],
             "Dizzy": [
-                "Time for more shields?",  
-                "I'll consider it." 
+                "We could really use one of your shield frones right about now.",  
+                "We'll be fine! We just need to stall a little longer." 
             ],
             "Riggs": [
                 "It's ok! We'll just dodge the next one.",
-                "Doing my best here."
+                "Listen, they're aim is just really really good right now..."
             ],
             "Peri": [
-                "That's just rude.",
-                "You tell them, not us."
+                "Calm Down! We're fine.",
+                "Just try to stay calm, let me take over the controls."
             ],
             "Isaac": [
-                "Ouch...",
-                "Oh dear, are you ok?"
+                "Between the two of us, we'll figure out something.",
+                "Need me to take take over? We can swap places."
             ],
             "Drake": [
-                "Damn.",
-                "When you really need to stop some water."
+                "Could you stop being such a wuss already Solstice?",
+                "HOW AM I SUPPOSED TO BE CALM RIGHT NOW? THEY'RE SHOOTING US."
             ],
             "Max": [
-                "I really hope that didn't hit anything vital.",
-                "Mmh, I think I'm ok!"
+                "I mean, we'll probably be fine, right?",
+                "Hmm... Gotta agree with you there."
             ],
             "Books": [
-                "Everyone okay?",
-                "It's okay! I'm okay!"
+                "O-Okay, that's wasn't too bad. How's the hull looking?",
+                "There there, we'll be fine. Your plant magic can repair that I'm sure."
             ],
             "CAT": [
-                "asterisk doesn't worry about it asterisk",
-                "Can someone check on the Pokémon? I think he hit his head."
+                "Ow... I think the l-last hit rattled me a bit.",
+                "We'll just stop by a Pokemon center along the way, calm down."
             ]
         },
         "TookNonHullDamage": {
             "Basic": [
-                [ "Shielded!" ],
-                [ "Blocked!" ],
-                [ "Oh, we're fine!" ],
-                [ "Nix passiert." ],
-                [ "Relax, we've got this." ]
+                [ "Gagnslaus!" ],
+                [ "Useless!" ],
+                [ "No structural damage detected?" ],
+                [ "Oh! Maybe I was worried for nothing?" ],
+                [ "That's... That's it?" ]
 
             ],
             "Dizzy": [
-                "Thanks for keeping us safe, Dizzy!",
-                "You're welcome?"
+                "I'm so glad the shields held up...",
+                "That's what I'm here for~"
             ]
         },
         "DealtDamage": {
             "Basic": [
-                [ "Did I help?" ], 
-                [ "Show 'em who's boss!" ], 
-                [ "Give 'em heck." ],
-                [ "We're getting somewhere!" ],
-                [ "Hehe." ]
+                [ "Maybe they'll back off now?" ], 
+                [ "The next one's going through your cockpit glass!" ], 
+                [ "I... I was hoping it would do more damage." ],
+                [ "Shouldn't take too long, let's keep it up." ],
+                [ "I got this one!" ]
             ],
             "Dizzy": [
-                "You hit them!",  
-                "I'm getting the hang of this!" 
+                "Energy can never be destroyed, only transformed.",  
+                "Let's show them how terrifying Kinetic Energy can be!" 
             ],
             "Riggs": [
-                "Hit!",
-                "You learn fast!"
+                "Nice shot Riggs.",
+                "Wow, you almost didn't sound nervous just now!"
             ],
             "Peri": [
-                "I got 'em!",
-                "Who let the fire lizard on the cannons?"
+                "I'm really glad you're here Peri!",
+                "Keep harrying them, I'll keep shooting them."
             ],
             "Isaac": [
-                "Char!",
-                "Language."
+                "Sometimes I forget we even have a cannon.",
+                "Wait, you too? Happens to me all the time."
             ],
             "Drake": [
                 [
-                    "Hit!",
-                    "Yeah, yeah."
+                    "Wait, I got 'em?",
+                    "Of course you did! Now do it again!"
                 ],
                 [
-                    "Hit!",
-                    "Yeah, yeah."
+                    "If you wanted to give up, now's the time!",
+                    "AFTER you give us all your stuff, of course."
                 ]
             ],
             "Max": [
-                "Wooo!.",
-                "Alright, calm down now."
+                "Wait, did you shoot that?",
+                "Huh? I thought you did?"
             ],
             "Books": [
-                "Got 'em!",
-                "Yeah!"
+                "These crystals of your's are awesome, Books!",
+                "Hehehe~"
             ],
             "CAT": [
-                "Treffer!",
-                "According to my database, that's German for 'hit'. Huh."
+                "Hogg! Sokkvum peim!",
+                "I'm not sure which scandinavian language you even speak, Solstice..."
             ]
         },
             "DealtBigDamage": {
             "Basic": [
-                [ "Whoa! We're cooking!" ], 
-                [ "Fired up!" ], 
-                [ "Yeah, heal that, nerds!" ],
-                [ "It's future damage mitigation!" ],
-                [ "I can hear the victory fanfare in the distance." ]
+                [ "I hope they're still alive, I intend to do it again..." ], 
+                [ "We're going to take your ship apart. Piece. By. Piece." ], 
+                [ "You're lucky the void of space is between my coils and your neck for now." ],
+                [ "Did we hit their life support systems? Good. Again." ],
+                [ "I'm going to break that cockpit like I'm going to break their legs..." ]
             ]
         },
             "ShieldedDamage": {
             "Basic": [
-                [ "Hah, try again!" ], 
-                [ "Lucky- I mean, hah! All according to plan!" ], 
-                [ "That's cute." ]
+                [ "Oh am I glad we have these shields..." ], 
+                [ "Oof... I'd much rather we not take shots to begin with, but this works." ], 
+                [ "No damage? Why do I almost feel disappointed?" ]
             ]
         },
             "Missed": {
             "Basic": [
-                [ "Sorry, didn't have my glasses on." ], 
-                [ "You guys make this look so easy!" ], 
-                [ "Just luring them into a false sense of security." ],
-                [ "Warning shot!" ]
+                [ "O-Oh no..." ], 
+                [ "I... I didn't mean to miss that!" ], 
+                [ "D-Do you think they'll go easy on us if we keep missing?" ],
+                [ "Calibrating... I hope..." ]
             ]
         },
         "AboutToDie": {
             "Basic": [
-                [ "I have a bad feeling about this." ], 
-                [ "Is this light supposed to be red?" ], 
-                [ "The only HP that matters is the last one." ]
+                [ "I-I'm going to fight like a cornered animal... Are you two with me?" ], 
+                [ "Moments like these make me feel at peace... And predator-like instincts." ], 
+                [ "I'll come back next loop make sure they have a slow excrutiating death..." ]
             ],
             "Dizzy": [
-                "This isn't looking pretty.",  
-                "I think looking pretty is the least of our problems right now." 
+                "As long as I don't check how many shields we got, it's probably more than zero, right?",  
+                "I... Yes, like Shrodinger's cat." 
             ],
             "Riggs": [
-                "We have to do something!",
-                "Can't we just, like, leave!?"
+                "... Fly us closer.",
+                "How can you say that so calmly, are you insane?!"
             ],
             "Peri": [
-                "This is getting pretty dire.",
-                "You've got a plan to fix this, right?"
+                "Their gunshots stopped. You ready to return that pain back to sender?",
+                "We'll return it ten times over, Solstice."
             ],
             "Isaac": [
-                "Is there a way out of this mess?",
-                "Deep breaths. Deeeeep breaths."
+                "I CAN'T MAKE DRONES FAST ENOUGH TO BLOCK ALL THESE HITS!",
+                "Y-You're making me anxious. I'M GETTING ANXIOUS."
             ],
             "Drake": [
-                "This is getting hot.",
-                "Time to fight fire with fire?"
+                "If this ship is going down, I'm crashing it into their cockpit.",
+                "WHOA. Wait, too hardcore, even for me, chill Solstice!"
             ],
             "Max": [
-                "This isn't going according to plan.",
-                "You guys had a plan?"
+                "Gonna need to overclock the systems we haven't already.",
+                "Siiigh... I'll go turn off the RBG lights."
             ],
             "Books": [
-                "Use your magic powers to save us!",
-                "I think my kind of magic doesn't work here!"
+                "We'll make them regret not killing us with that attack...",
+                "Solsty, you've got a lot of dark magic surrounding you when you're mad..."
             ],
             "CAT": [
-                "Where's the undo button!?",
-                "Oh, wouldn't that be useful right now?"
+                "Hmngh... That last hit almost felt... Good? Is that normal CAT?",
+                "No signs of concussion detected, so... Note to self : Solstice is a masochist."
             ]
         },
         "HitArmor": {
             "Basic": [
-                [ "So uh, was that on purpose?" ], 
-                [ "Just testing their defenses! Yep, they have defenses." ], 
-                [ "Oooh, that's what that is for." ],
-                [ "Oh, I thought that was the undo button." ]
+                [ "It doesn't matter where my attacks hit, so long as they hit." ], 
+                [ "Armour. Let me see if I have any piercing rounds..." ], 
+                [ "I-I think that could have gone w-worse..." ],
+                [ "W-Wait, how did... OH! Oh,  right!" ]
             ]
         },
         "ExcessEnergy": {
             "Basic": [
-                [ "So, now what?" ], 
-                [ "That's all we can do, huh." ]
+                [ "Ack! What a w-waste of elecricity..." ], 
+                [ "At least the solar panels of the ship can take a load off now?." ]
             ]
         },
         "EmptyHand": {
             "Basic": [
-                [ "Aaaand that's it!" ], 
-                [ "We're done for now." ]
+                [ "W-What do you mean t-there's no more cards?!" ], 
+                [ "I think we got too greedy there..." ]
             ]
         },
         "TrashHand": {
             "Basic": [
-                [ "Huh!? How are we supposed to work with this?" ], 
-                [ "Uuuuh..." ] 
+                [ "C-Cmon gang! Reduce, reuse, recycle!" ], 
+                [ "This ship needs more recycling bins..." ] 
             ]
         },
         "StartedBattle": {
             "Basic": [
-                [ "Let's get started!" ], 
-                [ "Time to kick some tail! Hehe. Tail." ], 
-                [ "Weapons hot! ... That's how it goes, right?" ], 
-                [ "Pew, pew! Pew! Let's go!" ]
+                [ "D-Do we really have to fight them?" ], 
+                [ "Wait, why am I in charge of the cannons again?!" ], 
+                [ "Don't come any clos-They got closer..." ], 
+                [ "I'll start brewing something to melt their hull right away!" ]
             ],
             "Peri": [
                 "We've got a hostile enemy in the AO!",
@@ -203,77 +203,80 @@
         },
         "NoOverlap": {
             "Basic": [
-                [ "Bye!" ], 
-                [ "See ya!" ], 
-                [ "Oh, so we CAN just leave?" ], 
-                [ "Nah, not feelin' it." ]
+                [ "Ooh... I feel a lot better now." ], 
+                [ "W-Whoa! Did we just completely avoid all their shots?" ], 
+                [ "I'm n-not used to being this mobile, my goodness." ], 
+                [ "Huh... Dodging all these shots feels almost like cheating." ]
             ]
         },
         "NoOverlapButSeeker": {
             "Riggs": [
-                "That thing's problematic, right?",
-                "Probably!"
+                "Why aren't you panicking? WE SHOULD BE PANICKING.",
+                "Yeah we probably should be, I can't dodge that."
+            ],
+            "Basic": [
+                "Why aren't you panicking? WE SHOULD BE PANICKING."
             ]
         },
         "LongFight": {
             "Basic": [
-                [ "..." ], 
-                [ "Yaaawn." ], 
-                [ "So, are we prolonging this on purpose?" ], 
-                [ "I mean, I've got time. Noone's waiting for me back home." ]
+                [ "Do you mind orienting the ship 30 degrees to the right? I wanna Photosynthesize." ], 
+                [ "Huh. Their hull still hasn't fully melted yet?" ], 
+                [ "... I'm glad I brought a game console with me this Loop." ], 
+                [ "You know, the longer this goes on, the less afraid I feel. Weird." ]
             ]
         },
         "GoingMissing": {
             "Basic": [
-                [ "A-" ]
+                [ "Wait hold up, what?" ]
 
             ]
         },
         "ReturningFromMissing": {
             "Basic": [
-                [ "Hah! All it took was a restart." ], 
-                [ "Am I back?" ], 
+                [ "Sorry! Sorry, I'm back in the engine bay now." ], 
+                [ "Are you all okay?! I'm sorry for going missing." ], 
                 [ "Oh, I think the connection's back!" ], 
-                [ "I had a nice dream about dragons..." ]
+                [ "My comms are back online, I'm gonna make 'em wish it didn't..." ]
             ]
         },
         "GoingToOverheat": {
             "Basic": [
-                [ "It's getting nice and comfy... Wait, that's bad." ], 
-                [ "Huh? I kept the tail away from everything, I swear!" ], 
-                [ "Wasn't me, wasn't me!" ], 
-                [ "Okay, maybe that was my fault..." ]
+                [ "Did you know my species is composed mostly of plan-OH THE ENGINE BAY IS ON FIRE." ], 
+                [ "Try not to freak out, try not to freak out..." ], 
+                [ "My nanobots can't overclock our gear if it's on the verge of MELTING!" ], 
+                [ "I feel... D-Dizzy... Water?" ]
             ],
             "Drake": [
-                "I like this, but I have a feeling this is bad for the ship.",
-                "Don't worry about it."
+                "E-Eunice, I'm already pushing the ship pretty hard...",
+                "C'mon, it's just like old times, you'll live Solstice."
             ]
         },
         "PlayedRecycle": {
             "Basic": [
-                [ "Again and again and again and again." ]
+                [ "I love sustainable technology~" ]
 
             ]
         },
         "NewNonLarsNonTrashTempCard": {
             "Basic": [
-                [ "Wait, where did that come from?" ]
+                [ "I... Did I leave the 3D printer turned on?" ]
 
             ]
         },
         "Recalibrator": {
             "Basic": [
-                [ "Huh, how does that even work?" ]
+                [ "Alright, recalibrating now using this data." ]
 
             ]
         },
         "StartedBattleAgainstBigCrystal": {
             "Basic": [
-                [ "Big crystal." ]
+                [ "I'd love to study this thing... I-If it wasn't t-trying to kill us." ]
             ]
         },
-        "CrabFacts1_Multi_0": "Mhm." ,
-        "CrabFacts2_Multi_0": "Yeah!",
-        "CrabFactsAreOverNow_Multi_0": "Okay, I'll admit. I wasn't listening."
+        "CrabFacts1_Multi_0": "Ooh! Did you also know crabs can regenerate certain body parts?" ,
+        "CrabFacts2_Multi_0": "Have another factoid, some species of shrimps can fire high-pressure water like a pistol!",
+        "CrabFactsAreOverNow_Multi_0": "Well, I still have a ton more if the rest of you are interested~"
     }
 }

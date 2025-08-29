@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SFlexMove : Card, IDemoCard
+internal sealed class ReflectScreen : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("FlexMove", new()
+        helper.Content.Cards.RegisterCard("ReflectScreen", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class SFlexMove : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "FlexMove", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "ReflectScreen", "name"]).Localize
         });
     }
 
@@ -33,17 +33,20 @@ internal sealed class SFlexMove : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 1
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 1
+                    cost = 2,
+                    retain = true
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 2
+                data = new CardData()
+                {
+                    cost = 3,
+                    exhaust = true
                 };
                 break;
         }
@@ -58,15 +61,11 @@ internal sealed class SFlexMove : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=2,
-                        targetPlayer=true
-                    },
-                    new AStatus(){
-                        status=Status.evade,
-                        statusAmount=1,
-                        targetPlayer=true
+                    new AStatus
+                    {
+                        status = Status.libra,
+                        statusAmount = 1,
+                        targetPlayer = true
                     }
                     
                 };
@@ -74,29 +73,33 @@ internal sealed class SFlexMove : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=2,
-                        targetPlayer=true
+                    new AStatus
+                    {
+                        status = Status.energyNextTurn,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new AStatus(){
-                        status=Status.evade,
-                        statusAmount=1,
-                        targetPlayer=true
+                    new AStatus
+                    {
+                        status = Status.libra,
+                        statusAmount = 1,
+                        targetPlayer = true
                     }
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AStatus(){
-                        status=Status.droneShift,
-                        statusAmount=2,
-                        targetPlayer=true
+                    new AStatus
+                    {
+                        status = Status.libra,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
                     new AStatus(){
-                        status=Status.evade,
-                        statusAmount=2,
+                        status=Status.reflexiveCoating,
+                        statusAmount=1,
                         targetPlayer=true
                     }
                 };

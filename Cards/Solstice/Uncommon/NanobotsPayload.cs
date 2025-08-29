@@ -40,15 +40,13 @@ internal sealed class NanobotsPayload : Card, IDemoCard
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 1,
-                    exhaust=true
+                    cost = 2
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 0,
-                    exhaust=true
+                    cost = 3
                 };
                 break;
         }
@@ -76,7 +74,8 @@ internal sealed class NanobotsPayload : Card, IDemoCard
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){thing=new BoostBall(), offset=4}
+                    new ASpawn(){thing=new BoostBall(), offset=-1},
+                    new ASpawn(){thing=new RepairKit(), offset=1}
                 };
                 break;
         }
