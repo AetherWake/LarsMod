@@ -44,7 +44,7 @@ internal sealed class HeatingUp : Card, IDemoCard
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 1,
+                    cost = 0,
                 };
                 break;
         }
@@ -60,8 +60,18 @@ internal sealed class HeatingUp : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status = Status.heat,
+                        status = Status.droneShift,
+                        statusAmount = 1,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status = Status.evade,
                         statusAmount = 2,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status = Status.heat,
+                        statusAmount = 3,
                         targetPlayer=true
                     }
                 };
@@ -70,8 +80,18 @@ internal sealed class HeatingUp : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
+                        status = Status.droneShift,
+                        statusAmount = 1,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status = Status.evade,
+                        statusAmount = 2,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
                         status = Status.heat,
-                        statusAmount = 4,
+                        statusAmount = 3,
                         targetPlayer=true
                     }
                 };
@@ -80,8 +100,18 @@ internal sealed class HeatingUp : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
+                        status = Status.droneShift,
+                        statusAmount = 2,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status = Status.evade,
+                        statusAmount = 3,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
                         status = Status.heat,
-                        statusAmount = 6,
+                        statusAmount = 4,
                         targetPlayer=true
                     }
                 };
