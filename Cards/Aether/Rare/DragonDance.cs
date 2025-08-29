@@ -35,19 +35,19 @@ internal sealed class DragonDance : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                 };
                 break;
         }
@@ -61,7 +61,7 @@ internal sealed class DragonDance : Card, IDemoCard
         {
             case Upgrade.None:
                 
-                var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 10);
+                var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 8);
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AStatus(){
@@ -78,14 +78,24 @@ internal sealed class DragonDance : Card, IDemoCard
                         status=ModEntry.Instance.AquaRing.Status,
                         statusAmount = 3,
                         targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=ModEntry.Instance.MaxAquaRing.Status,
+                        statusAmount = 1,
+                        targetPlayer=true
                     }
                     
                 };
                 break;
             case Upgrade.A:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 10);
+                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 8);
                 actions = new()
                 {
+                    new AStatus(){
+                        status=ModEntry.Instance.MaxAquaRing.Status,
+                        statusAmount = 1,
+                        targetPlayer=true
+                    },
                     new AStatus(){
                         status=ModEntry.Instance.AquaRing.Status,
                         statusAmount = 3,
@@ -106,7 +116,7 @@ internal sealed class DragonDance : Card, IDemoCard
                 break;
                 
             case Upgrade.B:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 15);
+                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 10);
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AStatus(){
@@ -122,6 +132,11 @@ internal sealed class DragonDance : Card, IDemoCard
                     new AStatus(){
                         status=ModEntry.Instance.AquaRing.Status,
                         statusAmount = 3,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=ModEntry.Instance.MaxAquaRing.Status,
+                        statusAmount = 1,
                         targetPlayer=true
                     }
                 };

@@ -27,12 +27,13 @@ public class StatusManager : IStatusLogicHook
                 targetPlayer = ship.isPlayerShip
             });
         }
-        if (timing == StatusTurnTriggerTiming.TurnEnd && status == ModEntry.Instance.AquaRing.Status && ship.Get(ModEntry.Instance.AquaRing.Status) >= AquaRingHelper.HealTrigger)
+        
+        if (timing == StatusTurnTriggerTiming.TurnEnd && status == ModEntry.Instance.AquaRing.Status && ship.Get(ModEntry.Instance.AquaRing.Status) >= AquaRingHelper.HealTriggerDefault)
         {
             if (!(ship.hull == ship.hullMax))
             {
                 var AcidArmor = ship.Get(ModEntry.Instance.AquaRing.Status);
-                if (ship.isPlayerShip)
+                if (!ship.isPlayerShip)
                 {
                     combat.Queue(new AHeal
                     {
@@ -40,16 +41,7 @@ public class StatusManager : IStatusLogicHook
                         targetPlayer = ship.isPlayerShip
                     });
                 }
-                else if(AcidArmor>=AquaRingHelper.HealTriggerDefault)
-                {
-                    combat.Queue(new AHeal
-                    {
-                        healAmount = 1,
-                        targetPlayer = ship.isPlayerShip
-                    });
-                }
-                ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - AquaRingHelper.HealTrigger);
-
+                ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - AquaRingHelper.HealTriggerDefault);
             }
         }
         

@@ -126,8 +126,12 @@
     "MagicalExpansion": {
       "name": "Magical expansion"
     },
-    
-
+    "Absorb": {
+      "name": "Absorb"
+    },
+    "FlowLikeWater":{
+      "name": "Flow like water"
+    },
     "LeechShot":{
       "name": "Leech Shot"
     },
@@ -221,6 +225,10 @@
     "RainDance":{
       "name": "Rain Dance",
       "description": "Gain 1 Aqua Ring at the start of the turn"
+    },
+    "MaxAquaRing":{
+      "name": "Max Aqua Ring",
+      "description": "Increases limit of aqua ring by 1"
     }
   }
 }
