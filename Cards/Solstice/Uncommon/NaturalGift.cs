@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SLargeBoulders : Card, IDemoCard
+internal sealed class NaturalGift : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SLargeBoulders", new()
+        helper.Content.Cards.RegisterCard("NaturalGift", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.uncommon,
+                rarity = Rarity.common,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SLargeBoulders", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "NaturalGift", "name"]).Localize
         });
     }
 
@@ -34,20 +34,18 @@ internal sealed class SLargeBoulders : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 2,
-                    exhaust=true
+                    exhaust = true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData()
-                {
-                    cost = 2
+                data = new CardData(){
+                    cost = 2,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust=true
+                    cost = 3
                 };
                 break;
         }
@@ -63,15 +61,7 @@ internal sealed class SLargeBoulders : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=-1
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=1
+                        thing=new RepairKit(){bubbleShield = true},
                     },
                     
                 };
@@ -80,40 +70,21 @@ internal sealed class SLargeBoulders : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=-1
+                        thing=new RepairKit(){bubbleShield = true},
                     },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=1
-                    },
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=-2
+                        thing=new RepairKit(), offset = 1
                     },
                     new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=-1
+                        thing=new RepairKit(), offset = -1
                     },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=1
-                    },
-                    new ASpawn(){
-                        thing=new Asteroid(),
-                        offset=2
-                    },
+                    
                 };
                 break;
         }

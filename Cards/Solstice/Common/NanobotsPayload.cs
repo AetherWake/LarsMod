@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class WideGuard : Card, IDemoCard
+internal sealed class NanobotsPayload : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("WideGuard", new()
+        helper.Content.Cards.RegisterCard("NanobotsPayload", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "WideGuard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "NanobotsPayload", "name"]).Localize
         });
     }
 
@@ -33,22 +33,19 @@ internal sealed class WideGuard : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust=true
+                    cost = 2
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 3,
+                    cost = 1
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust = true,
-                    buoyant = true
+                    cost = 3
                 };
                 break;
         }
@@ -63,38 +60,21 @@ internal sealed class WideGuard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing =new ShieldDrone(),
-                        offset=-1
-                    },
+                    new ASpawn(){thing=new BoostBall()}
+
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing =new ShieldDrone(),
-                        offset=-1
-                    },
-                    new ASpawn(){
-                        thing =new AttackDrone(){upgraded=true},
-                        offset=1,
-                        omitFromTooltips=true
-                    }
+                    new ASpawn(){thing=new BoostBall()}
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing =new ShieldDrone(),
-                        offset=-1
-                    },
-                    new ASpawn(){
-                        thing =new AttackDrone(){upgraded=true},
-                        offset=1,
-                        omitFromTooltips=true
-                    }
+                    new ASpawn(){thing=new BoostBall(), offset=-1},
+                    new ASpawn(){thing=new BoostBall(), offset=1}
                 };
                 break;
         }

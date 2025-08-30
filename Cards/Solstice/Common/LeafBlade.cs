@@ -38,12 +38,12 @@ internal sealed class LeafBlade : Card, IDemoCard
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 3
+                    cost = 2
                 };
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 2
+                    cost = 3
                 };
                 break;
         }
@@ -70,10 +70,9 @@ internal sealed class LeafBlade : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing =new AttackDrone(),
+                        thing =new AttackDrone(){upgraded = true},
                         omitFromTooltips=true
                     },
-                    new AAttack(){ damage=GetDmg(s, 1)},
                     new AAttack(){ damage=GetDmg(s, 1)},
                     new AAttack(){ damage=GetDmg(s, 1)}
                 };

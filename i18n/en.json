@@ -10,7 +10,7 @@
     },
     "Solstice": {
       "name": "Solstice",
-      "description": "Sss"
+      "description": "Your ship's Xenobiologist. Their cards focus on applying <c=boldPink>status effects</c> to both your ship and the enemy's ship, as well as <c=boldPink>creating midrow objects</c>."
     }
   },
   "artifact": {
@@ -138,8 +138,8 @@
     "NanobotsPayload":{
       "name": "Nanobots Payload"
     },
-    "WideGuard":{
-      "name": "Wide Guard"
+    "LightScreen":{
+      "name": "Light Screen"
     },
     "ReflectScreen":{
       "name": "Reflect Screen"
@@ -156,17 +156,17 @@
     "NaturalRenewables":{
       "name": "Natural Renewables"
     },
-    "FranticFlail":{
-      "name": "Frantic Flail"
+    "BrutalSwing":{
+      "name": "Brutal Swing"
     },
     "NanoPulse":{
       "name": "Nano Pulse"
     },
-    "SolidBreeze":{
-      "name": "Solid Breeze"
+    "ContraryTaunt":{
+      "name": "Contrary Taunt"
     },
-    "SpaceMineCard":{
-      "name": "Space Mine"
+    "NaturalGift":{
+      "name": "Natural Gift"
     },
     "Battalion":{
       "name": "Battalion"
@@ -177,18 +177,18 @@
     "PhotoSynthesis":{
       "name": "Photo Synthesis"
     },
-    "SLargeBoulders":{
-      "name": "Large Boulders"
+    "SolarBeam":{
+      "name": "Solar Beam"
     },
     "ScaleShot":{
       "name": "Scale Shot",
       "description_a": "Shoot to the left and right for 0 Damage, apply boost on hit."
     },
-    "SRepairKit":{
-      "name": "Repair Kit"
+    "BreakingSwipe":{
+      "name": "Breaking Swipe"
     },
-    "SStrikerSquadron":{
-      "name": "Striker Squadron"
+    "GrowthProtocol":{
+      "name": "Growth Protocol"
     },
     "GastroAcid":{
       "name": "Gastro Acid"

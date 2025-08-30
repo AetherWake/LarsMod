@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class LeafStorm : Card, IDemoCard
+internal sealed class SolarBeam : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("LeafStorm", new()
+        helper.Content.Cards.RegisterCard("SolarBeam", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.rare,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "LeafStorm", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SolarBeam", "name"]).Localize
         });
     }
 
@@ -33,22 +33,23 @@ internal sealed class LeafStorm : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust = true
+                    cost = 1,
+                    infinite = true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust = true
+                    cost = 1,
+                    infinite = true,
+                    retain = true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
-                    flippable = true
+                    cost = 1,
+                    infinite = true
                 };
                 break;
         }
@@ -63,45 +64,57 @@ internal sealed class LeafStorm : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.breacher},
+                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true },
+                    new AStatus
+                    {
+                        status = Status.overdrive,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.normal}, offset = -1
-                    },
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.normal}, offset = 1
-                    },
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.breacher}, offset = -1
+                    new AStatus
+                    {
+                        status = Status.overdrive,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.breacher}, offset = 1
+                    new AStatus
+                    {
+                        status = Status.stunCharge,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new ASpawn(){
-                        thing=new DualDrone()
+                    new AStatus
+                    {
+                        status = Status.engineStall,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.breacher},
-                    },
-                    new AMove
+                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true, piercing = true },
+                    new AStatus
                     {
-                        dir = -3,
+                        status = Status.overdrive,
+                        statusAmount = 1,
                         targetPlayer = true
                     },
-                    new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.seeker},
+                    new AStatus
+                    {
+                        status = Status.engineStall,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
+                    
                 };
                 break;
         }

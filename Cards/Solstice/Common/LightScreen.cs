@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class FranticFlail : Card, IDemoCard
+internal sealed class LightScreen : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("FranticFlail", new()
+        helper.Content.Cards.RegisterCard("LightScreen", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class FranticFlail : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "FranticFlail", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "LightScreen", "name"]).Localize
         });
     }
 
@@ -33,20 +33,22 @@ internal sealed class FranticFlail : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 0,
+                    exhaust = true,
+                    retain = true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 3
+                data = new CardData()
+                {
+                    cost = 1,
+                    retain = true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
-                    flippable = true,
-                    retain = true
+                    cost = 2
                 };
                 break;
         }
@@ -61,45 +63,41 @@ internal sealed class FranticFlail : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=1, moveEnemy=1
+                    new AStatus(){
+                        status=Status.bubbleJuice,
+                        statusAmount=1,
+                        targetPlayer=true
                     },
-                    new AMove(){
-                        dir=-1,
-                        targetPlayer = true,
-                    }
-                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=GetDmg(s, 1), moveEnemy=1
+                    new AStatus(){
+                        status=Status.bubbleJuice,
+                        statusAmount=1,
+                        targetPlayer=true
                     },
-                    new AMove(){
-                        dir=-1,
-                        targetPlayer = true,
-                    },
-                    new AAttack(){
-                        damage=GetDmg(s, 1), moveEnemy=1
-                    },
-                    new AMove(){
-                        dir=-1,
-                        targetPlayer = true,
-                    },
-                    new AAttack(){
-                        damage=GetDmg(s, 1), moveEnemy=1
-                    }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){
-                        damage=GetDmg(s, 3),
-                        moveEnemy=3
-                    }
+                    new AStatus(){
+                        status=Status.bubbleJuice,
+                        statusAmount=1,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=Status.shield,
+                        statusAmount=2,
+                        targetPlayer=true
+                    },
+                    new AStatus(){
+                        status=Status.tempShield,
+                        statusAmount=2,
+                        targetPlayer=true
+                    },
                 };
                 break;
         }

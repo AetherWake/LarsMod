@@ -34,14 +34,12 @@ internal sealed class ScaleShot : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 1,
-                    exhaust = true,
                 };
                 break;
             case Upgrade.A:
                 data = new CardData(){
                     cost = 2,
-                    exhaust = true,
-                    description = ModEntry.Instance.Localizations.Localize(["card", "ScaleShot", "description_a"])
+                    retain = true,
                 };
                 break;
             case Upgrade.B:
@@ -63,21 +61,43 @@ int cannonshot = (false ? c.otherShip : s.ship).parts.FindIndex((Part p) => p.ty
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = -1,
+                        targetPlayer = true
+                    },
+                    
                 };
+
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 0), status = Status.boost, statusAmount = 1, fromX = cannonshot-1 },
-                    new AAttack(){ damage=GetDmg(s, 0), status = Status.boost, statusAmount = 1, fromX = cannonshot+1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = -1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = -1 },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = 2,
+                        targetPlayer = true
+                    },
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 },
-                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = 1 },
+                    new AStatus
+                    {
+                        status = Status.boost,
+                        statusAmount = -2,
+                        targetPlayer = true
+                    },
+                    
                 };
                 break;
         }

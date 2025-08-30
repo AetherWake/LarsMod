@@ -38,7 +38,8 @@ internal sealed class LeechShot : Card, IDemoCard
                 break;
             case Upgrade.A:
                 data = new CardData(){
-                    cost = 2
+                    cost = 2,
+                    exhaust = true
                 };
                 break;
             case Upgrade.B:
@@ -63,7 +64,7 @@ internal sealed class LeechShot : Card, IDemoCard
                     new ASpawn(){
                         thing=new ShieldDrone(){targetPlayer = true},
                     },
-                    new AAttack(){ damage=GetDmg(s, 2)}
+                    new AAttack(){ damage=GetDmg(s, 1), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
                     
                 };
                 break;
@@ -71,9 +72,10 @@ internal sealed class LeechShot : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing=new AttackDrone(){bubbleShield = true},
+                        thing=new AttackDrone(){bubbleShield = true, upgraded = true},
                     },
-                    new AAttack(){damage=GetDmg(s, 2)}
+                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
                 };
                 break;
             case Upgrade.B:
@@ -82,7 +84,7 @@ internal sealed class LeechShot : Card, IDemoCard
                     new ASpawn(){
                         thing=new ShieldDrone(){targetPlayer = true, bubbleShield = true},
                     },
-                    new AAttack(){damage=GetDmg(s, 2), piercing=true}
+                    new AAttack(){ damage=GetDmg(s, 1), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
                 };
                 break;
         }

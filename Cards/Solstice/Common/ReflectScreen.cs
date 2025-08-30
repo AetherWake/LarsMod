@@ -66,6 +66,12 @@ internal sealed class ReflectScreen : Card, IDemoCard
                         status = Status.libra,
                         statusAmount = 1,
                         targetPlayer = true
+                    },
+                    new AStatus
+                    {
+                        status = Status.tempShield,
+                        statusAmount = 2,
+                        targetPlayer = true
                     }
                     
                 };
@@ -82,9 +88,9 @@ internal sealed class ReflectScreen : Card, IDemoCard
                     new AStatus
                     {
                         status = Status.libra,
-                        statusAmount = 1,
+                        statusAmount = 2,
                         targetPlayer = true
-                    }
+                    },
                     
                 };
                 break;
@@ -101,7 +107,14 @@ internal sealed class ReflectScreen : Card, IDemoCard
                         status=Status.reflexiveCoating,
                         statusAmount=1,
                         targetPlayer=true
+                    },
+                    new AStatus
+                    {
+                        status = Status.tempShield,
+                        statusAmount = 2,
+                        targetPlayer = true
                     }
+                    
                 };
                 break;
         }

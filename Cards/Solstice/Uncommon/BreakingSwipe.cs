@@ -5,24 +5,24 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SSpaceMineCard : Card, IDemoCard
+internal sealed class BreakingSwipe : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SpaceMineCard", new()
+        helper.Content.Cards.RegisterCard("BreakingSwipe", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
             {
                 deck = ModEntry.Instance.Solstice_Deck.Deck,
 
-                rarity = Rarity.common,
+                rarity = Rarity.uncommon,
 
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SpaceMineCard", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BreakingSwipe", "name"]).Localize
         });
     }
 
@@ -34,18 +34,19 @@ internal sealed class SSpaceMineCard : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 1,
+                    exhaust=true
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
+                data = new CardData()
+                {
                     cost = 1,
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
-                    flippable=true
+                    cost = 2
                 };
                 break;
         }
@@ -60,29 +61,29 @@ internal sealed class SSpaceMineCard : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new SpaceMine(),
-                    },
-                    
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.overdrive, statusAmount = -1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.overdrive, statusAmount = -1 }
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new SpaceMine(){ bigMine=true},
-                    },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.overdrive, statusAmount = -1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.overdrive, statusAmount = -1 }
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ASpawn(){
-                        thing=new SpaceMine(){},
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.overdrive, statusAmount = -1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = Status.boost, statusAmount = -1 },
+                    new AStatus
+                    {
+                        status = Status.stunCharge,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new ADroneMove(){
-                        dir=1
-                    },
+                    
                 };
                 break;
         }

@@ -41,7 +41,6 @@ internal sealed class GastroAcid : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 3,
-                    exhaust = true,
                     buoyant = true
                 };
                 break;
@@ -66,28 +65,29 @@ internal sealed class GastroAcid : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){ damage=1, piercing = true, status = Status.mitosis, statusAmount = 1 },
+                    new AStatus(){
+                        status =Status.backwardsMissiles,
+                        statusAmount=1
+                    },
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, piercing = true, status = Status.mitosis, statusAmount = 1 },
-                    new AStatus(){
-                        status =Status.backwardsMissiles,
-                        statusAmount=2
-                    }
+                    new AAttack(){ damage=0, piercing = true, status = Status.mitosis, statusAmount = 1 },
+                    new AAttack(){ damage=0, piercing = true, status = Status.backwardsMissiles, statusAmount = 1 },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
                     new AStatus(){
-                        status =Status.backwardsMissiles,
+                        status =Status.corrode,
                         statusAmount=1
                     },
                     new AStatus(){
                         status =Status.mitosis,
-                        statusAmount=2
+                        statusAmount=1
                     }
                 };
                 break;

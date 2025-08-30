@@ -40,7 +40,7 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
             case Upgrade.A:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 1,
                     exhaust = true
                 };
                 break;
@@ -81,6 +81,12 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
                         statusAmount = 4,
                         targetPlayer = true,
                     },
+                    new AStatus
+                    {
+                        status = Status.energyNextTurn,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
                 };
                 break;
             case Upgrade.A:
@@ -116,6 +122,12 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
                     new AStatus
                     {
                         status = Status.lockdown,
+                        statusAmount = 1,
+                        targetPlayer = true,
+                    },
+                    new AStatus
+                    {
+                        status = Status.energyNextTurn,
                         statusAmount = 1,
                         targetPlayer = true,
                     },
