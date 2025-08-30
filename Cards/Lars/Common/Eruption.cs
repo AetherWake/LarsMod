@@ -1,17 +1,16 @@
 using Nickel;
 using OneOf.Types;
-using System;
 using System.Collections.Generic;
 using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class HeatingUp : Card, IDemoCard
+internal sealed class Eruption : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("HeatingUp", new()
+        helper.Content.Cards.RegisterCard("Eruption", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -23,28 +22,37 @@ internal sealed class HeatingUp : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "HeatingUp", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "Eruption", "name"]).Localize
         });
     }
+    
+    private int GetX(State s)
+	{
+        var x = s.ship.Get(Status.heat);
+		return x;
+	}
 
     public override CardData GetData(State state)
     {
         CardData data = new();
-        switch(upgrade){
+        switch (upgrade)
+        {
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 1,
                 };
                 break;
             case Upgrade.A:
-                data = new CardData(){
-                    cost = 0,
+                data = new CardData()
+                {
+                    cost = 0
                 };
                 break;
             case Upgrade.B:
-                data = new CardData(){
-                    cost = 0,
+                data = new CardData()
+                {
+                    cost = 1
                 };
                 break;
         }
@@ -59,20 +67,16 @@ internal sealed class HeatingUp : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AStatus(){
-                        status = Status.droneShift,
-                        statusAmount = 1,
-                        targetPlayer=true
+                    new AVariableHint
+                    {
+                        status=  Status.heat,
+                    },
+                    new AAttack(){
+                        damage = GetX(s),
+                        xHint = 1
                     },
                     new AStatus(){
-                        status = Status.evade,
-                        statusAmount = 2,
-                        targetPlayer=true
-                    },
-                    new AStatus(){
-                        status = Status.heat,
-                        statusAmount = 3,
-                        targetPlayer=true
+                        status=Status.heat, statusAmount=-1
                     }
                 };
                 break;
@@ -80,19 +84,18 @@ internal sealed class HeatingUp : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status = Status.droneShift,
-                        statusAmount = 1,
-                        targetPlayer=true
+                        status=Status.heat, statusAmount=1
+                    },
+                    new AVariableHint
+                    {
+                        status=  Status.heat,
+                    },
+                    new AAttack(){
+                        damage = GetX(s),
+                        xHint = 1
                     },
                     new AStatus(){
-                        status = Status.evade,
-                        statusAmount = 2,
-                        targetPlayer=true
-                    },
-                    new AStatus(){
-                        status = Status.heat,
-                        statusAmount = 3,
-                        targetPlayer=true
+                        status=Status.heat, statusAmount=-2
                     }
                 };
                 break;
@@ -100,19 +103,18 @@ internal sealed class HeatingUp : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status = Status.droneShift,
-                        statusAmount = 2,
-                        targetPlayer=true
+                        status=Status.heat, statusAmount=2
+                    },
+                    new AVariableHint
+                    {
+                        status=  Status.heat,
+                    },
+                    new AAttack(){
+                        damage = GetX(s),
+                        xHint = 1
                     },
                     new AStatus(){
-                        status = Status.evade,
-                        statusAmount = 3,
-                        targetPlayer=true
-                    },
-                    new AStatus(){
-                        status = Status.heat,
-                        statusAmount = 4,
-                        targetPlayer=true
+                        status=Status.heat, statusAmount=-1
                     }
                 };
                 break;

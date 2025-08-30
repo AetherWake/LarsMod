@@ -83,6 +83,9 @@
       "name": "Heat Expansion",
       "description": "Doubles the amount of heat on the enemy."
     },
+    "Eruption":{
+      "name": "Eruption"
+    },
 
     "Bubble":{
       "name": "Bubble"

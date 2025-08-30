@@ -69,8 +69,8 @@ public sealed class ModEntry : SimpleMod
         typeof(Rapier),
         typeof(FiredMove),
         typeof(Focus),
-        typeof(HeatingUp)
-
+        typeof(HeatingUp),
+        typeof(Eruption)
     ];
     internal static IReadOnlyList<Type> LarsCharacter_UncommonCard_Types { get; } = [
         typeof(DragonTail),
