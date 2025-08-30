@@ -40,7 +40,7 @@ internal sealed class PoisonSpit : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 1,
-                    buoyant = true
+                    recycle = true
                 };
                 break;
             case Upgrade.B:
@@ -61,8 +61,8 @@ internal sealed class PoisonSpit : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
-                    new AAttack(){ damage=GetDmg(s, 0), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 }
+                    new AAttack(){ damage=GetDmg(s, 1), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 1), status = ModEntry.Instance.KokoroApiV2.OxidationStatus.Status , statusAmount = 1 }
                 };
                 break;
             case Upgrade.A:
