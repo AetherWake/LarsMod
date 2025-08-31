@@ -64,7 +64,14 @@ internal sealed class SolarBeam : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true },
+                    new AAttack(){ damage=GetDmg(s, 0)},
+                    
+                    new AStatus
+                    {
+                        status = Status.engineStall,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
                     new AStatus
                     {
                         status = Status.overdrive,
@@ -101,16 +108,17 @@ internal sealed class SolarBeam : Card, IDemoCard
             case Upgrade.B:
                 actions = new()
                 {
-                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true, piercing = true },
+                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true},
+                    
                     new AStatus
                     {
-                        status = Status.overdrive,
+                        status = Status.engineStall,
                         statusAmount = 1,
                         targetPlayer = true
                     },
                     new AStatus
                     {
-                        status = Status.engineStall,
+                        status = Status.overdrive,
                         statusAmount = 1,
                         targetPlayer = true
                     },
