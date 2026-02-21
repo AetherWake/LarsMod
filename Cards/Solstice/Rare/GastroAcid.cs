@@ -64,7 +64,7 @@ internal sealed class GastroAcid : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AAttack(){ damage=1, piercing = true, status = Status.mitosis, statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 1), piercing = true, status = Status.mitosis, statusAmount = 1 },
                     new AStatus(){
                         status =Status.backwardsMissiles,
                         statusAmount=1
@@ -74,8 +74,8 @@ internal sealed class GastroAcid : Card, IDemoCard
             case Upgrade.A:
                 actions = new()
                 {
-                    new AAttack(){ damage=0, piercing = true, status = Status.mitosis, statusAmount = 1 },
-                    new AAttack(){ damage=0, piercing = true, status = Status.backwardsMissiles, statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 0), piercing = true, status = Status.mitosis, statusAmount = 1 },
+                    new AAttack(){ damage=GetDmg(s, 0), piercing = true, status = Status.backwardsMissiles, statusAmount = 1 },
                 };
                 break;
             case Upgrade.B:

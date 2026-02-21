@@ -28,7 +28,7 @@ internal sealed class Eruption : Card, IDemoCard
     
     private int GetX(State s)
 	{
-        var x = s.ship.Get(Status.heat);
+        var x = GetDmg(s, 0) + s.ship.Get(Status.heat);
 		return x;
 	}
 
@@ -76,7 +76,7 @@ internal sealed class Eruption : Card, IDemoCard
                         xHint = 1
                     },
                     new AStatus(){
-                        status=Status.heat, statusAmount=-1
+                        status=Status.heat, statusAmount=-1, targetPlayer=true
                     }
                 };
                 break;
@@ -84,7 +84,7 @@ internal sealed class Eruption : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.heat, statusAmount=1
+                        status=Status.heat, statusAmount=1, targetPlayer=true
                     },
                     new AVariableHint
                     {
@@ -95,7 +95,7 @@ internal sealed class Eruption : Card, IDemoCard
                         xHint = 1
                     },
                     new AStatus(){
-                        status=Status.heat, statusAmount=-2
+                        status=Status.heat, statusAmount=-2, targetPlayer=true
                     }
                 };
                 break;
@@ -103,7 +103,7 @@ internal sealed class Eruption : Card, IDemoCard
                 actions = new()
                 {
                     new AStatus(){
-                        status=Status.heat, statusAmount=2
+                        status=Status.heat, statusAmount=2, targetPlayer=true
                     },
                     new AVariableHint
                     {
@@ -114,7 +114,7 @@ internal sealed class Eruption : Card, IDemoCard
                         xHint = 1
                     },
                     new AStatus(){
-                        status=Status.heat, statusAmount=-1
+                        status=Status.heat, statusAmount=-1, targetPlayer=true
                     }
                 };
                 break;

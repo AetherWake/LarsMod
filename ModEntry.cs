@@ -271,6 +271,7 @@ public sealed class ModEntry : SimpleMod
             new CurrentLocaleOrEnglishLocalizationProvider<IReadOnlyList<string>>(AnyLocalizations)
         );
         initArtifacts();
+        initStatus();
         /* Assigning our ISpriteEntry objects manually. This is the easiest way to do it when starting out!
          * Of note: GetRelativeFile is case sensitive. Double check you've written the file names correctly */
         Lars_Character_CardBackground = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/characters/Lars/Backgrounds/Lars_cardbackground.png"));
@@ -812,6 +813,11 @@ public sealed class ModEntry : SimpleMod
     internal void initArtifacts()
     {
         new overheatArtifact().ApplyPatches(Harmony);
+    }
+
+    internal void initStatus()
+    {
+        AquaRingStatusManager.ApplyPatches(Harmony);
     }
 
     internal static ArtifactPool[] GetArtifactPools(Type type)

@@ -47,12 +47,18 @@ internal sealed class Fireball : Card, IDemoCard
                 break;
             case Upgrade.B:
                 data = new CardData(){
-                    cost = 2,
+                    cost = 3,
                 };
                 break;
         }
         return data;
     }
+
+    private int GetX(Combat c, State s)
+	{
+        var x = GetDmg(s, 0) + c.hand.Count;
+		return x;
+	}
 
     private int GetX(Combat c)
 	{
@@ -75,16 +81,12 @@ internal sealed class Fireball : Card, IDemoCard
                         hand=true,
                     },
                     new AAttack(){
-                        damage = GetX(c),
-                        xHint = 1
-                    },
-                    new AAttack(){
-                        damage = GetX(c),
+                        damage = GetX(c, s),
                         xHint = 1
                     },
                     new AStatus(){
                         xHint = 1,
-                        status=Status.heat, statusAmount = GetX(c)
+                        status=Status.heat, statusAmount = GetX(c), targetPlayer=false
                     }
                 };
                 break;
@@ -97,16 +99,12 @@ internal sealed class Fireball : Card, IDemoCard
                         hand=true,
                     },
                     new AAttack(){
-                        damage = GetX(c),
-                        xHint = 1
-                    },
-                    new AAttack(){
-                        damage = GetX(c),
+                        damage = GetX(c, s),
                         xHint = 1
                     },
                     new AStatus(){
                         xHint = 1,
-                        status=Status.heat, statusAmount = GetX(c), targetPlayer=true
+                        status=Status.heat, statusAmount = GetX(c), targetPlayer=false
                     }
                 };
                 break;
@@ -119,7 +117,7 @@ internal sealed class Fireball : Card, IDemoCard
                         hand=true,
                     },
                     new AAttack(){
-                        damage = GetX(c),
+                        damage = GetX(c, s),
                         xHint = 2
                     },
                     new AStatus(){
@@ -127,7 +125,8 @@ internal sealed class Fireball : Card, IDemoCard
                         status=Status.heat, statusAmount = GetX(c), targetPlayer=true
                     },
                     new AStatus(){
-                        status=Status.heat, statusAmount = -1, targetPlayer = true
+                        xHint = 1,
+                        status=Status.heat, statusAmount = GetX(c), targetPlayer = false
                     }
                 };
                 break;

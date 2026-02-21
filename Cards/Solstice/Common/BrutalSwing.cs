@@ -62,7 +62,7 @@ internal sealed class BrutalSwing : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=1, moveEnemy=2
+                        damage=GetDmg(s, 1), moveEnemy=2
                     },
                     new AMove(){
                         dir=-2,
@@ -75,7 +75,7 @@ internal sealed class BrutalSwing : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=1, moveEnemy=2
+                        damage=GetDmg(s, 1), moveEnemy=2
                     },
                     new AMove(){
                         dir=-2,
@@ -92,7 +92,7 @@ internal sealed class BrutalSwing : Card, IDemoCard
                 actions = new()
                 {
                     new AAttack(){
-                        damage=3, moveEnemy=3
+                        damage=GetDmg(s, 3), moveEnemy=3
                     },
                     new AMove(){
                         dir=-3,

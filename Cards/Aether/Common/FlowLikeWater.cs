@@ -86,7 +86,7 @@ internal sealed class FlowLikeWater : Card, IDemoCard
                 aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 1);
                 actions = new()
                 {
-                    new AStatus(){ statusAmount=1, targetPlayer=true },
+                    new AStatus(){status=ModEntry.Instance.KokoroApiV2.OxidationStatus.Status, statusAmount=2, targetPlayer=false },
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AStatus(){
                         status =Status.evade, statusAmount=1, targetPlayer=true
                     }).AsCardAction,
