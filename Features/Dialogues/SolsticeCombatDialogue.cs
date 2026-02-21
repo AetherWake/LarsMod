@@ -467,7 +467,7 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 				new Say { who = "comp", loopTag = "squint" },
 			],
 		};
-		newNodes[["Solstice", "AboutToDie", "Lars"]] = new()
+		newNodes[["Solstice", "AboutToDie", "LarsAether"]] = new()
 		{
 			maxHull = 2,
 			oncePerCombatTags = ["aboutToDie"],
@@ -475,7 +475,8 @@ internal sealed class SolsticeCombatDialogue : BaseDialogue
 			allPresent = [solsticeType, larsType, aetherType],
 			lines = [
 				new Say { who = solsticeType, loopTag = "squint" },
-				new Say { who = "comp", loopTag = "squint" },
+				new Say { who = larsType, loopTag = "neutral" },
+				new Say { who = aetherType, loopTag = "neutral"}
 			],
 		};
 		#endregion
