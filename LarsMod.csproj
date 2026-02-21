@@ -11,7 +11,7 @@
 		<WarningsAsErrors>Nullable</WarningsAsErrors>
 		<CheckEolTargetFramework>false</CheckEolTargetFramework>
 		<ModZipPath>$(MSBuildProjectDirectory)\.release\$(MSBuildProjectName)-$(Version).zip</ModZipPath>
-		<ModLoaderPath>D:\GAME HOARD\Cobalt.Core.Build.19655815\Nickel</ModLoaderPath>
+		<ModLoaderPath>D:\SteamLibrary\steamapps\common\Cobalt Core\Nickel</ModLoaderPath>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Nickel.ModBuildConfig" Version="1.0.1" />

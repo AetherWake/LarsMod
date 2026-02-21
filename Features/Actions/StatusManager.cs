@@ -28,23 +28,6 @@ public class StatusManager : IStatusLogicHook
             });
         }
         
-        if (timing == StatusTurnTriggerTiming.TurnEnd && status == ModEntry.Instance.AquaRing.Status && ship.Get(ModEntry.Instance.AquaRing.Status) >= AquaRingHelper.HealTriggerDefault)
-        {
-            if (!(ship.hull == ship.hullMax))
-            {
-                var AcidArmor = ship.Get(ModEntry.Instance.AquaRing.Status);
-                if (!ship.isPlayerShip)
-                {
-                    combat.Queue(new AHeal
-                    {
-                        healAmount = 1,
-                        targetPlayer = ship.isPlayerShip
-                    });
-                }
-                ship.Set(ModEntry.Instance.AquaRing.Status, AcidArmor - AquaRingHelper.HealTriggerDefault);
-            }
-        }
-        
     }
 
     private static Ship GetShip(AStatus instance, State s)

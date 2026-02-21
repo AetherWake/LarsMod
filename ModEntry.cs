@@ -68,7 +68,7 @@ public sealed class ModEntry : SimpleMod
         typeof(SunnyDay),
         typeof(Rapier),
         typeof(FiredMove),
-        typeof(Focus),
+        // typeof(Focus),
         typeof(HeatingUp),
         typeof(Eruption)
     ];

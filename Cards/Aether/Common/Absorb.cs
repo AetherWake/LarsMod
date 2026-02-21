@@ -65,21 +65,21 @@ internal sealed class Absorb : Card, IDemoCard
         switch (upgrade)
         {
             case Upgrade.None:
-                var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 7);
+                var aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, AquaRingHelper.HealTriggerDefault);
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AHeal(){healAmount=1, targetPlayer=true}).AsCardAction
                 };
                 break;
             case Upgrade.A:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 5);
+                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, AquaRingHelper.HealTriggerDefault);
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AHeal(){healAmount=1, targetPlayer=true}).AsCardAction
                 };
                 break;
             case Upgrade.B:
-                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, 7);
+                aquaCost = ModEntry.Instance.KokoroApiV2.ActionCosts.MakeResourceCost(aquaRing, AquaRingHelper.HealTriggerDefault);
                 actions = new()
                 {
                     ModEntry.Instance.KokoroApi.V2.ActionCosts.MakeCostAction(aquaCost, new AHeal(){healAmount=2, targetPlayer=true}).AsCardAction

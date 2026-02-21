@@ -223,7 +223,7 @@
     },
     "AquaRing":{
       "name": "Aqua Ring",
-      "description": "At the end of turn, if 5+ count, heal 1 hull"
+      "description": "Used to power up certain cards. Can also be used with absorb to heal. Max 7"
     },
     "RainDance":{
       "name": "Rain Dance",
