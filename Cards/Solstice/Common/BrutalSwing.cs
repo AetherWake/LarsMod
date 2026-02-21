@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class SolidBreeze : Card, IDemoCard
+internal sealed class BrutalSwing : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("SolidBreeze", new()
+        helper.Content.Cards.RegisterCard("BrutalSwing", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class SolidBreeze : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SolidBreeze", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "BrutalSwing", "name"]).Localize
         });
     }
 
@@ -33,21 +33,20 @@ internal sealed class SolidBreeze : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 0,
+                    cost = 2,
                 };
                 break;
             case Upgrade.A:
-                data = new CardData()
-                {
-                    cost = 0,
-                    retain=true
+                data = new CardData(){
+                    cost = 2
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 0,
-                    flippable=true
+                    cost = 3,
+                    flippable = true,
+                    retain = true
                 };
                 break;
         }
@@ -62,35 +61,44 @@ internal sealed class SolidBreeze : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new ADroneMove(){
-                        dir=1
+                    new AAttack(){
+                        damage=1, moveEnemy=2
                     },
-                    new ADrawCard(){
-                        count=1
-                    }
+                    new AMove(){
+                        dir=-2,
+                        targetPlayer = true,
+                    },
                     
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new ADroneMove(){
-                        dir=1
+                    new AAttack(){
+                        damage=1, moveEnemy=2
                     },
-                    new ADrawCard(){
-                        count=1
-                    }
+                    new AMove(){
+                        dir=-2,
+                        targetPlayer = true,
+                    },
+                    new AStatus(){
+                        status = Status.hermes,
+                        statusAmount=1,
+                        targetPlayer=true,
+                    },
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new ADroneMove(){
-                        dir=1
+                    new AAttack(){
+                        damage=3, moveEnemy=3
                     },
-                    new ADrawCard(){
-                        count=1
-                    }
+                    new AMove(){
+                        dir=-3,
+                        targetPlayer = true,
+                    },
+                    
                 };
                 break;
         }

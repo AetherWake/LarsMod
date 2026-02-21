@@ -48,7 +48,7 @@ internal sealed class LeafStorm : Card, IDemoCard
                 data = new CardData()
                 {
                     cost = 3,
-                    exhaust = true
+                    flippable = true
                 };
                 break;
         }
@@ -65,6 +65,12 @@ internal sealed class LeafStorm : Card, IDemoCard
                 {
                     new ASpawn(){
                         thing=new Missile(){missileType=MissileType.breacher},
+                    },
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.normal}, offset = -1
+                    },
+                    new ASpawn(){
+                        thing=new Missile(){missileType=MissileType.normal}, offset = 1
                     },
                 };
                 break;
@@ -94,7 +100,7 @@ internal sealed class LeafStorm : Card, IDemoCard
                         targetPlayer = true
                     },
                     new ASpawn(){
-                        thing=new Missile(){missileType=MissileType.breacher},
+                        thing=new Missile(){missileType=MissileType.seeker},
                     },
                 };
                 break;

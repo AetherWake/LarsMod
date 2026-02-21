@@ -16,8 +16,8 @@ public class BoostBall : StuffBase, IRegisterable
 
     public static void Register(IPluginPackage<IModManifest> package, IModHelper helper)
 	{
-		DroneSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/SmartShieldDrone.png"));
-		DroneIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/SmartShieldDroneIcon.png"));
+		DroneSprite = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/NanoPayload.png"));
+		DroneIcon = helper.Content.Sprites.RegisterSprite(package.PackageRoot.GetRelativeFile("assets/icons/NanoPayloadIcon.png"));
 	}
     public override List<Tooltip> GetTooltips()
      => [

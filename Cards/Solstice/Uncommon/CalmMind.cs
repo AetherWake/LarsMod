@@ -33,7 +33,7 @@ internal sealed class CalmMind : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
+                    cost = 1,
                 };
                 break;
             case Upgrade.A:
@@ -45,7 +45,8 @@ internal sealed class CalmMind : Card, IDemoCard
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
+                    cost = 2,
+                    retain = true
                 };
                 break;
         }
@@ -107,7 +108,7 @@ internal sealed class CalmMind : Card, IDemoCard
                     },
                     new AStatus
                     {
-                        status = Status.serenity,
+                        status = Status.energyNextTurn,
                         statusAmount = 1,
                         targetPlayer = true,
                     },

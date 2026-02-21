@@ -47,7 +47,7 @@ internal sealed class NaturalRenewables : Card, IDemoCard
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 1,
+                    cost = 2,
                     floppable = true,
                     recycle = true
                 };
@@ -87,11 +87,11 @@ internal sealed class NaturalRenewables : Card, IDemoCard
                 {
                     new ASpawn()
                     {
-                        thing=new AttackDrone(),
+                        thing =new AttackDrone(){upgraded = true},
                         disabled = flipped
                     },
                     new ASpawn(){
-                        thing=new ShieldDrone(){targetPlayer=true},
+                        thing=new ShieldDrone(){targetPlayer=true, bubbleShield = true},
 				        disabled = !flipped
                     }
                 };

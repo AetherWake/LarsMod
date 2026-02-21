@@ -5,12 +5,12 @@ using System.Reflection;
 
 namespace AetherWake.LarsMod.Cards;
 
-internal sealed class PhotoSynthesis : Card, IDemoCard
+internal sealed class SolarBeam : Card, IDemoCard
 {
     private static ModEntry Instance => ModEntry.Instance;
     public static void Register(IModHelper helper)
     {
-        helper.Content.Cards.RegisterCard("PhotoSynthesis", new()
+        helper.Content.Cards.RegisterCard("SolarBeam", new()
         {
             CardType = MethodBase.GetCurrentMethod()!.DeclaringType!,
             Meta = new()
@@ -22,7 +22,7 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
                 upgradesTo = [Upgrade.A, Upgrade.B]
             },
             
-            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "PhotoSynthesis", "name"]).Localize
+            Name = ModEntry.Instance.AnyLocalizations.Bind(["card", "SolarBeam", "name"]).Localize
         });
     }
 
@@ -33,23 +33,23 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
             case Upgrade.None:
                 data = new CardData()
                 {
-                    cost = 2,
-                    exhaust = true
+                    cost = 1,
+                    infinite = true
                 };
                 break;
             case Upgrade.A:
                 data = new CardData()
                 {
                     cost = 1,
-                    exhaust = true
+                    infinite = true,
+                    retain = true
                 };
                 break;
             case Upgrade.B:
                 data = new CardData()
                 {
-                    cost = 3,
-                    exhaust = true,
-                    retain = true
+                    cost = 1,
+                    infinite = true
                 };
                 break;
         }
@@ -64,79 +64,65 @@ internal sealed class PhotoSynthesis : Card, IDemoCard
             case Upgrade.None:
                 actions = new()
                 {
-                    new AHeal
-                    {
-                        healAmount = 1,
-                        targetPlayer = true,
-                    },
+                    new AAttack(){ damage=GetDmg(s, 0)},
+                    
                     new AStatus
                     {
-                        status = Status.lockdown,
+                        status = Status.engineStall,
                         statusAmount = 1,
-                        targetPlayer = true,
+                        targetPlayer = true
                     },
                     new AStatus
                     {
-                        status = Status.tempShield,
-                        statusAmount = 4,
-                        targetPlayer = true,
-                    },
-                    new AStatus
-                    {
-                        status = Status.energyNextTurn,
+                        status = Status.overdrive,
                         statusAmount = 1,
-                        targetPlayer = true,
+                        targetPlayer = true
                     },
+                    
                 };
                 break;
             case Upgrade.A:
                 actions = new()
                 {
-                    new AHeal
+                    new AStatus
                     {
-                        healAmount = 1,
-                        targetPlayer = true,
+                        status = Status.overdrive,
+                        statusAmount = 1,
+                        targetPlayer = true
+                    },
+                    new AStatus
+                    {
+                        status = Status.stunCharge,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
                     new AStatus
                     {
                         status = Status.engineStall,
-                        statusAmount = 2,
-                        targetPlayer = true,
+                        statusAmount = 1,
+                        targetPlayer = true
                     },
-                    new AStatus
-                    {
-                        status = Status.tempShield,
-                        statusAmount = 4,
-                        targetPlayer = true,
-                    },
+                    
                 };
                 break;
             case Upgrade.B:
                 actions = new()
                 {
-                    new AHeal
-                    {
-                        healAmount = 1,
-                        targetPlayer = true,
-                    },
+                    new AAttack(){ damage=GetDmg(s, 0), stunEnemy = true},
+                    
                     new AStatus
                     {
-                        status = Status.lockdown,
+                        status = Status.engineStall,
                         statusAmount = 1,
-                        targetPlayer = true,
+                        targetPlayer = true
                     },
                     new AStatus
                     {
-                        status = Status.energyNextTurn,
+                        status = Status.overdrive,
                         statusAmount = 1,
-                        targetPlayer = true,
+                        targetPlayer = true
                     },
-                    new AStatus
-                    {
-                        status = Status.boost,
-                        statusAmount = 2,
-                        targetPlayer = true,
-                    },
+                    
                 };
                 break;
         }

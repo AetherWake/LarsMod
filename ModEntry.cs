@@ -190,7 +190,7 @@ public sealed class ModEntry : SimpleMod
     internal static IReadOnlyList<Type> SolsticeCharacter_StarterCard_Types { get; } = [
     /* Add more starter cards here if you'd like. */
         typeof(NaturalRenewables),
-        typeof(LeafBlade),
+        typeof(PoisonSpit),
     ];
 
     /* You can create many IReadOnlyList<Type> as a way to organize your content.
@@ -202,21 +202,22 @@ public sealed class ModEntry : SimpleMod
         typeof(LeafBlade),
         typeof(PoisonSpit),
         typeof(NaturalRenewables),
-        typeof(FranticFlail),
+        typeof(BrutalSwing),
         typeof(NanoPulse),
-        typeof(SolidBreeze),
-        typeof(SSpaceMineCard),
+        typeof(ContraryTaunt),
+        typeof(NanobotsPayload),
+        typeof(LightScreen),
         typeof(LeechShot),
         typeof(DefogShift)
     ];
     internal static IReadOnlyList<Type> SolsticeCharacter_UncommonCard_Types { get; } = [
-        typeof(SBattalion),
+        typeof(BreakingSwipe),
         typeof(CalmMind),
         typeof(PhotoSynthesis),
-        typeof(SLargeBoulders),
+        typeof(SolarBeam),
         typeof(ScaleShot),
-        typeof(NanobotsPayload),
-        typeof(SStrikerSquadron),
+        typeof(NaturalGift),
+        typeof(GrowthProtocol),
     ];
 
     internal static IReadOnlyList<Type> SolsticeCharacter_RareCard_Types { get; } = [
@@ -683,7 +684,7 @@ public sealed class ModEntry : SimpleMod
             {
                 cards = [
                     new NaturalRenewables(),
-                    new LeafBlade()
+                    new PoisonSpit()
                 ]
             },
 
