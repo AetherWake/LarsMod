@@ -135,6 +135,15 @@
     "FlowLikeWater":{
       "name": "Flow like water"
     },
+    "Whirlpool":{
+      "name": "Whirlpool"
+    },
+    "ChillingWater":{
+      "name": "Chilling Water"
+    },
+    "Scald":{
+      "name": "Scald"
+    },
     "LeechShot":{
       "name": "Leech Shot"
     },

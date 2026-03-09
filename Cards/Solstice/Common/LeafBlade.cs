@@ -70,8 +70,7 @@ internal sealed class LeafBlade : Card, IDemoCard
                 actions = new()
                 {
                     new ASpawn(){
-                        thing =new AttackDrone(){upgraded = true},
-                        omitFromTooltips=true
+                        thing =new AttackDrone(){upgraded = true}
                     },
                     new AAttack(){ damage=GetDmg(s, 1)},
                     new AAttack(){ damage=GetDmg(s, 1)}

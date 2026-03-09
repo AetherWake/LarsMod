@@ -516,7 +516,7 @@ internal sealed class CombatDialogue : BaseDialogue
 			{
 				lookup = [$"{ModEntry.Instance.Package.Manifest.UniqueName}::PlayedRecycle"],
 				allPresent = [larsType],
-				oncePerCombat=true,
+				oncePerRun=true,
 				lines = [
 					new Say { who = larsType, loopTag = "neutral" },
 				],

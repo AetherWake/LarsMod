@@ -78,7 +78,7 @@ internal sealed class Preparation : Card, IDemoCard
                     new AStatus(){
                         targetPlayer=true,
                         status = ModEntry.Instance.AquaRing.Status,
-                        statusAmount = 2,
+                        statusAmount = 3,
                     },
                     new AStatus(){ status = Status.energyNextTurn, targetPlayer=true, statusAmount=1},
                 };

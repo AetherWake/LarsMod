@@ -148,12 +148,15 @@ public sealed class ModEntry : SimpleMod
         typeof(Hydropump),
         typeof(ADragonTail),
         typeof(WaterAbsorb),
-        typeof(Preparation)
+        typeof(Preparation),
+        typeof(ChillingWater),
+        typeof(Scald)
     ];
 
     internal static IReadOnlyList<Type> AetherCharacter_RareCard_Types { get; } = [
         typeof(RainDance),
-        typeof(DragonDance)
+        typeof(DragonDance),
+        typeof(Whirlpool),
     ];
 
     /* We can use an IEnumerable to combine the lists we made above, and modify it if needed
